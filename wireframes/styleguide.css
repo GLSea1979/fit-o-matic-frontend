@@ -1,0 +1,60 @@
+ul {
+  list-style-type: none;
+}
+span {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.brand-primary {
+  @extend span;
+  background-color: green;
+}
+
+.brand-secondary {
+  @extend span;
+  background-color: yellow;
+}
+
+.brand-tertiary {
+  @extend span;
+  background-color: red;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 1vw 3vw;
+}
+
+.btn-primary {
+  @extend button;
+  padding: 1vw 3vw;
+}
+
+.btn-secondary {
+  @extend button;
+  padding: 1vw 6vw;
+}
+
+.btn-action {
+  @extend button;
+  background-color: grey;
+  color: black;
+}
+
+input {
+  padding: 10px;
+  border: solid 1px #fff;
+  box-shadow: inset 1px 1px 1px 2px #707070;
+  transition: box-shadow 0.3s;
+}
+
+input:focus {
+  box-shadow: inset 1px 1px 1px 2px 0 #c9c9c9;
+}
