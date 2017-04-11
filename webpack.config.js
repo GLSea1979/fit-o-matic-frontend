@@ -40,7 +40,12 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
-      }
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]'
+
+      },
     ]
   }
 };

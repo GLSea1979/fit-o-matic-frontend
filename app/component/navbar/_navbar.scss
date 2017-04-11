@@ -1,0 +1,28 @@
+@import '../../scss/lib/theme/vars';
+
+.navbar {
+    background-color: $app-secondary;
+    color: $white;
+    img{
+      height: auto;
+      width: 25%;
+      margin: $gutter/2 $gutter;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    ul{
+      display: inline-block;
+      text-align: right;
+      width: 68%;
+    li {
+      display: inline-block;
+      margin-right:  $gutter;
+      vertical-align: middle;
+      a {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  }
