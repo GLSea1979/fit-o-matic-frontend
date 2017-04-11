@@ -1,7 +1,21 @@
+// ::::: Pallette ::::: //
 $app-primary: #ccc;
 $app-secondary: #000;
+$app-text-color: #000;
+$btn-primary: #ccc;
+$btn-secondary: #000;
+$disabled: #e3e3e3;
 $white: #fff;
+$black: #000;
 
+// ::::: Layout & Spacing ::::: //
+$gutter-std: 3%;
+$gutter-sm: $gutter-std / 2;
+$gutter-lg: $gutter-std * 2;
 
-$gutter: 3%;
+// ::::: Fonts ::::: //
+$font-primary: Helvetica;
+$font-secondary: sans-serif;
 
+// ::::: Buttons, Inputs, Forms ::::: //
+$btn-radius: 5px;
