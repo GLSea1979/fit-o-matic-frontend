@@ -6,7 +6,7 @@
     img{
       height: auto;
       width: 25%;
-      margin: $gutter/2 $gutter;
+      margin: $gutter-std/2 $gutter-std;
       display: inline-block;
       vertical-align: middle;
     }
@@ -16,7 +16,7 @@
       width: 68%;
     li {
       display: inline-block;
-      margin-right:  $gutter;
+      margin-right:  $gutter-std;
       vertical-align: middle;
       font-size:2vw;
       a {
