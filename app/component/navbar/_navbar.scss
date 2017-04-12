@@ -9,6 +9,9 @@
       margin: $gutter-std/2 $gutter-std;
       display: inline-block;
       vertical-align: middle;
+      &.logo-mobile{
+        display: none;
+      }
     }
     ul{
       display: inline-block;
@@ -22,7 +25,28 @@
       a {
         color: $white;
       }
-
+    }
+  }
+}
+@media #{$large-mobile} {
+  .navbar{
+    img{
+      &.logo-mobile{
+        height: auto;
+        width: 6vw;
+        margin: $gutter-std/2 $gutter-std;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      &.logo-desktop{
+        display: none;
+      }
+    }
+  ul{
+    width:80%;
+  li{
+    font-size:3.5vw;
+      }
     }
   }
 }
