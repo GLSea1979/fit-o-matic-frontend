@@ -1,4 +1,15 @@
 body {
-  background-image: url('../../assets/bg-placeholder.jpg');
+  background: url('../../assets/bg-placeholder.jpg') no-repeat fixed;
   background-size: cover;
+
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+
+  a {
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 }
+
+
