@@ -9,17 +9,9 @@
   "env": {
     "es6": true,
     "node": true,
-
-
-Error: Parse error on line 11:
-...    "node": true,Error: Parse error o
---------------------^
-Expecting 'STRING'
-Error: Parse error on line 11:
-...    "node": true,  },  "ecmaFeatures":
-----------------------^
-Expecting 'STRING'
-},
+    "mocha": true,
+    "jasmine": true
+  },
   "ecmaFeatures": {
     "modules": true,
     "experimentalObjectRestSpread": true,

@@ -1,6 +1,6 @@
 @import '../../scss/lib/theme/vars';
 
-.navbar {
+header nav {
     color: $white;
     background-color: $black;
     img{
@@ -29,7 +29,7 @@
   }
 }
 @media #{$large-mobile} {
-  .navbar{
+  header nav{
     img{
       &.logo-mobile{
         height: auto;
@@ -37,6 +37,7 @@
         margin: $gutter-std/2 $gutter-std;
         display: inline-block;
         vertical-align: middle;
+        min-width:44px;
       }
       &.logo-desktop{
         display: none;
