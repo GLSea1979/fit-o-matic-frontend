@@ -6,9 +6,12 @@
     img{
       height: auto;
       width: 25%;
-      margin: $gutter/2 $gutter;
+      margin: $gutter-std/2 $gutter-std;
       display: inline-block;
       vertical-align: middle;
+      &.logo-mobile{
+        display: none;
+      }
     }
     ul{
       display: inline-block;
@@ -16,13 +19,34 @@
       width: 68%;
     li {
       display: inline-block;
-      margin-right:  $gutter;
+      margin-right:  $gutter-std;
       vertical-align: middle;
       font-size:2vw;
       a {
         color: $white;
       }
-
+    }
+  }
+}
+@media #{$large-mobile} {
+  .navbar{
+    img{
+      &.logo-mobile{
+        height: auto;
+        width: 8vw;
+        margin: $gutter-std/2 $gutter-std;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      &.logo-desktop{
+        display: none;
+      }
+    }
+  ul{
+    width:80%;
+  li{
+    font-size:3.5vw;
+      }
     }
   }
 }

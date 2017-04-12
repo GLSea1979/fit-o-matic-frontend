@@ -10,11 +10,11 @@
 @import "lib/layout/main";
 @import "lib/layout/footer";
 
-// ::::::: Views :::::::::://
+// // ::::::: Views :::::::::://
 @import "../view/home/home";
 @import "../view/landing/landing";
 
-// ::::::: Components ::::://
+// // ::::::: Components ::::://
 @import "../component/landing/signup/signup";
 @import "../component/landing/signin/signin";
 @import "../component/navbar/navbar";
