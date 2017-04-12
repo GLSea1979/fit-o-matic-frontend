@@ -16,6 +16,7 @@ $black: #000;
 $gutter-std: 3%;
 $gutter-sm: $gutter-std / 2;
 $gutter-lg: $gutter-std * 2;
+$footer-height: 70px;
 
 // ::::: Fonts ::::: //
 $font-primary: Helvetica;
@@ -31,3 +32,20 @@ $mobile: "only screen and (min-width : 326px)";
 
 // ::::: Buttons, Inputs, Forms ::::: //
 $btn-radius: 5px;
+
+@mixin rounded($radius: 0.5em) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius*2;
+}
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+// ::::: sprites ::::: //
+
+$socialIconSize: 5vw;
+
+

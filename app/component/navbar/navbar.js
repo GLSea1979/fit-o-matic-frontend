@@ -4,30 +4,13 @@ require('./_navbar.scss');
 
 module.exports = {
   template: require('./navbar.html'),
-  controller: ['$log', NavbarController],
+  controller: ['$log', 'routeService', NavbarController],
   controllerAs: 'navbarCtrl',
-}
+};
 
 
-function NavbarController($log) {
+function NavbarController($log, routeService) {
   $log.debug('navbarController');
 
-  this.routes = [
-    {
-      name: 'home',
-      url: '/home',
-    },
-    {
-      name: 'bikes',
-      url: '/bikes',
-    },
-    {
-      name: 'profile',
-      url: '/profile'
-    },
-    {
-      name: 'admin',
-      url: '/admin'
-    }
-  ]
+  this.routes = routeService.routes;
 }
