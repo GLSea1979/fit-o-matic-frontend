@@ -1,21 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700');
 
-
 $fontStack: 'Open Sans', Helvetica, sans-serif;
 
-
+// ::::: Pallette ::::: //
 $app-primary: #ccc;
 $app-secondary: #000;
+$app-text-color: #000;
+$btn-primary: #ccc;
+$btn-secondary: #000;
+$disabled: #e3e3e3;
 $white: #fff;
 $black: #000;
 
+// ::::: Layout & Spacing ::::: //
+$gutter-std: 3%;
+$gutter-sm: $gutter-std / 2;
+$gutter-lg: $gutter-std * 2;
 
-$gutter: 3%;
+// ::::: Fonts ::::: //
+$font-primary: Helvetica;
+$font-secondary: sans-serif;
 
 
-
-// :: Media Queries :: //
+// :::: Media Queries :::: //
 
 // $desktop: "only screen and (min-width : 728px)";
 // $large-mobile: "only screen and (max-width : 728px)";
 // $mobile: "only screen and (min-width : 326px)";
+
+
+// ::::: Buttons, Inputs, Forms ::::: //
+$btn-radius: 5px;
