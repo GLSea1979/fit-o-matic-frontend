@@ -1,8 +1,8 @@
 @import '../../scss/lib/theme/vars';
 
 .navbar {
-    background-color: $app-secondary;
     color: $white;
+    background-color: $black;
     img{
       height: auto;
       width: 25%;
@@ -18,10 +18,11 @@
       display: inline-block;
       margin-right:  $gutter;
       vertical-align: middle;
+      font-size:2vw;
       a {
         color: $white;
-        text-decoration: none;
       }
+
     }
   }
 }

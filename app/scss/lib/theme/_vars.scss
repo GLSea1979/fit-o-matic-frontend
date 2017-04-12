@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700');
+
+$fontStack: 'Open Sans', Helvetica, sans-serif;
+
 // ::::: Pallette ::::: //
 $app-primary: #ccc;
 $app-secondary: #000;
@@ -16,6 +20,14 @@ $gutter-lg: $gutter-std * 2;
 // ::::: Fonts ::::: //
 $font-primary: Helvetica;
 $font-secondary: sans-serif;
+
+
+// :::: Media Queries :::: //
+
+// $desktop: "only screen and (min-width : 728px)";
+// $large-mobile: "only screen and (max-width : 728px)";
+// $mobile: "only screen and (min-width : 326px)";
+
 
 // ::::: Buttons, Inputs, Forms ::::: //
 $btn-radius: 5px;
