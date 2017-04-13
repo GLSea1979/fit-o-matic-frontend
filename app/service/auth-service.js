@@ -45,8 +45,11 @@ function authService($q, $log, $http, $window) {
 
     return $http.post(url, user, config)
     .then( res => {
-      $log.log('success:', res.data);
-      return setToken(res.data);
+      $log.log('success!!!!!!!! :', res.data);
+      $log.log('amazing user id------>', res.data.userId);
+      $window.localStorage.setItem('userID', res.data.userId);
+      //this *should* work
+      return setToken(res.data.token);
     })
     .catch( err => {
       $log.error('failure:', err.message);
