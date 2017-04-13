@@ -1,0 +1,43 @@
+@import '../../scss/lib/theme/vars';
+
+
+footer{
+  background-color: $app-secondary;
+  //height:$footer-height;
+  width: 100%;
+  color: $white;
+
+  nav.social-icon{
+
+      li{
+        display: inline-block;
+        cursor: pointer;
+        width: $socialIconSize;
+        height: $socialIconSize;
+        background: url('/assets/sprite.png');
+        background-size:cover;
+        margin: $gutter-std/4 ;
+        &.github{
+          background-position-x: 0;
+        }
+        &.instagram{
+          background-position-x: $socialIconSize;
+        }
+        a{
+          width:100%;
+          height: 100%;
+          display: block;
+      }
+    }
+  }
+}
+
+@media #{$large-mobile} {
+
+  nav.social-icon{
+    li{
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import '../../scss/lib/theme/vars';
+
+header nav {
+    color: $white;
+    background-color: $black;
+    img{
+      height: auto;
+      width: 25%;
+      margin: $gutter-std/2 $gutter-std;
+      display: inline-block;
+      vertical-align: middle;
+      &.logo-mobile{
+        display: none;
+      }
+    }
+    ul{
+      display: inline-block;
+      text-align: right;
+      width: 68%;
+    li {
+      display: inline-block;
+      margin-right:  $gutter-std;
+      vertical-align: middle;
+      font-size:2vw;
+      a {
+        color: $white;
+      }
+    }
+  }
+}
+@media #{$large-mobile} {
+  header nav{
+    img{
+      &.logo-mobile{
+        height: auto;
+        width: 8vw;
+        margin: $gutter-std/2 $gutter-std;
+        display: inline-block;
+        vertical-align: middle;
+        min-width:44px;
+      }
+      &.logo-desktop{
+        display: none;
+      }
+    }
+  ul{
+    width:80%;
+  li{
+    font-size:3.5vw;
+      }
+    }
+  }
+}
