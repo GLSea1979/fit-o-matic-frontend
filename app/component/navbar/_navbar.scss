@@ -2,10 +2,10 @@
 
 header nav {
     color: $white;
-    background-color: $black;
+    background-color: $nav-background;
+    display: flex;
     img{
-      height: auto;
-      width: 25%;
+      align-self: center;
       margin: $gutter-std/2 $gutter-std;
       display: inline-block;
       vertical-align: middle;
@@ -13,13 +13,18 @@ header nav {
         display: none;
       }
     }
-    ul{
-      display: inline-block;
+    div.navbar-collapse.collapse{
+      flex-grow:1;
       text-align: right;
-      width: 68%;
+
+
+    }
+    ul{
+       text-align: right;
+       margin-bottom: 0;
     li {
       display: inline-block;
-      margin-right:  $gutter-std;
+      margin:  $gutter-std $gutter-std;
       vertical-align: middle;
       font-size:2vw;
       a {
@@ -27,9 +32,17 @@ header nav {
       }
     }
   }
+  button.navbar-toggle{
+    margin-top:$gutter-std;
+    border: 1px solid $white/2;
+      .icon-bar{
+        background-color: $white;
+    }
+  }
 }
 @media #{$large-mobile} {
   header nav{
+    display: block;
     img{
       &.logo-mobile{
         height: auto;
@@ -44,9 +57,14 @@ header nav {
       }
     }
   ul{
-    width:80%;
+    //width:90vw;
+    //display: block;
+   // padding-bottom: 3%;
+
   li{
     font-size:3.5vw;
+    display: block;
+    //margin-bottom: $gutter-std;
       }
     }
   }
