@@ -1,0 +1,71 @@
+@import '../../scss/lib/theme/vars';
+
+header nav {
+    color: $white;
+    background-color: $nav-background;
+    display: flex;
+    img{
+      align-self: center;
+      margin: $gutter-std/2 $gutter-std;
+      display: inline-block;
+      vertical-align: middle;
+      &.logo-mobile{
+        display: none;
+      }
+    }
+    div.navbar-collapse.collapse{
+      flex-grow:1;
+      text-align: right;
+
+
+    }
+    ul{
+       text-align: right;
+       margin-bottom: 0;
+    li {
+      display: inline-block;
+      margin:  $gutter-std $gutter-std;
+      vertical-align: middle;
+      font-size:2vw;
+      a {
+        color: $white;
+      }
+    }
+  }
+  button.navbar-toggle{
+    margin-top:$gutter-std;
+    border: 1px solid $white/2;
+      .icon-bar{
+        background-color: $white;
+    }
+  }
+}
+@media #{$large-mobile} {
+  header nav{
+    display: block;
+    img{
+      &.logo-mobile{
+        height: auto;
+        width: 8vw;
+        margin: $gutter-std/2 $gutter-std;
+        display: inline-block;
+        vertical-align: middle;
+        min-width:44px;
+      }
+      &.logo-desktop{
+        display: none;
+      }
+    }
+  ul{
+    //width:90vw;
+    //display: block;
+   // padding-bottom: 3%;
+
+  li{
+    font-size:3.5vw;
+    display: block;
+    //margin-bottom: $gutter-std;
+      }
+    }
+  }
+}

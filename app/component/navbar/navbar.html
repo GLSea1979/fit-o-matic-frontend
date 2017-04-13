@@ -1,0 +1,16 @@
+<nav>
+  <img class="logo-desktop" src="../../../assets/logo-wide.png">
+  <img class="logo-mobile" src="../../../assets/icon.png">
+    <button type="button" class="navbar-toggle" ng-click="navbarCtrl.isNavCollapsed = !navbarCtrl.isNavCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse"
+      uib-collapse="navbarCtrl.isNavCollapsed" >
+    <ul>
+        <li ng-repeat="route in navbarCtrl.routes"><a href="{{ route.url }}">{{ route.name }}</a></li>
+
+      </ul>
+</nav>

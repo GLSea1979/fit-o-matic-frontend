@@ -35,6 +35,7 @@ function authService($q, $log, $http, $window) {
     $log.debug('authService.signup');
 
     let url = `${__API_URL__}/api/signup`;
+    user.admin = true;
     let config = {
       headers: {
         'Content-Type': 'application/json',
@@ -45,8 +46,8 @@ function authService($q, $log, $http, $window) {
 
     return $http.post(url, user, config)
     .then( res => {
-      $log.log('success:', res.data);
-      return setToken(res.data);
+      $window.localStorage.setItem('userID', res.data.userId);
+      return setToken(res.data.token);
     })
     .catch( err => {
       $log.error('failure:', err.message);
