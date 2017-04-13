@@ -1,6 +1,9 @@
 // ::::::::: Reset ::::::::://
 @import "lib/base/reset";
 
+// // ::::::: Bootstrap ::::://
+@import "lib/bootstrap/custom-bootstrap";
+
 // :::::::: Base style and variables ::::::: //
 @import "lib/theme/vars";
 @import "lib/base/base";
@@ -18,3 +21,4 @@
 @import "../component/landing/signup/signup";
 @import "../component/landing/signin/signin";
 @import "../component/navbar/navbar";
+

@@ -11,6 +11,6 @@ module.exports = {
 
 function NavbarController($log, routeService) {
   $log.debug('navbarController');
-
+  this.isNavCollapsed = true;
   this.routes = routeService.routes;
 }

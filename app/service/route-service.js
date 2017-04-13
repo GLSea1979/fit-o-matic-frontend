@@ -34,7 +34,13 @@ function routeService($log){
     icons: [
       {
         val:'github',
-        url: 'https://github.com/GLSea1979/fit-o-matic-frontend'
+        url: 'https://github.com/GLSea1979/fit-o-matic-frontend',
+        desc: 'check out the project on github'
+      },
+      {
+        val:'about',
+        url: '/about',
+        desc: 'about the team'
       }
     ]
   };

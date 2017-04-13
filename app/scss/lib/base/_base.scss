@@ -25,6 +25,8 @@ body {
     flex:1;
 
   }
+
+  @include transition(300ms all);
 }
 
 

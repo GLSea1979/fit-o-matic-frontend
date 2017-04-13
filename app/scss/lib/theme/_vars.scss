@@ -11,6 +11,9 @@ $btn-secondary: #000;
 $disabled: #e3e3e3;
 $white: #fff;
 $black: #000;
+$nav-background: rgba(0,0,0,.8);
+
+
 
 // ::::: Layout & Spacing ::::: //
 $gutter-std: 3%;
@@ -25,8 +28,8 @@ $font-secondary: sans-serif;
 
 // :::: Media Queries :::: //
 
-$desktop: "only screen and (min-width : 728px)";
-$large-mobile: "only screen and (max-width : 728px)";
+$desktop: "only screen and (min-width : 768px)";
+$large-mobile: "only screen and (max-width : 768px)";
 $mobile: "only screen and (min-width : 326px)";
 
 
@@ -48,4 +51,14 @@ $btn-radius: 5px;
 
 $socialIconSize: 5vw;
 
+
+// ::::: transitions and animations ::::: //
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
 
