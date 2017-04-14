@@ -5,7 +5,7 @@ require('./_signin.scss');
 module.exports = {
   template: require('./signin.html'),
   controller: ['$log', '$location','authService',  SigninController],
-  contrllerAs: 'signinCtrl'
+  controllerAs: 'signinCtrl'
 }
 
 function SigninController($log, $location, authService){
