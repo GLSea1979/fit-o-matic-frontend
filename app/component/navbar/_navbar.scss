@@ -1,12 +1,18 @@
 @import '../../scss/lib/theme/vars';
 
+main{
+  max-width: 95%;
+  overflow: hidden;
+}
+
+
 header nav {
     color: $white;
     background-color: $nav-background;
     display: flex;
     img{
       align-self: center;
-      margin: $gutter-std/2 $gutter-std;
+      margin: $gutter-sm $gutter-std;
       display: inline-block;
       vertical-align: middle;
       &.logo-mobile{
@@ -24,13 +30,20 @@ header nav {
        margin-bottom: 0;
     li {
       display: inline-block;
-      margin:  $gutter-std $gutter-std;
+      margin:  $gutter-std $gutter-sm;
       vertical-align: middle;
       font-size:2vw;
       a {
         color: $white;
       }
     }
+  }
+  button.btn-std.logout{
+    font-size: 1.7vw;
+    padding: 0 2vw;
+    white-space: nowrap;
+    background-color:rgba(0,0,0,0);
+    border:1px solid $white;
   }
   button.navbar-toggle{
     margin-top:$gutter-std;
@@ -43,6 +56,33 @@ header nav {
 @media #{$large-mobile} {
   header nav{
     display: block;
+      img{
+        &.logo-desktop{
+          margin:$gutter-std
+        }
+      }
+
+  ul{
+    //width:90vw;
+    //display: block;
+   // padding-bottom: 3%;
+
+  li{
+    font-size:3.5vw;
+    display: block;
+    //margin-bottom: $gutter-std;
+      }
+    }
+    button.btn-std.logout{
+      font-size: 3vw;
+
+    }
+  }
+}
+
+@media #{$med-mobile} {
+   header nav{
+    display: block;
     img{
       &.logo-mobile{
         height: auto;
@@ -54,17 +94,6 @@ header nav {
       }
       &.logo-desktop{
         display: none;
-      }
-    }
-  ul{
-    //width:90vw;
-    //display: block;
-   // padding-bottom: 3%;
-
-  li{
-    font-size:3.5vw;
-    display: block;
-    //margin-bottom: $gutter-std;
       }
     }
   }
