@@ -4,12 +4,12 @@ require('./_navbar.scss');
 
 module.exports = {
   template: require('./navbar.html'),
-  controller: ['$log', '$location', 'authService', 'routeService',NavbarController],
+  controller: ['$log', '$location', '$rootScope', 'authService', 'routeService',NavbarController],
   controllerAs: 'navbarCtrl',
 };
 
 
-function NavbarController($log, $location, authService, routeService) {
+function NavbarController($log, $location, $rootScope, authService, routeService) {
   $log.debug('navbarController');
   this.isNavCollapsed = true;
   this.routes = routeService.routes;
@@ -31,6 +31,10 @@ function NavbarController($log, $location, authService, routeService) {
   };
 
   this.checkPath();
+
+  $rootScope.$on('$locationChangeSuccess', () => {
+    this.checkPath();
+  });
 
   this.logout = function() {
     $log.log('authService.logout');
