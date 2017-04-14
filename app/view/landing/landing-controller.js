@@ -10,8 +10,9 @@ function LandingController($log, $location, authService) {
 
   this.signInFirst = true;
 
-  this.showSignup = url === '/join#signup' || url === '/join';
-  if(!this.showSignup){
-     url ==='/join#signin'
+  // this.showSignup = url === '/join#signup' || url === '/join';
+  if(this.signInFirst = false){
+     url = '/join#signin';
+     $log.debug('hell!');
  };
 };

@@ -4,7 +4,7 @@ require('./_navbar.scss');
 
 module.exports = {
   template: require('./navbar.html'),
-  controller: ['$log', '$location', '$rootScope', 'authService', 'routeService',NavbarController],
+  controller: ['$log', '$location', '$rootScope', 'authService', 'routeService', NavbarController],
   controllerAs: 'navbarCtrl',
 };
 
@@ -16,8 +16,7 @@ function NavbarController($log, $location, $rootScope, authService, routeService
 
   this.checkPath = function() {
     let path = ($location.path() === '/signup');
-
-    $log.debug($location.path());
+    // $log.debug($location.path());
 
     if(path) this.hideButtons = true;
 
@@ -25,7 +24,7 @@ function NavbarController($log, $location, $rootScope, authService, routeService
       this.hideButtons = false;
     //   authService.getToken()
     //   .catch( () => {
-    //     $location.url('/signup#login');
+    //     $location.url('/signup#signin');
     //   });
     }
   };
