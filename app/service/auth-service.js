@@ -63,10 +63,10 @@ function authService($q, $log, $http, $window) {
     return $q.resolve();
   };
 
-  service.login = function(user) {
-    $log.debug('authService.login');
-
-    let url = `${__API_URL__}/api/login`;
+  service.signin = function(user) {
+    $log.debug('authService.signin');
+//todo: update backend route (and tests) to include 'signin' instead of 'login'
+    let url = `${__API_URL__}/api/signin`;
     let base64 = $window.btoa(`${user.username}:${user.password}`);
     let config = {
       headers: {
