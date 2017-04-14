@@ -1,15 +1,15 @@
 'use strict';
 
-module.exports = ['$log', '$q', '$http', 'authService', adminService];
+module.exports = ['$log', '$q', '$http', 'authService', mfrService];
 
-function adminService($log, $q, $http, authService) {
-  $log.debug('adminService');
+function mfrService($log, $q, $http, authService) {
+  $log.debug('mfrService');
 
   let service = {};
-  let service.mfrs = [];
+  service.mfrs = [];
 
   service.fetchAllMfrs = function() {
-    $log.debug('adminService.fetchMfrs');
+    $log.debug('mfrService.fetchMfrs');
 
     // TODO: add fetch all route...
     return authService.getToken()
@@ -40,7 +40,7 @@ function adminService($log, $q, $http, authService) {
   };
 
   service.fetchMfr = function(mfrID) {
-    $log.debug('adminService.fetchMfr');
+    $log.debug('mfrService.fetchMfr');
 
     return authService.getToken()
     .then( token => {
@@ -67,7 +67,7 @@ function adminService($log, $q, $http, authService) {
   };
 
   service.updateMfr = function(mfrID, mfrData){
-      $log.debug('adminService.updateMfr');
+      $log.debug('mfrService.updateMfr');
 
       return authService.getToken()
       .then( token => {
@@ -93,7 +93,7 @@ function adminService($log, $q, $http, authService) {
   };
 
   service.createMfr = function(mfrData){
-      $log.debug('adminService.createMfr');
+      $log.debug('mfrService.createMfr');
 
       return authService.getToken()
       .then( token => {
@@ -109,8 +109,9 @@ function adminService($log, $q, $http, authService) {
       })
       .then( res => {
           $log.debug('mfr created mrfkr');
-
-          service.mfrs.unshift(res.data);
+          $log.debug(res.data, '<--- just the data');
+          $log.debug(service.mfrs, '<-- array of mfrs');
+          return service.mfrs.unshift(res.data);
       })
       .catch( err => {
           $log.error(err.message);
@@ -120,7 +121,7 @@ function adminService($log, $q, $http, authService) {
   };
 
   service.deleteMfr = function(mfrID){
-      $log.debug('adminService.deleteMfr');
+      $log.debug('mfrService.deleteMfr');
 
       return service.getToken()
       .then( token => {
