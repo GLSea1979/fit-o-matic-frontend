@@ -28,8 +28,9 @@ $font-secondary: Helvetica;
 
 // :::: Media Queries :::: //
 
-$desktop: "only screen and (min-width : 768px)";
+$desktop: "only screen and (min-width : 769px)";
 $large-mobile: "only screen and (max-width : 768px)";
+$med-mobile: "only screen and (max-width : 600px)";
 $mobile: "only screen and (min-width : 326px)";
 
 

@@ -11,8 +11,10 @@
       uib-collapse="navbarCtrl.isNavCollapsed" >
       <ul>
         <li ng-repeat="route in navbarCtrl.routes"><a href="{{ route.url }}">{{ route.name }}</a></li>
-
+        <li>
+          <button type="button" class="logout btn-std" ng-show="!navbarCtrl.hideButtons" ng-click="navbarCtrl.logout()">log out</button>
+          </li>
       </ul>
     </div>
-    <button type="button" class="logout btn-std" ng-show="!navbarCtrl.hideButtons" ng-click="navbarCtrl.logout()">log out</button>
+
 </nav>
