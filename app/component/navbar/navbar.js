@@ -15,7 +15,7 @@ function NavbarController($log, $location, authService, routeService) {
   this.routes = routeService.routes;
 
   this.checkPath = function() {
-    let path = ($location.path() === '/join');
+    let path = ($location.path() === '/signup');
 
     $log.debug($location.path());
 
@@ -23,10 +23,10 @@ function NavbarController($log, $location, authService, routeService) {
 
     if (!path) {
       this.hideButtons = false;
-      authService.getToken()
-      .catch( () => {
-        $location.url('/join#login');
-      });
+    //   authService.getToken()
+    //   .catch( () => {
+    //     $location.url('/signup#login');
+    //   });
     }
   };
 
