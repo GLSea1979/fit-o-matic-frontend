@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700');
 
-$fontStack: 'Open Sans', Helvetica, sans-serif;
 
 // ::::: Pallette ::::: //
 $app-primary: #ccc;
@@ -22,8 +21,9 @@ $gutter-lg: $gutter-std * 2;
 $footer-height: 70px;
 
 // ::::: Fonts ::::: //
-$font-primary: Helvetica;
-$font-secondary: sans-serif;
+$fontStack: 'Open Sans', Helvetica, sans-serif;
+$font-primary: 'Open Sans';
+$font-secondary: Helvetica;
 
 
 // :::: Media Queries :::: //
