@@ -2,15 +2,15 @@
 
 require('./_admin.scss');
 
-module.exports = ['$log', '$rootScope', '$location', 'adminService', AdminController];
+module.exports = ['$log', '$rootScope', '$location', 'mfrService', AdminController];
 
-function AdminController($log, $rootScope, $location, adminService) {
+function AdminController($log, $rootScope, $location, mfrService) {
   $log.debug('AdminController');
 
   this.mfrs = [];
 
   this.fetchAllMfrs = function() {
-    mfrsServices.fetchAllMfrs()
+    mfrService.fetchAllMfrs()
     .then( mfrs => {
       this.mfrs = mfrs;
       this.currentMfr = mfrs[0];
