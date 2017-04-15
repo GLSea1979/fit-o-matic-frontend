@@ -1,0 +1,16 @@
+ul.results-table {
+
+    border: 1px solid grey;
+    li {
+      padding:$gutter-std;
+      &:hover{
+        filter: invert(100%);
+      }
+    }
+    .odd {
+      background-color: $app-tertiary;
+    }
+    .even{
+      background-color: $white;
+    }
+  }

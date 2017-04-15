@@ -1,0 +1,11 @@
+<div class="clearfix"></div>
+<section class="disp-manufacturers">
+  <h2>bike manufacturers</h2>
+  <ul class="results-table">
+    <li ng-repeat="mfr in displayMfrCtrl.mfrs"
+    ng-class-odd="'odd'" ng-class-even="'even'"
+    >
+      <span >{{ mfr.name }}</span>
+      </li>
+  </ul>
+</section>
