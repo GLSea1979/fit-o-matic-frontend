@@ -13,7 +13,7 @@ function authService($q, $log, $http, $window) {
 
     if (! _token) {
       return $q.reject(new Error('no token'));
-    };
+    }
 
     $window.localStorage.setItem('token', _token);
     token = _token;
@@ -24,7 +24,7 @@ function authService($q, $log, $http, $window) {
     $log.debug('authService.getToken');
     if (token) {
       return $q.resolve(token);
-    };
+    }
 
     token = $window.localStorage.getItem('token');
     if (token) return $q.resolve(token);
@@ -65,7 +65,6 @@ function authService($q, $log, $http, $window) {
 
   service.signin = function(user) {
     $log.debug('authService.signin');
-//todo: update backend route (and tests) to include 'signin' instead of 'login'
     let url = `${__API_URL__}/api/signin`;
     let base64 = $window.btoa(`${user.username}:${user.password}`);
     let config = {
@@ -78,7 +77,7 @@ function authService($q, $log, $http, $window) {
     return $http.get(url, config)
     .then( res => {
       $log.log('success', res.data);
-      return setToken(res.data);
+      return setToken(res.data.token);
     })
     .catch( err => {
       $log.error(err.message);
@@ -87,4 +86,4 @@ function authService($q, $log, $http, $window) {
   };
 
   return service;
-};
+}
