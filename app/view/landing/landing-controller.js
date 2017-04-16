@@ -2,17 +2,15 @@
 
 require('./_landing.scss');
 
-module.exports = ['$log', '$location', '$rootScope', 'authService', LandingController];
+module.exports = ['$log', '$location', '$rootScope', LandingController];
 
-function LandingController($log, $location, authService) {
+function LandingController($log, $location) {
   $log.debug('LandingController');
-  let url = $location.url();
 
   this.signInFirst = true;
 
   // this.showSignup = url === '/join#signup' || url === '/join';
-  if(this.signInFirst = false){
-     url = '/join#signin';
-     $log.debug('hell!');
- };
-};
+  if(this.signInFirst == false){
+    $location.url('/join#signin');
+  }
+}

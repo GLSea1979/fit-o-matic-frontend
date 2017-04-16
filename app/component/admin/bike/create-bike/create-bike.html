@@ -1,0 +1,20 @@
+<section class="createbikeyeas">
+	<h2>Add Bike</h2>
+	<form
+		name="createBikeForm"
+		class="bike-form"
+		ng-submit="createMfrCtrl.createBike()"
+	>
+	<fieldset>
+		<label for="name">name:</label>
+		<input type="text" ng-model="createBikeCtrl.bike.bikeName" name="name" placeholder="name">
+		<label for="category">category:</label>
+		<input type="text" ng-model="createBikeCtrl.bike.category" name="category" placeholder="category">
+		<input type="text" ng-model="createBikeCtrl.bike.price" name="price" placeholder="price">
+		<input type="text" ng-model="createBikeCtrl.bike.modelYear" name="model year" placeholder="model year">
+		<input type="text" ng-model="createBikeCtrl.bike.photoURI" name="photo" placeholder="photo">
+
+	</fieldset>
+		<button class="btn-std" type="submit">create bike</button>
+	</form>
+</section>
