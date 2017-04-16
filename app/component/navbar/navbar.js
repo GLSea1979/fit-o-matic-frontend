@@ -15,17 +15,17 @@ function NavbarController($log, $location, $rootScope, authService, routeService
   this.routes = routeService.routes;
 
   this.checkPath = function() {
-    let path = ($location.path() === '/signup');
-    // $log.debug($location.path());
+    let path = ($location.path() === '/join');
+    //$log.debug($location.path());
 
     if(path) this.hideButtons = true;
 
     if (!path) {
       this.hideButtons = false;
-    //   authService.getToken()
-    //   .catch( () => {
-    //     $location.url('/signup#signin');
-    //   });
+      authService.getToken()
+      .catch( () => {
+        $location.url('/#!/signin');
+      });
     }
   };
 
@@ -41,7 +41,7 @@ function NavbarController($log, $location, $rootScope, authService, routeService
     this.hideButtons = true;
     authService.logout()
     .then( () => {
-      $location.url('/');
+      $location.url('/#!/join#signin');
     });
   };
 }
