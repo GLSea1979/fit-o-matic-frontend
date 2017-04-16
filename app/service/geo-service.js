@@ -28,7 +28,7 @@ function geoService($log, $q, $http, authService){
 
 		})
 		.catch( err => {
-			$log.error('ya fucked up a-a-ron');
+			$log.error(err.message);
 			return $q.reject(err);
 		});
 	};//end createGeo()
