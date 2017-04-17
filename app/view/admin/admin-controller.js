@@ -9,16 +9,19 @@ function AdminController($log, $rootScope, $location, mfrService) {
 
   this.mfrs = [];
   this.setCurrentMfr = function(mfr){
-    this.currentMfr=mfr;
+    $log.debug('this is the index', this.mfrs[0]);
+    this.currentMfr = mfr;
     $log.debug(this.currentMfr)
   };
+
+  this.showDisplayBike = false;
 
   this.fetchAllMfrs = function() {
     mfrService.fetchAllMfrs()
     .then( mfrs => {
       this.mfrs = mfrs;
-      this.currentMfr = mfrs[0];
-      console.log(this,'<--------------------');
+      this.currentMfr = this.mfrs[0];
+      console.log(this.mfrs[0],'<--------------------');
     });
   };
 
