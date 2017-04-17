@@ -40,7 +40,7 @@ function geoService($log, $q, $http, authService){
 		.then( token => {
   		let url = `${__API_URL__}/api/geo/?height=${height}&inseam=${inseam}`;
   		let config = {
-    	header: {
+    	headers: {
       	Accept: 'application/json',
       	Authorization: `Bearer ${token}`
     	}
