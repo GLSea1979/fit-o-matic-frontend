@@ -2,11 +2,15 @@
 
 .profile-disp{
   font-size: 3vw;
-  img {
+  div.image {
     width: 44%;
     display: inline-block;
     margin: $gutter-std 0 $gutter-std $gutter-std;
     float:left;
+    img{
+      width:100%;
+      height: auto;
+    }
   }
   .info{
     width:44%;
