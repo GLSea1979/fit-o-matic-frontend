@@ -73,7 +73,7 @@ function mfrService($log, $q, $http, authService) {
       .then( token => {
           let url = `${__API_URL__}/api/mfr/${mfrID}`;
           let config = {
-              header: {
+              headers: {
                   Accept: 'application/json',
                   Authorization: `Bearer ${token}`,
                   'Content-Type': 'application/json'
@@ -99,11 +99,11 @@ function mfrService($log, $q, $http, authService) {
       .then( token => {
           let url = `${__API_URL__}/api/mfr`;
           let config = {
-              headers: {
-                  Accept: 'application/json',
-                  Authorization: `Bearer ${token}`,
-                  'Content-Type': 'application/json'
-              }
+            headers: {
+              Accept: 'application/json',
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            }
           };
           return $http.post(url, mfrData, config);
       })
