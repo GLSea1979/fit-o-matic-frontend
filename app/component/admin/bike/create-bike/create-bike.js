@@ -7,7 +7,7 @@ module.exports = {
   controller: ['$log', 'bikeService', CreateBikeController],
   controllerAs: 'createBikeCtrl',
   bindings: {
-    bike: '<'
+    brand: '<'
   }
 };
 
@@ -16,9 +16,24 @@ function CreateBikeController($log, bikeService) {
 
   this.bike = {};
 
+  this.uploadImg = function(){
+    $log.debug('createBikeCtrl.uploadImg');
+
+    bikeService.uploadImg(this.bike, this.img)
+    .then( res => {
+      $log.debug('----->', res);
+      this.bike.photoURI = res.data.imageURI;
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    })
+
+  }
+
   this.createBike = function() {
     $log.debug('createBikeCtrl.createBike');
-    bikeService.createBike(this.bike)
+    bikeService.createBike(this.brand._id, this.bike)
     .then( () => {
       this.bike.name = null;
       this.bike.category = null;
