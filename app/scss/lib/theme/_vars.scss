@@ -12,7 +12,7 @@ $disabled: #e3e3e3;
 $white: #fff;
 $black: #000;
 $nav-background: rgba(0,0,0,.8);
-
+$main-background: rgba(255, 255, 255, .7);
 
 
 // ::::: Layout & Spacing ::::: //
@@ -20,6 +20,10 @@ $gutter-std: 3%;
 $gutter-sm: $gutter-std / 2;
 $gutter-lg: $gutter-std * 2;
 $footer-height: 70px;
+
+@mixin main-style{
+
+}
 
 // ::::: Fonts ::::: //
 $fontStack: 'Open Sans', Helvetica, sans-serif;
@@ -52,6 +56,7 @@ $btn-radius: 5px;
 // ::::: sprites ::::: //
 
 $socialIconSize: 5vw;
+$sprites: url('/assets/sprite.png');
 
 
 // ::::: transitions and animations ::::: //

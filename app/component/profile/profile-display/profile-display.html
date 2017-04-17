@@ -1,4 +1,52 @@
-<section class="profile-cool">
-	<h1>pup</h1>
-	{{profileDisplayCtrl.user}}
+<section class="profile-disp">
+  <img
+      ng-src="{{ profileDisplayCtrl.profile.photoURI }}"
+      alt="profile photo {{ profileDisplayCtrl.profile.name }}">
+  <div class="info">
+    <h2>profile </h2>
+    <ul ng-if="!profileDisplayCtrl.showEdit">
+      <li>
+        <span>name:</span>{{ profileDisplayCtrl.profile.name }}
+        <span class="unset" ng-if="!profileDisplayCtrl.profile.name">not set</span>
+      </li>
+      <li><span>email:</span>{{ profileDisplayCtrl.profile.email }}</li>
+
+      <li >
+        <span>gender:</span>{{ profileDisplayCtrl.profile.gender }}
+        <span class="unset" ng-if="!profileDisplayCtrl.profile.gender">not set</span>
+      </li>
+      <li>
+        <span>height:</span>{{ profileDisplayCtrl.profile.height }}
+        <span class="unset" ng-if="!profileDisplayCtrl.profile.height">not set</span>
+      </li>
+      <li>
+        <span>inseam:</span>{{ profileDisplayCtrl.profile.inseam }}
+        <span class="unset" ng-if="!profileDisplayCtrl.profile.inseam">not set</span>
+      </li>
+      <li>
+        <button class="btn-std"
+        ng-click="profileDisplayCtrl.showEdit=!profileDisplayCtrl.showEdit">
+        edit
+        </button>
+      </li>
+    </ul>
+    <form ng-if="profileDisplayCtrl.showEdit"
+    ng-submit="profileDisplayCtrl.updateProfile()">
+      <ul >
+        <li><input name="name" ng-model="profileDisplayCtrl.profile.name"
+              placeholder="full name"></li>
+        <li> {{ profileDisplayCtrl.profile.email }} </li>
+        <li> <input ng-model="profileDisplayCtrl.profile.gender" placeholder="gender"> </li>
+        <li> <input ng-model="profileDisplayCtrl.profile.height" placeholder="height"> </li>
+        <li> <input ng-model="profileDisplayCtrl.profile.inseam" placeholder="inseam"> </li>
+        <li>
+          <button class="btn-std" type="submit"
+          >
+          update
+          </button>
+        </li>
+      </ul>
+    </form>
+  </div>
 </section>
+

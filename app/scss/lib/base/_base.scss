@@ -11,6 +11,12 @@ body {
   display: flex;
   flex-direction: column;
 
+
+  h2{
+    font-size: 5vw;
+    font-weight: bold;
+  }
+
   a {
     text-decoration: none;
     &:hover{
@@ -20,11 +26,7 @@ body {
   .clearfix{
     clear: both;
   }
-  main {
-    margin:$gutter-std;
-    flex:1;
 
-  }
 
   input{
     width: 100%;

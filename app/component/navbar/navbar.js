@@ -39,6 +39,7 @@ function NavbarController($log, $location, $rootScope, authService, routeService
     $log.log('authService.logout');
 
     this.hideButtons = true;
+    this.isNavCollapsed = true;
     authService.logout()
     .then( () => {
       $location.url('/#!/join#signin');
