@@ -8,12 +8,17 @@ function AdminController($log, $rootScope, $location, mfrService) {
   $log.debug('AdminController');
 
   this.mfrs = [];
+  this.setCurrentMfr = function(mfr){
+    this.currentMfr=mfr;
+    $log.debug(this.currentMfr)
+  };
 
   this.fetchAllMfrs = function() {
     mfrService.fetchAllMfrs()
     .then( mfrs => {
       this.mfrs = mfrs;
       this.currentMfr = mfrs[0];
+      console.log(this,'<--------------------');
     });
   };
 
