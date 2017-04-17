@@ -7,7 +7,8 @@ module.exports = {
   controller: ['$log', 'mfrService', DisplayMfrController],
   controllerAs: 'displayMfrCtrl',
   bindings: {
-    mfrs: '<'
+    mfrs: '<',
+    brand: '<'
   }
 };
 
@@ -15,5 +16,6 @@ function DisplayMfrController($log, mfrService){
   $log.debug('DisplayMfrController');
 
   this.test = 'test'
+  this.showAddBike = false;
 
 }
