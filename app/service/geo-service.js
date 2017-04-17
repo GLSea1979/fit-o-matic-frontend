@@ -24,7 +24,7 @@ function geoService($log, $q, $http, authService){
 			return $http.post(url, geoSpecs, config);
 		})
 		.then( res => {
-			$log.debug(res.body, '<----HERE IS WHAT CAME BACK :) !!!!');
+			$log.debug(res.body, '<----HERE IS WHAT CAME BACK');
 
 		})
 		.catch( err => {
@@ -58,6 +58,36 @@ function geoService($log, $q, $http, authService){
 			return $q.reject(err);
 		});
 		};
+
+    service.updateGeo = function(geoID, geoData){
+      $log.debug('geoService.updateGeo');
+
+      return authService.getToken()
+      .then( token => {
+        let url = `${__API_URL__}/api/geo/${geoID}`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        };
+        return $http.put(url, geoData,config);
+      })
+      .then( res => {
+        $log.debug('we have updated the geo');
+
+      })
+      .catch( err => {
+        $log.error(err.message);
+        return $q.reject(err);
+      });
+    };
+
+
+
+
+
 
 		return service;
 };

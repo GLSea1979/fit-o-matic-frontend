@@ -1,11 +1,13 @@
-<div class="clearfix"></div>
 <section class="disp-manufacturers">
-  <h2>bike manufacturers</h2>
+  <create-bike ng-if="displayMfrCtrl.showAddBike" brand="displayMfrCtrl.brand"></create-bike>
+
   <ul class="results-table">
-    <li ng-repeat="mfr in displayMfrCtrl.mfrs"
+    <li
     ng-class-odd="'odd'" ng-class-even="'even'"
     >
-      <span>{{ mfr.name }}</span>
+      <span>{{ displayMfrCtrl.brand.name }}</span>
+      <!-- <span>{{ mfr._id }}</span> -->
+      <button type="button" name="addBike" ng-click="displayMfrCtrl.showAddBike = !displayMfrCtrl.showAddBike">Add Bike Model</button>
       </li>
   </ul>
 </section>

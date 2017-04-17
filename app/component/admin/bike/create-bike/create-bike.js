@@ -7,10 +7,9 @@ module.exports = {
 	controller: ['$log', 'bikeService', CreateBikeController],
 	controllerAs: 'createBikeCtrl',
 	bindings: {
-		mfrs: '<'
+    brand: '<'
 	}
 };
-
 function CreateBikeController($log, bikeService){
 	$log.debug('CreateBikeController');
 
@@ -18,7 +17,6 @@ function CreateBikeController($log, bikeService){
 
 	this.createBike = function(){
 		$log.debug('createBikeCtrl.createBike()');
-
 
 		// bikeService.createBike(this.bike)
 		// .then( bike => {

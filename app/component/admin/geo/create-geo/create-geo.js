@@ -5,7 +5,7 @@ module.exports = {
   controller: ['$log', 'geoService', CreateGeoController],
   controllerAs: 'createGeoCtrl',
   bindings: {
-    mfrs: '<'
+    bike: '<'
   }
 };
 
