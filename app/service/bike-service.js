@@ -58,7 +58,7 @@ function bikeService($log, $q, $http, Upload, authService) {
       return service.bikes;
     })
     .catch( err => {
-      $log.errors(err.message);
+      $log.error(err.message);
       return $q.reject(err);
     });
   };

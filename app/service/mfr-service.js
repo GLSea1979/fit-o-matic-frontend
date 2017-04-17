@@ -25,8 +25,6 @@ function mfrService($log, $q, $http, authService) {
       return $http.get(url, config);
     })
     .then( res => {
-      $log.debug('MFRs are retrieved!!!');
-      //todo check that this works
       if(res.status === 204){
           $log.debug(res.status, ' ---> no mfrs returned');
       }

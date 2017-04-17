@@ -8,16 +8,18 @@ module.exports = {
   controllerAs: 'displayMfrCtrl',
   bindings: {
     brand: '<',
-    currentMfr: '='
+    currentMfr: '<',
+    showDisplayBike: '='
   }
 };
 
 function DisplayMfrController($log, mfrService){
-  $log.debug('DisplayMfrController');
+  $log.debug('DisplayMfrController =========', this.currentMfr);
 
 
-  this.setCurrentMfr = function() {
+  this.showMfrBikes = function() {
     this.currentMfr = this.brand;
+    this.showDisplayBike = true;
     $log.debug(this.currentMfr);
   };
 

@@ -1,14 +1,12 @@
 <section class="admin-content">
   <create-mfr></create-mfr>
-  <!-- <display-mfr mfrs="adminCtrl.mfrs"></display-mfr> -->
-  <!-- TODO: CHECK THAT THIS WORKS -->
+
+
   <div class="clearfix"></div>
   <h2>bike manufacturers</h2>
-  <display-mfr ng-repeat="mfr in adminCtrl.mfrs" brand="mfr" current-mfr="adminCtrl.currentMfr" ></display-mfr>
+  <display-mfr ng-repeat="mfr in adminCtrl.mfrs" show-display-bike="adminCtrl.showDisplayBike" brand="mfr" current-mfr="adminCtrl.currentMfr" ></display-mfr>
 
-<display-bike current-mfr="adminCtrl.currentMfr"></display-bike>
-  <!-- <create-bike></create-bike>
-  <display-bike></display-bike> -->
+<display-bike ng-if="adminCtrl.showDisplayBike" show-display-bike="adminCtrl.showDisplayBike" current-mfr="adminCtrl.currentMfr"></display-bike>
 
 <!-- TODO: plugin attr to the display-geo tag to maintain state/scope -->
   <create-geo></create-geo>

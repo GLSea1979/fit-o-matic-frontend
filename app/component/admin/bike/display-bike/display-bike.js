@@ -11,7 +11,7 @@ module.exports = {
 
 function DisplayBikeController($log, bikeService){
   $log.debug('DisplayBikeController', this.currentMfr);
-  this.bikes=[];
+  // this.bikes = [];
 
 
   this.displayBikes = function() {
@@ -23,6 +23,7 @@ function DisplayBikeController($log, bikeService){
     });
   };
 
-  //this.displayBikes();
-
+  this.$onInit = function() {
+    this.displayBikes();
+  };
 }
