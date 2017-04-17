@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = ['$log', '$q', '$http', 'authService', bikeService];$
+module.exports = ['$log', '$q', '$http', 'Upload', 'authService', bikeService];
 
-function bikeService($log, $q, $http, authService) {
+function bikeService($log, $q, $http, Upload, authService) {
   $log.debug('bikeService');
 
   let service = {};
@@ -90,31 +90,31 @@ function bikeService($log, $q, $http, authService) {
     })
   };
 
-  service.createBike = function(bikeData) {
-    $log.debug('bikeService.createBike');
-
-    return authService.getToken()
-    .then( token => {
-      let url = `${__API_URL__}/api/mfr/${mfrID}/bike`;
-      let config = {
-        headers: {
-          Accept: 'application/json',
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      };
-      return $http.post(url, bikeData, config);
-    })
-    .then( res => {
-      $log.debug('bike created!');
-
-      return service.bikes.unshift(res.data);
-    })
-    .catch( err => {
-      $log.error(err.message);
-      return $q.reject(err);
-    })
-  };
+  // service.createBike = function(mfrID, bikeData) {
+  //   $log.debug('bikeService.createBike');
+  //
+  //   return authService.getToken()
+  //   .then( token => {
+  //     let url = `${__API_URL__}/api/mfr/${mfrID}/bike`;
+  //     let config = {
+  //       headers: {
+  //         Accept: 'application/json',
+  //         Authorization: `Bearer ${token}`,
+  //         'Content-Type': 'application/json'
+  //       }
+  //     };
+  //     return $http.post(url, bikeData, config);
+  //   })
+  //   .then( res => {
+  //     $log.debug('bike created!----->!', res.data);
+  //
+  //     return service.bikes.unshift(res.data);
+  //   })
+  //   .catch( err => {
+  //     $log.error(err.message);
+  //     return $q.reject(err);
+  //   })
+  // };
 
   service.deleteBike = function(bikeID) {
     $log.debug('bikeService.deleteBike');
@@ -144,5 +144,44 @@ function bikeService($log, $q, $http, authService) {
       $log.error(err.message);
     });
   };
+
+  service.createBike = function(mfrID, bikeData){
+    $log.debug('bikeService.createBike', mfrID, bikeData);
+
+    return authService.getToken()
+    .then( token => {
+      let url = `${__API_URL__}/api/mfr/${mfrID}/bike`;
+      let headers = {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      };
+      return Upload.upload({
+        url,
+        headers,
+        method: 'POST',
+        data: {
+          image: bikeData.file,
+          bikeName: bikeData.bikeName,
+          category: bikeData.category,
+          url: bikeData.url,
+          price: bikeData.price,
+          modelYear: bikeData.modelYear
+        }
+      })
+      .then( res => {
+        return $q.resolve(res.data);
+      });
+
+    })
+    .catch( err => {
+      $log.error(err);
+    });
+  };
+
+
+
+
+
   return service;
 }

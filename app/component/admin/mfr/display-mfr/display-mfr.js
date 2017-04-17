@@ -7,7 +7,6 @@ module.exports = {
   controller: ['$log', 'mfrService', DisplayMfrController],
   controllerAs: 'displayMfrCtrl',
   bindings: {
-    mfrs: '<',
     brand: '<'
   }
 };
