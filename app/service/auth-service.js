@@ -59,6 +59,7 @@ function authService($q, $log, $http, $window) {
     $log.debug('authService.logout');
 
     $window.localStorage.removeItem('token');
+    $window.localStorage.removeItem('userID');
     token = null;
     return $q.resolve();
   };
@@ -77,6 +78,8 @@ function authService($q, $log, $http, $window) {
     return $http.get(url, config)
     .then( res => {
       $log.log('success', res.data);
+      $window.localStorage.setItem('userID', res.data.userId);
+      $window.localStorage.setItem('email', res.data.email);
       return setToken(res.data.token);
     })
     .catch( err => {
