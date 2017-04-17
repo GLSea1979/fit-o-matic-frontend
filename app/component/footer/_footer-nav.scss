@@ -18,7 +18,7 @@ footer{
       cursor: pointer;
       width: $socialIconSize;
       height: $socialIconSize;
-      background: url('/assets/sprite.png');
+      background: $sprites;
       background-size:cover;
       margin: $gutter-std/4 ;
       &.github{

@@ -1,0 +1,33 @@
+<section class="edit-bike-geo">
+	<form
+		name="editGeoForm"
+		class="geo-form"
+		ng-submit="editGeoCtrl.updateGeo()"
+	>
+	<fieldset>
+		<label for="size">size:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.bikeSizeName" name="size" placeholder="name">
+		<label for="topTube">top tube:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.topTubeLength" name="topTube" placeholder="top tube">
+		<label for="wheelSize">wheel size:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.wheelSize" name="wheelSize" placeholder="wheel size">
+		<label for="bbDrop">bb drop:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.bbDrop" name="bbDrop" placeholder="bb drop">
+		<label for="forkLength">fork length:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.forkLength" name="forkLength" placeholder="fork length">
+		<label for="forklength">forklength:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.forkLength" name="forkLength" placeholder="fork length">
+		<label for="headTubeLength">head tube length:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.headTubeLength" name="headTubeLength" placeholder="head tube length">
+		<label for="headTubeAngle">head tube angle:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.headTubeAngle" name="headTubeAngle" placeholder="head tube angle">
+		<label for="seatTubeAngle">seat tube angle:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.seatTubeAngle" name="seatTubeAngle" placeholder="seat tube angle">
+		<label for="stack">stack:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.stack" name="stack" placeholder="stack">
+		<label for="reach">reach:</label>
+		<input type="text" ng-model="editGeoCtrl.bike.reach" name="reach" placeholder="reach">
+	</fieldset>
+		<button class="btn-std" type="submit">update bike dimensions</button>
+	</form>
+</section>

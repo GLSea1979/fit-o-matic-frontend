@@ -14,7 +14,7 @@ function mfrService($log, $q, $http, authService) {
     // TODO: add fetch all route...
     return authService.getToken()
     .then( token => {
-      let url = `${__API_URL__}/api/mfr`;
+      let url = `${__API_URL__}/api/mfrs`;
       let config = {
         headers: {
           Accept: 'application/json',

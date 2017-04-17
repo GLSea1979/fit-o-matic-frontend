@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section class="create-bike">
   <h2>Add Bike</h2>
   <form >
@@ -12,4 +13,23 @@
 
 
 
+=======
+<section class="createNewBike">
+	<h2>Add Bike to {{createBikeCtrl.brand.name}}</h2>
+	<form
+		name="createBikeForm"
+		class="bike-form"
+		ng-submit="createMfrCtrl.createBike()"
+	>
+	<fieldset>
+		<input type="text" ng-model="createBikeCtrl.bike.bikeName" name="name" placeholder="name">
+		<input type="text" ng-model="createBikeCtrl.bike.category" name="category" placeholder="category">
+		<input type="text" ng-model="createBikeCtrl.bike.price" name="price" placeholder="price">
+		<input type="text" ng-model="createBikeCtrl.bike.modelYear" name="model year" placeholder="model year">
+		<input type="text" ng-model="createBikeCtrl.bike.photoURI" name="photo" placeholder="photo">
+
+	</fieldset>
+		<button class="btn-std" type="submit">create bike</button>
+	</form>
+>>>>>>> ab5c76fe8e6de20a1dcf5f01cb8e9eb8d439224b
 </section>
