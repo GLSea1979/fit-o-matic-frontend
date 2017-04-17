@@ -35,7 +35,33 @@ function bikeService($log, $q, $http, Upload, authService) {
       $log.error(err.message);
       return $q.reject(err);
     });
-  }
+  };
+
+  service.fetchMfrBikes = function(mfrID){
+    $log.debug('bikeService.fetchMfrBikes');
+
+    return authService.getToken()
+    .then( token => {
+      let url = `${__API_URL__}/api/bikes/${mfrID}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      return $http.get(url, config);
+    })
+    .then( res => {
+      $log.debug('Bikes are here', res.data);
+      service.bikes = res.data;
+      return service.bikes;
+    })
+    .catch( err => {
+      $log.errors(err.message);
+      return $q.reject(err);
+    });
+  };
 
   service.fetchBike = function(bikeID) {
     $log.debug('bikeService.fetchBike');

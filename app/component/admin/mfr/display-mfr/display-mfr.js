@@ -17,7 +17,7 @@ function DisplayMfrController($log, mfrService){
 
 
   this.setCurrentMfr = function() {
-    this.currentMfr = this.brand._id;
+    this.currentMfr = this.brand;
     $log.debug(this.currentMfr);
   };
 
