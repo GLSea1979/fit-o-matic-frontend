@@ -11,7 +11,7 @@ function AdminController($log, $rootScope, $location, mfrService) {
   this.setCurrentMfr = function(mfr){
     $log.debug('this is the index', this.mfrs[0]);
     this.currentMfr = mfr;
-    $log.debug(this.currentMfr)
+    $log.debug(this.currentMfr);
   };
 
   this.showDisplayBike = false;

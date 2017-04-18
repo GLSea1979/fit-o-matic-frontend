@@ -9,7 +9,8 @@ module.exports = {
   bindings: {
     brand: '<',
     currentMfr: '<',
-    showDisplayBike: '='
+    showDisplayBike: '=',
+    setCurrentMfr: '&'
   }
 };
 
@@ -18,12 +19,12 @@ function DisplayMfrController($log, mfrService){
 
 
   this.showMfrBikes = function() {
-    this.currentMfr = this.brand;
+    // this.currentMfr = this.brand;
+    this.setCurrentMfr(this.brand);
     this.showDisplayBike = true;
     $log.debug(this.currentMfr);
   };
 
-  this.test = 'test'
   this.showAddBike = false;
 
 }
