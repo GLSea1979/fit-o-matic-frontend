@@ -20,11 +20,9 @@ function DisplayMfrController($log, mfrService){
 
 
   this.showMfrBikes = function() {
-    // this.currentMfr = this.brand;
     this.setCurrentMfr(this.brand);
     this.fetchMfrBikes();
     this.showDisplayBike = true;
-    //$log.debug(this.currentMfr);
   };
 
   this.showAddBike = false;

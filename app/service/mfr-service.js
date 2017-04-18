@@ -26,7 +26,7 @@ function mfrService($log, $q, $http, authService) {
     })
     .then( res => {
       if(res.status === 204){
-          $log.debug(res.status, ' ---> no mfrs returned');
+          $log.debug(res.status);
       }
       service.mfrs = res.data;
       return service.mfrs;

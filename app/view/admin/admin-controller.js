@@ -2,9 +2,9 @@
 
 require('./_admin.scss');
 
-module.exports = ['$log', '$rootScope', '$location', 'mfrService', 'bikeService', AdminController];
+module.exports = ['$log', '$rootScope', '$location', 'mfrService', 'bikeService', 'geoService', AdminController];
 
-function AdminController($log, $rootScope, $location, mfrService, bikeService) {
+function AdminController($log, $rootScope, $location, mfrService, bikeService, geoService) {
   $log.debug('AdminController');
 
   this.mfrs = [];
@@ -29,14 +29,25 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService) {
     });
     console.log('AdminController.setCurrentMfr', this.bikes, this.currentMfr, '---------!!!!----------');
   };
-  // TODO: either delete this or make it make sense
-  // this.mfrDelete = function(mfr) {
-  //   if(this.currentMfr._id === mfr._id) {
-  //     this.currentMfr = null;
-  //   }
-  // };
 
   this.fetchAllMfrs();
+
+
+//geo stuff
+this.geos = [];
+
+this.fetchAllGeos = function(){
+  $log.debug('adminCtrl.fetchAllGeos');
+  geoService.fetchAllGeos()
+  .then( geos => {
+    $log.debug('geos attained!', geos)
+    this.geos = geos;
+  });
+};
+// this.fetchAllGeos();
+//geo stuff
+
+
 
   $rootScope.$on('locationChangeSuccess()', () => {
     this.fetchAllMfrs();
