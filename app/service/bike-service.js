@@ -196,6 +196,7 @@ function bikeService($log, $q, $http, Upload, authService) {
         }
       })
       .then( res => {
+        $log.debug('SO FAR SO GOOD', res.data);
         return $q.resolve(res.data);
       });
 
