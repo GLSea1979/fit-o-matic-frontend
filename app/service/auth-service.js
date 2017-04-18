@@ -47,6 +47,8 @@ function authService($q, $log, $http, $window) {
     return $http.post(url, user, config)
     .then( res => {
       $window.localStorage.setItem('userID', res.data.userId);
+      $window.localStorage.setItem('email', res.data.email);
+      console.log(res.data, '[[[[[[[[[[[[[[[[');
       return setToken(res.data.token);
     })
     .catch( err => {
