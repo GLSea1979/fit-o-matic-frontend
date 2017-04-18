@@ -15,4 +15,6 @@ function EditBikeController($log, bikeService) {
   $log.debug('EditBikeController');
 
   this.showEdit = false;
+
+  //this.currentBike= currentBike;
 }

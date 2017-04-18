@@ -2,30 +2,30 @@
 
   <div class="image">
   <img
-      ng-src="{{ editBikeCtrl.bike.photoURI }}"
-      alt="bike photo {{ editBikeCtrl.bike.name }}">
+      ng-src="{{ editBikeCtrl.currentBike.photoURI }}"
+      alt="bike photo {{ editBikeCtrl.currentBike.name }}">
       <bike-img bike="editBikeCtrl.bike"></bike-img>
   </div>
   <div class="info">
     <h2>bike </h2>
     <ul ng-if="!editBikeCtrl.showEdit">
       <li>
-        <span>name:</span>{{ editBikeCtrl.bike.bikeName }}
-        <span class="unset" ng-if="!editBikeCtrl.bike.bikeName">not set</span>
+        <span>name:</span>{{ editBikeCtrl.currentBike.bikeName }}
+        <span class="unset" ng-if="!editBikeCtrl.currentBike.bikeName">not set</span>
       </li>
-      <li><span>category</span>{{ editBikeCtrl.bike.category }}</li>
+      <li><span>category</span>{{ editBikeCtrl.currentBike.category }}</li>
 
       <li >
-        <span>url:</span>{{ editBikeCtrl.bike.url }}
-        <span class="unset" ng-if="!editBikeCtrl.bike.url">not set</span>
+        <span>url:</span>{{ editBikeCtrl.currentBike.url }}
+        <span class="unset" ng-if="!editBikeCtrl.currentBike.url">not set</span>
       </li>
       <li>
-        <span>price:</span>{{ editBikeCtrl.bike.price }}
-        <span class="unset" ng-if="!editBikeCtrl.bike.price">not set</span>
+        <span>price:</span>{{ editBikeCtrl.currentBike.price }}
+        <span class="unset" ng-if="!editBikeCtrl.currentBike.price">not set</span>
       </li>
       <li>
-        <span>model year:</span>{{ editBikeCtrl.bike.modelYear }}
-        <span class="unset" ng-if="!editBikeCtrl.bike.modelYear">not set</span>
+        <span>model year:</span>{{ editBikeCtrl.currentBike.modelYear }}
+        <span class="unset" ng-if="!editBikeCtrl.currentBike.modelYear">not set</span>
       </li>
       <li>
         <button class="btn-std"
@@ -54,4 +54,6 @@
       </ul>
     </form>
   </div>
+  edit bike: {{editBikeCtrl.currentBike}}
+  <div class="clearfix"></div>
 </section>

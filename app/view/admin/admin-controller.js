@@ -13,7 +13,14 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
     this.currentMfr = mfr;
   };
 
-  this.currentBike = null;
+  this.currentBike = bikeService.currentBike;
+
+  this.setCurrentBike = function(bike){
+    $log.debug('AdminController.setCurrentBike', bike);
+
+    this.currentBike = bike;
+    console.log('--------------------',this.currentBike);
+  };
 
   this.showDisplayBike = false;
 
