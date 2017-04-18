@@ -5,14 +5,24 @@
 
   <div class="clearfix"></div>
   <h2>bike manufacturers</h2>
-  <display-mfr ng-repeat="mfr in adminCtrl.mfrs" show-display-bike="adminCtrl.showDisplayBike" set-current-mfr="adminCtrl.setCurrentMfr(mfr)" brand="mfr" current-mfr="adminCtrl.currentMfr"></display-mfr>
+  <display-mfr ng-repeat="mfr in adminCtrl.mfrs"
+  show-display-bike="adminCtrl.showDisplayBike"
+  set-current-mfr="adminCtrl.setCurrentMfr(mfr)"
+  fetch-mfr-bikes="adminCtrl.fetchMfrBikes()"
+  brand="mfr" current-mfr="adminCtrl.currentMfr"
+  ></display-mfr>
+
+  <display-bike ng-if="adminCtrl.showDisplayBike" show-display-bike="adminCtrl.showDisplayBike" current-mfr="adminCtrl.currentMfr"
+    bikes="adminCtrl.bikes"
+  ></display-bike>
+
 
   <delete-mfr></delete-mfr>
 
-  <display-bike ng-if="adminCtrl.showDisplayBike" show-display-bike="adminCtrl.showDisplayBike" current-mfr="adminCtrl.currentMfr"></display-bike>
+
 
 
 <!-- TODO: plugin attr to the display-geo tag to maintain state/scope -->
-  <create-geo></create-geo>
-  <display-geo></display-geo>
+<!--   <create-geo></create-geo>
+  <display-geo></display-geo> -->
 </section>
