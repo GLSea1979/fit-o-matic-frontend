@@ -6,7 +6,8 @@ module.exports = {
   controllerAs: 'displayBikeCtrl',
   bindings: {
     currentMfr: '<',
-    bikes: '<'
+    bikes: '<',
+    setCurrentBike: '&',
   }
 };
 
@@ -22,6 +23,14 @@ function DisplayBikeController($log, bikeService){
     .then( bikes => {
       this.bikes = bikes;
     });
+  };
+
+  this.changeBike = function(bike){
+    $log.debug('displayBikeCtrl.changeBike',bike);
+
+
+    this.setCurrentBike({newBike:bike});
+    //bikeService.currentBike = bike;
   };
 
 

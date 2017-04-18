@@ -7,6 +7,7 @@ function bikeService($log, $q, $http, Upload, authService) {
 
   let service = {};
   service.bike = [];
+  service.currentBike = null;
 
   service.fetchAllBikes = function() {
     $log.debug('bikeService.fetchAllBikes');

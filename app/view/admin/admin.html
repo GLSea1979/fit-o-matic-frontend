@@ -13,8 +13,14 @@
   ></display-mfr>
 
   <edit-bike current-bike="adminCtrl.currentBike"></edit-bike>
-  <display-bike ng-if="adminCtrl.showDisplayBike" show-display-bike="adminCtrl.showDisplayBike" current-mfr="adminCtrl.currentMfr"
-  bikes="adminCtrl.bikes"
+
+  <display-bike
+    ng-if="adminCtrl.showDisplayBike"
+    show-display-bike="adminCtrl.showDisplayBike"
+    current-mfr="adminCtrl.currentMfr"
+    bikes="adminCtrl.bikes"
+    current-bike="adminCtrl.currentBike"
+    set-current-bike="adminCtrl.setCurrentBike(newBike)"
   ></display-bike>
 
   <!-- <delete-mfr></delete-mfr> -->
