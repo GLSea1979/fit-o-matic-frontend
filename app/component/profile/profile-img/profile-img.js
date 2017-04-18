@@ -12,15 +12,9 @@ module.exports = {
 function ProfileImgController($log, imgService){
   $log.debug('ProfileImgController');
 
-//todo pull profile and image info into object to pass
-
 
   this.uploadImg = function(){
-    imgService.uploadImg(this.profile, this.img)
-  .then( res => {
-        $log.debug('--------',res)
-    this.profile.imageURI = res.data.imageURI;
-  });
+    imgService.uploadImg(this.profile, this.img);
   };
 }
 
