@@ -5,13 +5,14 @@ module.exports = {
   controller: ['$log', 'bikeService', DisplayBikeController],
   controllerAs: 'displayBikeCtrl',
   bindings: {
-    currentMfr: '<'
+    currentMfr: '<',
+    bikes: '<'
   }
 };
 
 function DisplayBikeController($log, bikeService){
-  $log.debug('DisplayBikeController', this.currentMfr);
-  // this.bikes = [];
+  $log.debug('DisplayBikeController', this.bikes);
+  //this.bikes = [];
 
 
   this.displayBikes = function() {
@@ -23,7 +24,5 @@ function DisplayBikeController($log, bikeService){
     });
   };
 
-  this.$onInit = function() {
-    this.displayBikes();
-  };
+
 }

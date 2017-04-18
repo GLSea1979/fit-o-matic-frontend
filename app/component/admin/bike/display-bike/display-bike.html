@@ -4,11 +4,10 @@
 	<display-geo></display-geo>
 </section> -->
 
-
 <section class="disp-bike">
-{{displayBikeCtrl}}<button ng-click="displayBikeCtrl.displayBikes()">click me</button>
-  <ul>
-    <li ng-repeat="bike in displayBikeCtrl.bikes"
+ <ul class="results-table">
+       <li ng-repeat="bike in displayBikeCtrl.bikes"
+       ng-class-odd="'odd'" ng-class-even="'even'"
     >
       <span>{{ bike.bikeName }}</span>
     </li>

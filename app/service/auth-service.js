@@ -42,8 +42,6 @@ function authService($q, $log, $http, $window) {
         'Accept': 'application/json'
       }
     };
-
-
     return $http.post(url, user, config)
     .then( res => {
       $window.localStorage.setItem('userID', res.data.userId);

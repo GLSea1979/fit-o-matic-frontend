@@ -10,19 +10,21 @@ module.exports = {
     brand: '<',
     currentMfr: '<',
     showDisplayBike: '=',
-    setCurrentMfr: '&'
+    setCurrentMfr: '&',
+    fetchMfrBikes: '&'
   }
 };
 
 function DisplayMfrController($log, mfrService){
-  $log.debug('DisplayMfrController =========', this.currentMfr);
+  $log.debug('DisplayMfrController');
 
 
   this.showMfrBikes = function() {
     // this.currentMfr = this.brand;
     this.setCurrentMfr(this.brand);
+    this.fetchMfrBikes();
     this.showDisplayBike = true;
-    $log.debug(this.currentMfr);
+    //$log.debug(this.currentMfr);
   };
 
   this.showAddBike = false;
