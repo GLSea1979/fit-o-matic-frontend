@@ -13,6 +13,8 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
     this.currentMfr = mfr;
   };
 
+  this.currentBike = null;
+
   this.showDisplayBike = false;
 
   this.fetchAllMfrs = function() {

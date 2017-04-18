@@ -1,0 +1,57 @@
+<section class="edit-bike-model">
+
+  <div class="image">
+  <img
+      ng-src="{{ editBikeCtrl.bike.photoURI }}"
+      alt="bike photo {{ editBikeCtrl.bike.name }}">
+      <bike-img bike="editBikeCtrl.bike"></bike-img>
+  </div>
+  <div class="info">
+    <h2>bike </h2>
+    <ul ng-if="!editBikeCtrl.showEdit">
+      <li>
+        <span>name:</span>{{ editBikeCtrl.bike.bikeName }}
+        <span class="unset" ng-if="!editBikeCtrl.bike.bikeName">not set</span>
+      </li>
+      <li><span>category</span>{{ editBikeCtrl.bike.category }}</li>
+
+      <li >
+        <span>url:</span>{{ editBikeCtrl.bike.url }}
+        <span class="unset" ng-if="!editBikeCtrl.bike.url">not set</span>
+      </li>
+      <li>
+        <span>price:</span>{{ editBikeCtrl.bike.price }}
+        <span class="unset" ng-if="!editBikeCtrl.bike.price">not set</span>
+      </li>
+      <li>
+        <span>model year:</span>{{ editBikeCtrl.bike.modelYear }}
+        <span class="unset" ng-if="!editBikeCtrl.bike.modelYear">not set</span>
+      </li>
+      <li>
+        <button class="btn-std"
+        ng-click="editBikeCtrl.showEdit=!editBikeCtrl.showEdit">
+        edit
+        </button>
+      </li>
+    </ul>
+
+
+    <form ng-if="editBikeCtrl.showEdit"
+    ng-submit="editBikeCtrl.updateBike()">
+      <ul >
+        <li><input name="bikeName" ng-model="editBikeCtrl.currentBike.bikeName"
+              placeholder="model name"></li>
+        <li> {{ editBikeCtrl.currentBike.email }} </li>
+        <li> <input ng-model="editBikeCtrl.currentBike.category" placeholder="category"> </li>
+        <li> <input ng-model="editBikeCtrl.currentBike.url" placeholder="url"> </li>
+        <li> <input ng-model="editBikeCtrl.currentBike.price" type="number" placeholder="price"> </li>
+        <li> <input ng-model="editBikeCtrl.currentBike.modelYear" type="number" placeholder="modelYear"> </li>
+        <li>
+          <button class="btn-std" type="submit">
+          update
+          </button>
+        </li>
+      </ul>
+    </form>
+  </div>
+</section>
