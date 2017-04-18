@@ -18,8 +18,8 @@ function CreateGeoController($log, geoService){
 
 	this.createGeo = function(){
 		$log.debug('createGeoCtrl.createGeo()');
-
-		geoService.createGeo()
+    $log.debug('geo here------>', this.geo);
+		geoService.createGeo(this.geo)
 		.then( geo => {
 			this.geo.bikeSizeName = null;
 			this.geo.wheelSize = null;

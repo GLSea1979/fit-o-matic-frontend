@@ -13,16 +13,10 @@
   ></display-mfr>
 
   <display-bike ng-if="adminCtrl.showDisplayBike" show-display-bike="adminCtrl.showDisplayBike" current-mfr="adminCtrl.currentMfr"
-    bikes="adminCtrl.bikes"
+  bikes="adminCtrl.bikes"
   ></display-bike>
 
-
   <delete-mfr></delete-mfr>
-
-
-
-
-<!-- TODO: plugin attr to the display-geo tag to maintain state/scope -->
-<!--   <create-geo></create-geo>
-  <display-geo></display-geo> -->
+  <create-geo></create-geo>
+  <display-geo fetch-all-geos="adminCtrl.fetchAllGeos()" geos="adminCtrl.geos"></display-geo>
 </section>

@@ -5,11 +5,16 @@ module.exports = {
 	controller: ['$log', 'geoService', DisplayGeoController],
 	controllerAs: 'displayGeoCtrl',
 	bindings: {
-		brand: '<'
+		fetchAllGeos: '&',
+		geos: '<'
 	}
 };
 
 function DisplayGeoController($log, geoService){
 	$log.debug('DisplayGeoController');
 
+	// this.displayGeos = function(){
+	// 	$log.debug(this);
+	// 	this.fetchAllGeos();
+	// }
 };
