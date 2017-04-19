@@ -1,4 +1,4 @@
-  <div class="bike-modal">
+  <div class="bike-modal" ng-if="detailModalCtrl.resolve.modalData.bike">
     <img ng-src="{{ detailModalCtrl.resolve.modalData.photoURI }}"
     alt="{{ detailModalCtrl.resolve.modalData.desc }}"
     >
@@ -9,4 +9,28 @@
       <li>url: {{  detailModalCtrl.resolve.modalData.url }}</li>
       <li>Price: {{  detailModalCtrl.resolve.modalData.price }}</li>
     </ul>
+  </div>
+
+  <div class="bike-modal" ng-if="detailModalCtrl.resolve.modalData.geo">
+    <img ng-src="{{ detailModalCtrl.resolve.modalData.bikeID[0].photoURI }}"
+    alt="{{ detailModalCtrl.resolve.modalData.bikeID[0].bikeName }}"
+    >
+    <ul>
+      <li><a href="{{detailModalCtrl.resolve.modalData.bikeID[0].mfrID.website}}">Brand: {{ detailModalCtrl.resolve.modalData.bikeID[0].mfrID.name}}</a></li>
+      <li>Size: {{ detailModalCtrl.resolve.modalData.bikeSizeName}}</li>
+      <li>Category: {{  detailModalCtrl.resolve.modalData.bikeID[0].category }}</li>
+     </ul>
+    <ul>
+      <li>Wheel Size: {{ detailModalCtrl.resolve.modalData.wheelSize }}</li>
+       <li>BB Drop: {{ detailModalCtrl.resolve.modalData.bbDrop }}</li>
+       <li>Fork Length: {{ detailModalCtrl.resolve.modalData.forkLength }}</li>
+       <li>Fork Offset: {{ detailModalCtrl.resolve.modalData.forkOffset }}</li>
+       <li>Top Tube Length: {{ detailModalCtrl.resolve.modalData.topTubeLength }}</li>
+       <li>headTubeLength: {{ detailModalCtrl.resolve.modalData.headTubeLength }}</li>
+       <li>Head Tube Angle: {{ detailModalCtrl.resolve.modalData.headTubeAngle }}</li>
+       <li>Seat Tube Angle: {{ detailModalCtrl.resolve.modalData.seatTubeAngle }}</li>
+       <li>Stack: {{ detailModalCtrl.resolve.modalData.stack }}</li>
+       <li>Reach: {{ detailModalCtrl.resolve.modalData.reach }}</li>
+     </ul>
+
   </div>
