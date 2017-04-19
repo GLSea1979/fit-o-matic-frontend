@@ -15,6 +15,7 @@ function EditBikeController($log, bikeService) {
   $log.debug('EditBikeController');
 
   this.showEdit = false;
+  this.showIntegrateGeo = false;
 
   this.updateBike = function(){
     $log.debug('editBikeCtrl.updateBike');

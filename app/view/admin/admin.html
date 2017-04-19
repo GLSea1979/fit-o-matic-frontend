@@ -1,4 +1,51 @@
 <section class="admin-content">
+
+
+<uib-tabset active="activeForm">
+
+  <uib-tab index="0" heading="All Bike Manufacturers">
+    <h2>bike manufacturers</h2>
+    <display-mfr ng-repeat="mfr in adminCtrl.mfrs"
+    show-display-bike="adminCtrl.showDisplayBike"
+    set-current-mfr="adminCtrl.setCurrentMfr(mfr)"
+    fetch-mfr-bikes="adminCtrl.fetchMfrBikes()"
+    brand="mfr" current-mfr="adminCtrl.currentMfr"
+    ></display-mfr>
+
+    <div class="clearfix"></div>
+     <display-bike
+       ng-if="adminCtrl.showDisplayBike"
+       show-display-bike="adminCtrl.showDisplayBike"
+       current-mfr="adminCtrl.currentMfr"
+       bikes="adminCtrl.bikes"
+       current-bike="adminCtrl.currentBike"
+       set-current-bike="adminCtrl.setCurrentBike(newBike)"
+     ></display-bike>
+
+  </uib-tab>
+
+  <uib-tab index="1" heading="Create a manufacturer">
+    <create-mfr></create-mfr>
+  </uib-tab>
+
+  <uib-tab index="2" heading="Delete a manufacturer">
+    <delete-mfr></delete-mfr>
+  </uib-tab>
+  <uib-tab index="3" heading="Input a new bike geometry">
+    <create-geo></create-geo>
+    <display-geo fetch-all-geos="adminCtrl.fetchAllGeos()" geos="adminCtrl.geos"></display-geo>
+  </uib-tab>
+
+</uib-tabset>
+
+</section>
+
+
+
+
+
+
+<!-- <section class="admin-content">
   <create-mfr></create-mfr>
 
   <p>{{adminCtrl.currentMfr}}</p>
@@ -26,4 +73,4 @@
   <delete-mfr></delete-mfr>
   <create-geo></create-geo>
   <display-geo fetch-all-geos="adminCtrl.fetchAllGeos()" geos="adminCtrl.geos"></display-geo>
-</section>
+</section> -->
