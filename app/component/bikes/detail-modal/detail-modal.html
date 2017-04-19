@@ -1,5 +1,12 @@
-  <div class="thumbnail-modal"><img  ng-src="{{ thumbnailModalCtrl.resolve.modalData.imageURI }}"
-    alt="{{ thumbnailModalCtrl.resolve.modalData.desc }}"
+  <div class="bike-modal">
+    <img ng-src="{{ detailModalCtrl.resolve.modalData.photoURI }}"
+    alt="{{ detailModalCtrl.resolve.modalData.desc }}"
     >
-    <span>name:{{ thumbnailModalCtrl.resolve.modalData.name}}</span><span>description: {{  thumbnailModalCtrl.resolve.modalData.desc }}</span>
-</div>
+    <ul>
+      <li><a href="{{detailModalCtrl.resolve.mfrID.website}}">Brand: {{ detailModalCtrl.resolve.modalData.mfrID.name}}</a></li>
+      <li>Name: {{ detailModalCtrl.resolve.modalData.bikeName}}</li>
+      <li>Category: {{  detailModalCtrl.resolve.modalData.category }}</li>
+      <li>url: {{  detailModalCtrl.resolve.modalData.url }}</li>
+      <li>Price: {{  detailModalCtrl.resolve.modalData.price }}</li>
+    </ul>
+  </div>
