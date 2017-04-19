@@ -6,7 +6,7 @@ module.exports = {
   template: require('./display-matched-bikes.html'),
   controller: ['$log', 'geoService', 'profileService', 'bikeService', DisplayMatchedBikesController],
   controllerAs: 'displayMatchedBikesCtrl'
-}
+};
 
 function DisplayMatchedBikesController($log, geoService, profileService, bikeService) {
   $log.debug('DisplayMatchedBikesController');
@@ -32,4 +32,6 @@ function DisplayMatchedBikesController($log, geoService, profileService, bikeSer
       this.geos = res.geo;
     });
   };
+
+  this.fetchProfile();
 }

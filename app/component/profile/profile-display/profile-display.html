@@ -40,9 +40,15 @@
               placeholder="full name"></li>
         <li> {{ profileDisplayCtrl.profile.email }} </li>
         <li> <input ng-model="profileDisplayCtrl.profile.gender" placeholder="gender"> </li>
-        <li> <input ng-model="profileDisplayCtrl.profile.height" placeholder="height"> </li>
-        <li> <input ng-model="profileDisplayCtrl.profile.inseam" placeholder="inseam"> </li>
+        <li> <input ng-model="profileDisplayCtrl.profile.height" placeholder="height" type="number"> </li>
+        <li> <input ng-model="profileDisplayCtrl.profile.inseam" placeholder="inseam" type="number"> </li>
         <li>
+          <span
+            class="btn-std"
+              ng-model="profileDisplayCtrl.units"
+              ng-click="profileDisplayCtrl.switchUnits()">
+              {{ profileDisplayCtrl.units }}
+              </span>
           <button class="btn-std" type="submit">
           update
           </button>

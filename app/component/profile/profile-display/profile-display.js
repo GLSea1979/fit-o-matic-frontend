@@ -4,14 +4,21 @@ require('./_profile-display.scss');
 
 module.exports = {
   template: require('./profile-display.html'),
-  controller: ['$log', '$window', 'profileService', ProfileDisplayController],
+  controller: ['$log', '$window', 'profileService', 'geoService', ProfileDisplayController],
   controllerAs: 'profileDisplayCtrl'
 };
 
-function ProfileDisplayController($log, $window, profileService){
+function ProfileDisplayController($log, $window, profileService, geoService){
   $log.debug('ProfileDisplayController');
 
   this.showEdit = false;
+
+  geoService.metric ? this.units='centimeters' : this.units = 'inches';
+
+  this.switchUnits = function() {
+    geoService.metric = !geoService.metric;
+    geoService.metric ? this.units='centimeters' : this.units = 'inches';
+  };
 
   this.fetchProfile = function(){
     profileService.fetchProfile()

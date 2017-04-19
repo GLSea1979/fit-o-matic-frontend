@@ -7,6 +7,7 @@ function geoService($log, $q, $http, authService){
 
   let service = {};
 
+  service.metric = true;
 
   service.addBikeId = function(bikeId, geoData){
     $log.debug('geoService.addBikeId');
@@ -64,6 +65,11 @@ function geoService($log, $q, $http, authService){
 
   service.fetchGeo = function(height, inseam){
     $log.debug('geoService.fetchGeo()');
+
+    if(!service.metric){
+      height *= 2.54;
+      inseam *= 2.54;
+    }
 
     return authService.getToken()
 		.then( token => {
