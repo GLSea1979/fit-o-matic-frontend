@@ -36,6 +36,13 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       template: require('../view/bikes/bikes.html'),
       controller: 'BikesController',
       controllerAs: 'bikesCtrl'
+    },
+    {
+      name: 'about',
+      url: '/about',
+      template: require('../view/about/about.html'),
+      controller: 'AboutController',
+      controllerAs: 'aboutCtrl'
     }
   ];
 

@@ -21,9 +21,11 @@ context.keys().forEach( key => {
 });
 
 context = require.context('./view/', true, /\.js$/);
+
 context.keys().forEach( key => {
   let name = pascalcase(path.basename(key, '.js'));
   let module = context(key);
+  // console.log(name, module);
   fitomatic.controller(name, module);
 });
 

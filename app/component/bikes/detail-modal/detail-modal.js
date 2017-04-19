@@ -13,5 +13,4 @@ module.exports = {
 
 function DetailModalController($log){
   $log.debug('DetailModalController');
-
 }
