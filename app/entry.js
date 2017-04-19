@@ -39,7 +39,6 @@ context.keys().forEach( key => {
   let name = camelcase(path.basename(key, '.js'));
   let module = context(key);
   fitomatic.component(name, module);
-  console.log(name, key, module);
 });
 
 context = require.context('./filter/', true, /\.js$/);

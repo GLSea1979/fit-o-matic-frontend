@@ -1,0 +1,24 @@
+<section class="signin-form">
+  <form
+    name="signinForm"
+    ng-submit="signinCtrl.signin()" novalidate>
+    <div>
+      <h3>sign in</h3>
+      <input type="text"
+        name="username"
+        placeholder="username"
+        class="input-std"
+        ng-model="signinCtrl.user.username" required>
+    </div>
+
+    <div>
+      <input type="password" name="password"
+        ng-disabled="signinForm.username.$invalid"
+        placeholder="password"
+        class="input-std"
+        ng-model="signinCtrl.user.password" required>
+    </div>
+
+    <button class="btn-std">sign in</button>
+  </form>
+</section>

@@ -9,24 +9,24 @@ function routeService($log){
     routes: [
       {
         name: 'home',
-        url: '/home',
+        url: '/#!/home',
         admin: false
       },
       {
         name: 'bikes',
-        url: '/bikes',
+        url: '/#!/bikes',
         admin: false
 
       },
       {
         name: 'profile',
-        url: '/profile',
+        url: '/#!/profile',
         admin: false
 
       },
       {
         name: 'admin',
-        url: '/admin',
+        url: '/#!/admin',
         admin: true
 
       }

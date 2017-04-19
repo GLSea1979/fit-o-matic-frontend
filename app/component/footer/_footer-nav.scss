@@ -18,7 +18,7 @@ footer{
       cursor: pointer;
       width: $socialIconSize;
       height: $socialIconSize;
-      background: url('/assets/sprite.png');
+      background: $sprites;
       background-size:cover;
       margin: $gutter-std/4 ;
       &.github{
@@ -39,9 +39,14 @@ footer{
 @media #{$large-mobile} {
 
   nav.social-icon{
-    li{
-      // min-width: 44px;
-      // min-height: 44px;
+    ul{
+      li{
+        min-width: 44px;
+        min-height: 44px;
+       &.about{
+          background-position-x: 44px;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,15 @@
+<!-- <section class="display-bike">
+
+	<create-geo brand="displayBikeCtrl.brand"></create-geo>
+	<display-geo></display-geo>
+</section> -->
+<section class="disp-bike">
+ <ul class="results-table">
+       <li ng-repeat="bike in displayBikeCtrl.bikes"
+       ng-class-odd="'odd'" ng-class-even="'even'"
+       ng-click="displayBikeCtrl.changeBike(bike)"
+    >
+      <span>{{ bike.bikeName }}</span>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,16 @@
+<section class="create-mfr">
+	<h2>Add Bike Manufacturer</h2>
+	<form
+		name="createMfrForm"
+		class="mfr-form"
+		ng-submit="createMfrCtrl.createMfr()"
+	>
+	<fieldset>
+		<label for="name">name:</label>
+		<input type="text" ng-model="createMfrCtrl.mfr.name" name="name" placeholder="name" required>
+		<label for="website">website:</label>
+		<input type="text" ng-model="createMfrCtrl.mfr.website" name="website" placeholder="website" required>
+	</fieldset>
+		<button class="btn-std" type="submit">create manufacturer</button>
+	</form>
+</section>

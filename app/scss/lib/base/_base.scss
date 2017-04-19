@@ -11,6 +11,12 @@ body {
   display: flex;
   flex-direction: column;
 
+
+  h2{
+    font-size: 5vw;
+    font-weight: bold;
+  }
+
   a {
     text-decoration: none;
     &:hover{
@@ -20,10 +26,25 @@ body {
   .clearfix{
     clear: both;
   }
-  main {
-    margin:$gutter-std;
-    flex:1;
 
+
+  input{
+    width: 100%;
+    box-sizing:border-box;
+    border: 1px solid $btn-secondary;
+    margin: $gutter-std 0;
+    //font-size: $secondaryTextSize;
+    padding:1%;
+    @include rounded(3px);
+  }
+  .btn-std{
+    @extend input;
+    width: unset;
+    padding: 1% $gutter-std*2.5;
+    background-color: $btn-primary;
+    color: $white;
+    font-weight: 300;
+    float:right;
   }
 
   @include transition(300ms all);

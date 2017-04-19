@@ -1,0 +1,10 @@
+<section class="display-geometry">
+	<ul class="results-table">
+		<li ng-repeat="geo in displayGeoCtrl.geos"
+			ng-class-odd="'odd'" ng-class-even="'even'"
+		>{{geo.bikeSizeName}}</li>
+	</ul>
+	<button ng-click="displayGeoCtrl.fetchAllGeos()">get all the geos</button>
+</section>
+
+{{displayGeoCtrl}}
