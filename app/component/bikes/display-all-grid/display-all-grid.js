@@ -26,6 +26,7 @@ function DisplayAllGridController($log, profileService, geoService, bikeService,
   this.getDetail = function(obj){
     $log.debug('displayAllGridCtrl.getDetail()');
     $log.debug(obj, '<-----de obj');
+    obj.bike = true;
     this.open = () => {
       $uibModal.open({
         animation: this.animationsEnabled,

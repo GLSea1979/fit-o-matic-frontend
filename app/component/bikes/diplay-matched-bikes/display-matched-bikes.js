@@ -4,11 +4,11 @@ require('./_display-matched-bikes.scss');
 
 module.exports = {
   template: require('./display-matched-bikes.html'),
-  controller: ['$log', 'geoService', 'profileService', 'bikeService', DisplayMatchedBikesController],
+  controller: ['$log', '$uibModal', 'geoService', 'profileService', 'bikeService', DisplayMatchedBikesController],
   controllerAs: 'displayMatchedBikesCtrl'
 };
 
-function DisplayMatchedBikesController($log, geoService, profileService, bikeService) {
+function DisplayMatchedBikesController($log, $uibModal, geoService, profileService, bikeService) {
   $log.debug('DisplayMatchedBikesController');
 
   this.hasMeasure = false;
@@ -32,6 +32,23 @@ function DisplayMatchedBikesController($log, geoService, profileService, bikeSer
       this.geos = res.geo;
     });
   };
+
+  this.getDetail = function(obj){
+    $log.debug('displayAllGridCtrl.getDetail()');
+    $log.debug(obj, '<-----de obj');
+    obj.geo = true;
+    this.open = () => {
+      $uibModal.open({
+        animation: this.animationsEnabled,
+        component: 'detailModal',
+        size: 'lg',
+        resolve: {
+          modalData: obj
+        }
+    }).result.then(()=>{}).catch( () => $log.log('closed'));
+    };
+    this.open();
+  }
 
   this.fetchProfile();
 }
