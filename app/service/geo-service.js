@@ -7,6 +7,36 @@ function geoService($log, $q, $http, authService){
 
   let service = {};
 
+
+  service.addBikeId = function(bikeId, geoData){
+    $log.debug('geoService.addBikeId');
+
+    geoData.bikeID.push(bikeId);
+    return authService.getToken()
+    .then( token => {
+      let url = `${__API_URL__}/api/geo/${geoData._id}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+      return $http.put(url, geoData, config);
+    })
+    .then( res => {
+      return res.data;
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+
+  }
+
+
+
+
 	service.createGeo = function(geoSpecs){
 		$log.debug('geoService.createGeo()');
 		//todo: be sure to pass in a bikeID from controller
