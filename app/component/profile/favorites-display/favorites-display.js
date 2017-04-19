@@ -15,10 +15,10 @@ function FavoritesDisplayController($log, profileService){
   $log.debug('FavoritesDisplayController');
 
   this.fetchFavorites = function(){
-    profileService.fetchProfile(this.profile._id)
+    profileService.fetchFavorites(this.profile._id)
     .then( res => {
       $log.debug('favoritesDisplayCtrl.fetchFavorites', res);
-
+      this.favorites = res.data;
       //TODO parse out and return geoID array
     });
   };
@@ -41,4 +41,7 @@ function FavoritesDisplayController($log, profileService){
     });
   };
 
+  this.$onChanges = function() {
+    if(this.profile) this.fetchFavorites();
+  };
 }
