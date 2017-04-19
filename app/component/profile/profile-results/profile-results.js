@@ -30,7 +30,7 @@ function ProfileResultsController($log, profileService, geoService){
     $log.debug('profileResultsCtrl.addFavorite');
     this.profile.geoID.push(geo);
 
-    profileService.updateProfile(this.profile._id, this.profile)
+    profileService.updateFavorites(this.profile)
     .then( res => {
       this.profile = res.data;
     });

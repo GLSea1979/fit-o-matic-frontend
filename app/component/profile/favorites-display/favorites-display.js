@@ -23,14 +23,22 @@ function FavoritesDisplayController($log, profileService){
     });
   };
 
-  this.addFavorites = function(geoID){
-
-    this.profile.getID.push(geoID);
-    profileService.updateProfile(this.profile._id, this.profile)
+  this.updateFavorites = function(geoID){
+    $log.debug('FavoritesDisplayController.updateFavorites');
+    this.profile.geoID.push(geoID);
+    profileService.updateFavorites(this.profile)
     .then( res => {
-      $log.debug(res);
+      $log.debug('updated',res);
     });
 
+  };
+
+  this.deleteFavorites = function(){
+    this.profile.geoID = [];
+    profileService.updateFavorites(this.profile)
+    .then( res => {
+      $log.debug('udate',res);
+    });
   };
 
 }
