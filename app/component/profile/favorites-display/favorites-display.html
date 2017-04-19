@@ -1,0 +1,13 @@
+<section class="favorites-profile">
+<h2>Favorites</h2>
+  <ul class="display-table">
+    <li ng-repeat="favorite in favoritesDisplayCtrl.geoID">
+      <img ng-src="{{favorite.bikeID[0].photoURI}}">
+      <h3>{{ favorite.bikeSizeName </h3>
+      <button class="btn-std info" ng-click="favoritesDisplayCtrl.showDetail()">details</button>
+      <button class="btn-std delete" ng-click="favoritesDisplayCtrl.removeFavorite()">remove</button>
+
+      <div class="clearfix"></div>
+    </li>
+  </ul>
+</section>
