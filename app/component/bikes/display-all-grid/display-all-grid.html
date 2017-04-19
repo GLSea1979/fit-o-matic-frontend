@@ -1,0 +1,13 @@
+<section class="display-all-grid">
+  <div class="item-block col-md-3"
+    ng-repeat="bike in displayAllGridCtrl.bikes">
+
+   <img ng-src="{{ bike.photoURI }}">
+   <h3>{{ bike.bikeName }}</h3>
+
+   <button class="btn-std detail"
+   ng-click="displayAllGridCtrl.getDetail()">detail</button>
+
+ </div>
+
+</section>
