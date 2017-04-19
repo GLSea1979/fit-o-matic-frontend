@@ -4,7 +4,7 @@ require('./_profile-results.scss');
 
 module.exports = {
   template: require('./profile-results.html'),
-  controller: ['$log', 'profileService', 'geoService', ProfileResultsController],
+  controller: ['$log', '$uibModal', 'profileService', 'geoService', ProfileResultsController],
   controllerAs: 'profileResultsCtrl',
   bindings: {
     profile: '=',
@@ -12,7 +12,7 @@ module.exports = {
   }
 };
 
-function ProfileResultsController($log, profileService, geoService){
+function ProfileResultsController($log, $uibModal, profileService, geoService){
   $log.debug('ProfileResultsController');
 
   this.retrieveResults = function() {
@@ -36,4 +36,23 @@ function ProfileResultsController($log, profileService, geoService){
     });
 
   };
+
+  this.getDetail = function(obj){
+    $log.debug('displayAllGridCtrl.getDetail()');
+    $log.debug(obj, '<-----de obj');
+    obj.geo = true;
+    this.open = () => {
+      $uibModal.open({
+        animation: this.animationsEnabled,
+        component: 'detailModal',
+        size: 'lg',
+        resolve: {
+          modalData: obj
+        }
+    }).result.then(()=>{}).catch( () => $log.log('closed'));
+    };
+    this.open();
+  }
+
+
 }
