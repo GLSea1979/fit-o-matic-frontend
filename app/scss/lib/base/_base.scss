@@ -27,12 +27,19 @@ body {
     clear: both;
   }
 
+  form{
+    label {
+      margin-top:2em;
+    }
+  }
 
   input{
     width: 100%;
     box-sizing:border-box;
     border: 1px solid $btn-secondary;
     margin: $gutter-std 0;
+    margin-top: 1%;
+    margin-bottom: 0;
     //font-size: $secondaryTextSize;
     padding:1%;
     @include rounded(3px);
@@ -47,7 +54,13 @@ body {
     float:right;
   }
 
+  .formChecker {
+    height: 1em;
+    // padding-bottom: 1.5em;
+    p {
+      color: red;
+    }
+  }
+
   @include transition(300ms all);
 }
-
-

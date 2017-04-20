@@ -1,26 +1,29 @@
 <section class="admin-content">
 
-
 <uib-tabset active="activeForm">
 
   <uib-tab index="0" heading="All Bike Manufacturers">
     <h2>bike manufacturers</h2>
-    <display-mfr ng-repeat="mfr in adminCtrl.mfrs"
-    show-display-bike="adminCtrl.showDisplayBike"
+    <!-- took this out from below: show-display-bike="adminCtrl.showDisplayBike" -->
+    <display-mfr
+    ng-repeat="mfr in adminCtrl.mfrs"
     set-current-mfr="adminCtrl.setCurrentMfr(mfr)"
     fetch-mfr-bikes="adminCtrl.fetchMfrBikes()"
-    brand="mfr" current-mfr="adminCtrl.currentMfr"
+    brand="mfr"
+    current-mfr="adminCtrl.currentMfr"
+    all-bikes="adminCtrl.bikes"
+    current-bike="adminCtrl.currentBike"
+    set-current-bike="adminCtrl.setCurrentBike(newBike)"
     ></display-mfr>
-
-    <div class="clearfix"></div>
-     <display-bike
+<!-- TODO: FIX! WORKING ON BUILDING DISPAYL BIKE INTO DISPLAY MFR WHICH ENTAILS LOTS OF SCOPE PASSING -->
+     <!-- <display-bike
        ng-if="adminCtrl.showDisplayBike"
        show-display-bike="adminCtrl.showDisplayBike"
        current-mfr="adminCtrl.currentMfr"
        bikes="adminCtrl.bikes"
        current-bike="adminCtrl.currentBike"
        set-current-bike="adminCtrl.setCurrentBike(newBike)"
-     ></display-bike>
+     ></display-bike> -->
 
   </uib-tab>
 
@@ -39,38 +42,3 @@
 </uib-tabset>
 
 </section>
-
-
-
-
-
-
-<!-- <section class="admin-content">
-  <create-mfr></create-mfr>
-
-  <p>{{adminCtrl.currentMfr}}</p>
-
-  <div class="clearfix"></div>
-  <h2>bike manufacturers</h2>
-  <display-mfr ng-repeat="mfr in adminCtrl.mfrs"
-  show-display-bike="adminCtrl.showDisplayBike"
-  set-current-mfr="adminCtrl.setCurrentMfr(mfr)"
-  fetch-mfr-bikes="adminCtrl.fetchMfrBikes()"
-  brand="mfr" current-mfr="adminCtrl.currentMfr"
-  ></display-mfr>
-
-  <edit-bike current-bike="adminCtrl.currentBike"></edit-bike>
-
-  <display-bike
-    ng-if="adminCtrl.showDisplayBike"
-    show-display-bike="adminCtrl.showDisplayBike"
-    current-mfr="adminCtrl.currentMfr"
-    bikes="adminCtrl.bikes"
-    current-bike="adminCtrl.currentBike"
-    set-current-bike="adminCtrl.setCurrentBike(newBike)"
-  ></display-bike>
-
-  <delete-mfr></delete-mfr>
-  <create-geo></create-geo>
-  <display-geo fetch-all-geos="adminCtrl.fetchAllGeos()" geos="adminCtrl.geos"></display-geo>
-</section> -->

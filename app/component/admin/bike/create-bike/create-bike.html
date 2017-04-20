@@ -5,14 +5,18 @@
 		name="createBikeForm"
 		class="bike-form"
 		ng-submit="createBikeCtrl.createBike()"
+		novalidate
 	>
 	<fieldset>
 		<input type="text" ng-model="createBikeCtrl.bike.bikeName" name="name" placeholder="name">
 		<input type="text" ng-model="createBikeCtrl.bike.category" name="category" placeholder="category">
-		<input type="text" ng-model="createBikeCtrl.bike.price" name="price" placeholder="price">
+		<input type="number"
+		 ng-model="createBikeCtrl.bike.price" name="price" placeholder="price">
 		<input type="text" ng-model="createBikeCtrl.bike.modelYear" name="model year" placeholder="model year">
 		<span ng-model="createBikeCtrl.bike.file" ngf-select>select an image to upload</span>
-		<button class="btn-std" type="submit">create bike</button>
+		<button class="btn-std"
+		ng-disabled="createBikeForm.$invalid" ng-click="!createBikeCtrl.showForm"
+		>create bike</button>
 	</fieldset>
 	</form>
 </section>
