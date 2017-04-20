@@ -4,16 +4,18 @@ require('./_detail-modal.scss');
 
 module.exports = {
   template: require('./detail-modal.html'),
-  controller: ['$log', 'profileService', DetailModalController],
+  controller: ['$log', 'profileService', 'mfrService', DetailModalController],
   controllerAs: 'detailModalCtrl',
   bindings: {
     resolve: '<',
   }
 };
 
-function DetailModalController($log, profileService){
+function DetailModalController($log, profileService, mfrService){
   $log.debug('DetailModalController');
   this.tempProfile = {};
+
+
   this.checkFavorite = function() {
     profileService.fetchProfile()
     .then( res => {
@@ -25,6 +27,15 @@ function DetailModalController($log, profileService){
       });
     });
   };
+
+  this.retrieveMfr = function(mfr) {
+    mfrService.fetchMfr(mfr)
+    .then( mfr => {
+      this.mfr = mfr;
+    });
+  };
+
+
 
   this.addFavorite = function() {
     $log.debug('DetailModalController.addFavorite');
@@ -44,6 +55,9 @@ function DetailModalController($log, profileService){
   };
 
   this.$onInit = function(){
-    if(this.resolve.modalData.geo) this.checkFavorite();
+    if(this.resolve.modalData.geo) {
+      this.checkFavorite();
+      this.retrieveMfr(this.resolve.modalData.bikeID[0].mfrID);
+    }
   };
 }
