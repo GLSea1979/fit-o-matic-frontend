@@ -2,9 +2,12 @@
 
 <uib-tabset active="activeForm">
 
-  <uib-tab index="0" heading="All Bike Manufacturers">
-    <h2>bike manufacturers</h2>
-    <!-- took this out from below: show-display-bike="adminCtrl.showDisplayBike" -->
+  <uib-tab index="0" heading="create a bike brand">
+    <create-mfr></create-mfr>
+<!--     <delete-mfr></delete-mfr>
+ -->  </uib-tab>
+  <uib-tab index="1" heading="add a bike to a brand">
+  <h2>bike brands</h2>
     <display-mfr
     ng-repeat="mfr in adminCtrl.mfrs"
     set-current-mfr="adminCtrl.setCurrentMfr(mfr)"
@@ -15,26 +18,11 @@
     current-bike="adminCtrl.currentBike"
     set-current-bike="adminCtrl.setCurrentBike(newBike)"
     ></display-mfr>
-<!-- TODO: FIX! WORKING ON BUILDING DISPAYL BIKE INTO DISPLAY MFR WHICH ENTAILS LOTS OF SCOPE PASSING -->
-     <!-- <display-bike
-       ng-if="adminCtrl.showDisplayBike"
-       show-display-bike="adminCtrl.showDisplayBike"
-       current-mfr="adminCtrl.currentMfr"
-       bikes="adminCtrl.bikes"
-       current-bike="adminCtrl.currentBike"
-       set-current-bike="adminCtrl.setCurrentBike(newBike)"
-     ></display-bike> -->
 
   </uib-tab>
 
-  <uib-tab index="1" heading="Create a manufacturer">
-    <create-mfr></create-mfr>
-  </uib-tab>
 
-  <uib-tab index="2" heading="Delete a manufacturer">
-    <delete-mfr></delete-mfr>
-  </uib-tab>
-  <uib-tab index="3" heading="Input a new bike geometry">
+  <uib-tab index="2" heading="add a new bike size">
     <create-geo></create-geo>
     <display-geo fetch-all-geos="adminCtrl.fetchAllGeos()" geos="adminCtrl.geos"></display-geo>
   </uib-tab>

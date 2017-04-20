@@ -11,10 +11,9 @@ module.exports = {
   }
 };
 
-function DetailModalController($log, profileService, mfrService){
+function DetailModalController($log, profileService, $uibModalInstance, mfrService){
   $log.debug('DetailModalController');
   this.tempProfile = {};
-
 
   this.checkFavorite = function() {
     profileService.fetchProfile()

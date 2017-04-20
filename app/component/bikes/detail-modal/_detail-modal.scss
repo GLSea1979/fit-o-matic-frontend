@@ -5,6 +5,20 @@
   h2{
     margin: 0 $gutter-std;
     border-bottom: 1px solid $app-primary;
+    font-weight: normal;
+  }
+  .close-modal{
+    width: 4vw;
+    height: 4vw;
+    min-height: 44px;
+    min-width: 44px;
+    background-color: $app-primary;
+    margin: 0 $gutter-std;
+    float:right;
+    &:before{
+      content:'x';
+      font-size: 4vw;
+    }
   }
   img{
     max-width: 60%;

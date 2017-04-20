@@ -2,17 +2,15 @@
 
   <ul class="results-table">
     <li
-    ng-class-odd="'odd'" ng-class-even="'even'"
+
     >
       <span>{{ displayMfrCtrl.brand.name }}</span>
-      <button type="button" name="addBike" ng-click="displayMfrCtrl.showAddBike = !displayMfrCtrl.showAddBike">Add Bike Model</button>
-      <button type="button" ng-click="displayMfrCtrl.showDisplayBike = !displayMfrCtrl.showDisplayBike">show bikes</button>
+      <button class="btn-std add-bike" type="button" name="addBike" ng-click="displayMfrCtrl.showAddBike = !displayMfrCtrl.showAddBike">Add Bike Model</button>
+      <button class="btn-std show-bikes" type="button" ng-click="displayMfrCtrl.showDisplayBike = !displayMfrCtrl.showDisplayBike">show bikes</button>
+      <div class="clearfix"></div>
     </li>
       <create-bike ng-if="displayMfrCtrl.showAddBike" brand="displayMfrCtrl.brand" show-form="displayMfrCtrl.showAddBike"></create-bike>
 
-      <p>{{displayMfrCtrl.brand.name}}</p>
-<!--       set-current-bike="displayMfrCtrl.setCurrentBike(newBike)""
- -->
       <display-bike ng-if="displayMfrCtrl.showDisplayBike"
       show-display-bike="displayMfrCtrl.showDisplayBike"
       brand="displayMfrCtrl.brand"

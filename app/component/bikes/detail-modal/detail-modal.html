@@ -1,15 +1,19 @@
-  <div class="bike-modal" ng-if="detailModalCtrl.resolve.modalData.bike"
-   >
+  <div class="bike-modal" ng-if="detailModalCtrl.resolve.modalData.bike" >
+   <div class="close"></div>
+     <h2>{{ detailModalCtrl.resolve.modalData.mfrID.name}} <span>{{ detailModalCtrl.resolve.modalData.bikeName}}</span></h2>
     <img ng-src="{{ detailModalCtrl.resolve.modalData.photoURI }}"
     alt="{{ detailModalCtrl.resolve.modalData.desc }}"
     >
+    <div class="details">
+
     <ul>
-      <li><a href="{{detailModalCtrl.resolve.mfrID.website}}">Brand: {{ detailModalCtrl.resolve.modalData.mfrID.name}}</a></li>
-      <li>Name: {{ detailModalCtrl.resolve.modalData.bikeName}}</li>
-      <li>Category: {{  detailModalCtrl.resolve.modalData.category }}</li>
-      <li>url: {{  detailModalCtrl.resolve.modalData.url }}</li>
-      <li>Price: {{  detailModalCtrl.resolve.modalData.price }}</li>
+        <li><a href="{{detailModalCtrl.resolve.mfrID.website}}">Brand: {{ detailModalCtrl.resolve.modalData.mfrID.name}}</a></li>
+        <li>Name: {{ detailModalCtrl.resolve.modalData.bikeName}}</li>
+        <li>Category: {{  detailModalCtrl.resolve.modalData.category }}</li>
+        <li>url: {{  detailModalCtrl.resolve.modalData.url }}</li>
+        <li>Price: {{  detailModalCtrl.resolve.modalData.price }}</li>
     </ul>
+    </div>
   </div>
 
   <div class="bike-modal"
