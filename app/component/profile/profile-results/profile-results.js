@@ -8,16 +8,17 @@ module.exports = {
   controllerAs: 'profileResultsCtrl',
   bindings: {
     profile: '=',
-    units: '<'
+    results: '<'
   }
 };
 
 function ProfileResultsController($log, $uibModal, profileService, geoService){
   $log.debug('ProfileResultsController');
 
+
+
   this.retrieveResults = function() {
     $log.debug('profileResultsCtrl.retrieveResults');
-    //TODO add unit conversion
 
     geoService.fetchGeo(this.profile.height, this.profile.inseam)
     .then( res => {
@@ -39,7 +40,6 @@ function ProfileResultsController($log, $uibModal, profileService, geoService){
 
   this.getDetail = function(obj){
     $log.debug('displayAllGridCtrl.getDetail()');
-    $log.debug(obj, '<-----de obj');
     obj.geo = true;
     this.open = () => {
       $uibModal.open({
@@ -49,10 +49,10 @@ function ProfileResultsController($log, $uibModal, profileService, geoService){
         resolve: {
           modalData: obj
         }
-    }).result.then(()=>{}).catch( () => $log.log('closed'));
+      }).result.then(()=>{}).catch( () => $log.log('closed'));
     };
     this.open();
-  }
+  };
 
 
 }

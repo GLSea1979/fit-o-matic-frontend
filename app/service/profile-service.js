@@ -88,6 +88,7 @@ function profileService($log, $q, $http, $window, authService){
       };
       return $http.put(`${url}/api/favorites/profile/${profile._id}`, profile, config)
       .then ( res => {
+        service.favorites=res;
         return res;
       })
       .catch( err => {

@@ -57,8 +57,13 @@
     </form>
   </div>
 </section>
-<div class="clearfix"></div>
+
 <profile-instructions></profile-instructions>
-<div class="clearfix"></div>
-<favorites-display profile="profileDisplayCtrl.profile"></favorites-display>
-<profile-results profile="profileDisplayCtrl.profile"></profile-results>
+
+<favorites-display
+  profile="profileDisplayCtrl.profile"
+  remove-favorite="profileDisplayCtrl.removeFavorite(toRemove)"></favorites-display>
+<profile-results
+  profile="profileDisplayCtrl.profile"
+  results="profileDisplayCtrl.results">
+  </profile-results>
