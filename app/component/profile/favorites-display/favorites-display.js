@@ -4,14 +4,15 @@ require('./_favorites-display.scss');
 
 module.exports= {
   template: require('./favorites-display.html'),
-  controller: ['$log', 'profileService', FavoritesDisplayController],
+  controller: ['$log','$uibModal', 'profileService', FavoritesDisplayController],
   controllerAs: 'favoritesDisplayCtrl',
   bindings: {
-    profile: '<'
+    profile: '<',
+    removeFavorite: '&'
   }
 };
 
-function FavoritesDisplayController($log, profileService){
+function FavoritesDisplayController($log, $uibModal, profileService){
   $log.debug('FavoritesDisplayController');
 
   this.fetchFavorites = function(){
@@ -19,7 +20,6 @@ function FavoritesDisplayController($log, profileService){
     .then( res => {
       $log.debug('favoritesDisplayCtrl.fetchFavorites', res);
       this.favorites = res.data;
-      //TODO parse out and return geoID array
     });
   };
 
@@ -33,13 +33,33 @@ function FavoritesDisplayController($log, profileService){
 
   };
 
-  this.deleteFavorites = function(){
-    this.profile.geoID = [];
-    profileService.updateFavorites(this.profile)
-    .then( res => {
-      $log.debug('udate',res);
-    });
+  this.getDetail = function(obj){
+    $log.debug('displayAllGridCtrl.getDetail()');
+    obj.geo = true;
+    this.open = () => {
+      $uibModal.open({
+        animation: this.animationsEnabled,
+        component: 'detailModal',
+        size: 'lg',
+        resolve: {
+          modalData: obj
+        }
+      }).result.then(()=>{}).catch( () => $log.log('closed'));
+    };
+    this.open();
   };
+
+  this.deleteFavorites = function(geo){
+    // this.profile.geoID = [];
+    // profileService.updateFavorites(this.profile)
+    // .then( res => {
+    //   $log.debug('udate',res);
+    // });
+
+    this.removeFavorite({toRemove:geo});
+
+  };
+
 
   this.$onChanges = function() {
     if(this.profile) this.fetchFavorites();
