@@ -3,7 +3,7 @@
 require('./_display-bike.scss');
 module.exports = {
   template: require('./display-bike.html'),
-  controller: ['$log', 'bikeService', DisplayBikeController],
+  controller: ['$log','$timeout','bikeService', DisplayBikeController],
   controllerAs: 'displayBikeCtrl',
   bindings: {
     brand: '<',
@@ -12,7 +12,7 @@ module.exports = {
   }
 };
 
-function DisplayBikeController($log, bikeService){
+function DisplayBikeController($log, $timeout, bikeService){
   $log.debug('DisplayBikeController', this.bikes);
 
   this.showEditBike = false;
@@ -34,11 +34,9 @@ function DisplayBikeController($log, bikeService){
     this.passCurrentBike({newBike:bike});
   };
 
-  this.$onChanges = function() {
-    console.log(this.currentBike, '---------------');
-    if(this.currentBike) this.changeBike(this.currentBike);
+  this.$onInit = function() {
+    this.displayBikes();
 
   };
 
-  // this.displayBikes();
 }
