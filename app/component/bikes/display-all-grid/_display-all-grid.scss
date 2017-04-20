@@ -1,8 +1,46 @@
 @import '../../../scss/lib/theme/vars';
 
 .display-all-grid {
-  img {
-    max-width: 100%;
-    height: auto;
+  .all-bikes-view-item {
+    text-align: center;
+    // width: 30%; why is this working but bootstraps rules aren't?
+    height: 26em;
+    display: inline-block;
+    border: 2px red dotted;
+    margin-bottom: 0.5em;
+      h3{
+        margin: 0;
+      }
+
+      button {
+        margin-right: 37%;
+       }
+    .img-container {
+      margin: 1em;
+      max-height: 18em;
+    img {
+      max-height: 100%;
+      min-height: 18em;
+      max-width: 100%;
+      border: 3px green dotted;
+      height: auto;
+      }
+    }
   }
+}
+
+
+  @media #{$large-mobile} {
+    .display-all-grid {
+      .all-bikes-view-item {
+        .img-container {
+          height: 10em;
+          img{
+            max-height: 100%;
+          }
+      }
+    }
+  }
+
+
 }
