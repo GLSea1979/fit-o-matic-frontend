@@ -10,6 +10,7 @@ module.exports = {
     profile: '<',
     results: '<',
     addToFavorites: '&',
+    fetchProfile: '&'
   }
 };
 
@@ -42,7 +43,7 @@ function ProfileResultsController($log, $uibModal, profileService, geoService){
         resolve: {
           modalData: obj
         }
-      }).result.then(()=>{}).catch( () => $log.log('closed'));
+      }).result.then(()=>{}).catch( () => this.fetchProfile());
     };
     this.open();
   };

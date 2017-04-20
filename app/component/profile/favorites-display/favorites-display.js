@@ -8,7 +8,8 @@ module.exports= {
   controllerAs: 'favoritesDisplayCtrl',
   bindings: {
     profile: '<',
-    removeFavorite: '&'
+    removeFavorite: '&',
+    fetchProfile: '&'
   }
 };
 
@@ -44,7 +45,9 @@ function FavoritesDisplayController($log, $uibModal, profileService){
         resolve: {
           modalData: obj
         }
-      }).result.then(()=>{}).catch( () => $log.log('closed'));
+      }).result.then(()=>{}).catch( () => {
+        this.fetchProfile();
+      });
     };
     this.open();
   };

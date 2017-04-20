@@ -1,4 +1,5 @@
-  <div class="bike-modal" ng-if="detailModalCtrl.resolve.modalData.bike">
+  <div class="bike-modal" ng-if="detailModalCtrl.resolve.modalData.bike"
+   >
     <img ng-src="{{ detailModalCtrl.resolve.modalData.photoURI }}"
     alt="{{ detailModalCtrl.resolve.modalData.desc }}"
     >
@@ -11,7 +12,9 @@
     </ul>
   </div>
 
-  <div class="bike-modal" ng-if="detailModalCtrl.resolve.modalData.geo">
+  <div class="bike-modal"
+    ng-if="detailModalCtrl.resolve.modalData.geo"
+    ng-init="detailModalCtrl.checkFavorites()">
     <img ng-src="{{ detailModalCtrl.resolve.modalData.bikeID[0].photoURI }}"
     alt="{{ detailModalCtrl.resolve.modalData.bikeID[0].bikeName }}"
     >
@@ -32,5 +35,15 @@
        <li>Stack: {{ detailModalCtrl.resolve.modalData.stack }}</li>
        <li>Reach: {{ detailModalCtrl.resolve.modalData.reach }}</li>
      </ul>
+     <button ng-if="detailModalCtrl.isFavorite"
+      class="btn-std"
+      ng-click="detailModalCtrl.removeFavorite()">
+     remove from favorites
+     </button>
+     <button ng-if="!detailModalCtrl.isFavorite"
+      class="btn-std"
+      ng-click="detailModalCtrl.addFavorite()">
+      add to favorites
+      </button>
 
   </div>

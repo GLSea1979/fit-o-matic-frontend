@@ -45,10 +45,10 @@ function DisplayMatchedBikesController($log, $uibModal, geoService, profileServi
         resolve: {
           modalData: obj
         }
-    }).result.then(()=>{}).catch( () => $log.log('closed'));
+      }).result.then(()=>{}).catch( () => $log.log('closed'));
     };
     this.open();
-  }
+  };
 
   this.fetchProfile();
 }

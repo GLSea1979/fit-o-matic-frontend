@@ -58,14 +58,16 @@
   </div>
 </section>
 
-<profile-instructions></profile-instructions>
+<profile-instructions ng-if="!profileDisplayCtrl.profile.height && !profileDisplayCtrl.profile.inseam"></profile-instructions>
 
 <favorites-display
   profile="profileDisplayCtrl.profile"
+  fetch-profile="profileDisplayCtrl.fetchProfile()"
   remove-favorite="profileDisplayCtrl.removeFavorite(toRemove)"></favorites-display>
 <profile-results
   profile="profileDisplayCtrl.profile"
   results="profileDisplayCtrl.results"
+  fetch-profile="profileDisplayCtrl.fetchProfile()"
   add-to-favorites="profileDisplayCtrl.addToFavorites(toAdd)"
   >
   </profile-results>
