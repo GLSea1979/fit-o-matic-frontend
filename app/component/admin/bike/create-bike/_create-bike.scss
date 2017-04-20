@@ -2,5 +2,17 @@
 
 
 .createNewBike {
+
   margin: $gutter-std;
+
+  .btn-std.submit{
+    margin: $gutter-std;
+  }
+
+
+  .btn-std.upload{
+    display: inline-block;
+    float:none;
+    margin: $gutter-std;
+  }
 }

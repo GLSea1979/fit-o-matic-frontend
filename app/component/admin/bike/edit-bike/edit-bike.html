@@ -1,17 +1,8 @@
 <section class="edit-bike-model">
-  <h4>Bike Model: {{ editBikeCtrl.currentBike.bikeName }}</h4>
+  <h3>Bike Model: {{ editBikeCtrl.currentBike.bikeName }}</h3>
   <div class="info">
     <ul ng-if="!editBikeCtrl.showEdit">
-      <li>
-        <span class="btn-std"
-        ng-click="editBikeCtrl.showEdit=!editBikeCtrl.showEdit">
-        edit
-      </span>
-        <span class="btn-std"
-        ng-click="editBikeCtrl.showIntegrateGeo=!editBikeCtrl.showIntegrateGeo">
-        add size
-      </span>
-      </li>
+
       <li><span>category: </span>{{ editBikeCtrl.currentBike.category }}</li>
       <li >
         <span>url:</span>{{ editBikeCtrl.currentBike.url }}
@@ -26,13 +17,18 @@
         <span class="unset" ng-if="!editBikeCtrl.currentBike.modelYear">not set</span>
       </li>
     </ul>
-    <div class="image">
-    <img
-        ng-src="{{ editBikeCtrl.currentBike.photoURI }}"
-        alt="{{ editBikeCtrl.currentBike.bikeName }}">
-        <bike-img bike="editBikeCtrl.bike"></bike-img>
-    </div>
 
+        <div ng-if="!editBikeCtrl.showEdit">
+            <button class="btn-std"
+        ng-click="editBikeCtrl.showEdit=!editBikeCtrl.showEdit">
+        edit
+      </button>
+        <button class="btn-std"
+        ng-click="editBikeCtrl.showIntegrateGeo=!editBikeCtrl.showIntegrateGeo">
+        add size
+      </button>
+</div>
+<!--     START BIKE EDIT FORM-->
     <form ng-if="editBikeCtrl.showEdit"
     ng-submit="editBikeCtrl.updateBike()">
       <ul >
@@ -50,10 +46,20 @@
           <button class="btn-std" type="submit" ng-click="!editBikeCtrl.showEdit">
           cancel
           </button>
+            <div class="clearfix"></div>
+
         </li>
       </ul>
     </form>
   </div>
+
+  <!-- END BIKE EDIT FORM -->
+   <div class="image">
+    <img
+        ng-src="{{ editBikeCtrl.currentBike.photoURI }}"
+        alt="{{ editBikeCtrl.currentBike.bikeName }}">
+        <bike-img bike="editBikeCtrl.bike"></bike-img>
+    </div>
   <div class="clearfix"></div>
   <integrate-geo ng-if="editBikeCtrl.showIntegrateGeo" current-bike="editBikeCtrl.currentBike"></integrate-geo>
   <div class="clearfix"></div>
