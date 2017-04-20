@@ -9,9 +9,12 @@ module.exports = {
   bindings: {
     brand: '<',
     currentMfr: '<',
-    showDisplayBike: '=',
+    showDisplayBike: '<',
     setCurrentMfr: '&',
-    fetchMfrBikes: '&'
+    fetchMfrBikes: '&',
+    bikes: '<',
+    currentBike: '<',
+    setCurrentBike: '&'
   }
 };
 
@@ -19,12 +22,14 @@ function DisplayMfrController($log, mfrService){
   $log.debug('DisplayMfrController');
 
 
-  this.showMfrBikes = function() {
-    this.setCurrentMfr(this.brand);
-    this.fetchMfrBikes();
-    this.showDisplayBike = true;
-  };
+  // this.showMfrBikes = function() {
+  //   $log.debug('HERE IS THE SHOWMFRBIKES FUNCTION CALL. HERE IS THE BRAND WHICH IS BEING PASSED INTO THE setCurrentMfr(--) function:', this.brand);
+  //   this.setCurrentMfr(this.brand);
+  //   this.fetchMfrBikes();
+  //   // this.showDisplayBike = !this.showDisplayBike;
+  // };
 
   this.showAddBike = false;
+  this.showDisplayBike = false;
 
 }

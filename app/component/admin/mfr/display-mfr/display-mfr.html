@@ -6,10 +6,22 @@
     >
       <span>{{ displayMfrCtrl.brand.name }}</span>
       <button type="button" name="addBike" ng-click="displayMfrCtrl.showAddBike = !displayMfrCtrl.showAddBike">Add Bike Model</button>
-      <button type="button" ng-click="displayMfrCtrl.showMfrBikes()">show bikes</button>
+      <button type="button" ng-click="displayMfrCtrl.showDisplayBike = !displayMfrCtrl.showDisplayBike">show bikes</button>
     </li>
       <create-bike ng-if="displayMfrCtrl.showAddBike" brand="displayMfrCtrl.brand" show-form="displayMfrCtrl.showAddBike"></create-bike>
-      <!-- make this work! -->
-      <display-bike ng-if="displayMfrCtrl.showAllBikes" show-bikes="displayMfrCtrl.ShowAllBikes" brand="displayMfrCtrl.brand"></display-bike>
+
+      <h3>SEEEE BELOOOOW!</h3>
+      <h1>{{displayMfrCtrl.showDisplayBike}} = displayMfrCtrl.showDisplayBike</h1>
+      <p>{{displayMfrCtrl.brand.name}}</p>
+<!-- current-bike="displayMfrCtrl.currentBike" " -->
+      <display-bike ng-if="displayMfrCtrl.showDisplayBike"
+      show-display-bike="displayMfrCtrl.showDisplayBike"
+      brand="displayMfrCtrl.brand"
+      fetch-mfr-bikes="displayMfrCtrl.fetchMfrBikes()"
+      bikes="displayMfrCtrl.bikes"
+
+      set-current-bike="displayMfrCtrl.setCurrentBike(newBike)"
+      >
+      </display-bike>
   </ul>
 </section>

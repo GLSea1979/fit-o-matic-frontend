@@ -57,5 +57,15 @@
     </form>
   </div>
 </section>
-<favorites-display profile="profileDisplayCtrl.profile"></favorites-display>
-<profile-results profile="profileDisplayCtrl.profile"></profile-results>
+
+<profile-instructions></profile-instructions>
+
+<favorites-display
+  profile="profileDisplayCtrl.profile"
+  remove-favorite="profileDisplayCtrl.removeFavorite(toRemove)"></favorites-display>
+<profile-results
+  profile="profileDisplayCtrl.profile"
+  results="profileDisplayCtrl.results"
+  add-to-favorites="profileDisplayCtrl.addToFavorites(toAdd)"
+  >
+  </profile-results>

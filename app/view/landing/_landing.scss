@@ -1,1 +1,16 @@
 @import '../../scss/lib/theme/vars';
+
+.logo-container {
+  display: inline-block;
+  width: 45%;
+
+  img {
+    width: 70%;
+    margin: auto;
+  }
+}
+
+.join-container {
+  // display: inline-block;
+  width: 45%;
+}

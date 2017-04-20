@@ -4,13 +4,16 @@
 
   <uib-tab index="0" heading="All Bike Manufacturers">
     <h2>bike manufacturers</h2>
-    <display-mfr ng-repeat="mfr in adminCtrl.mfrs"
-    show-display-bike="adminCtrl.showDisplayBike"
+    <!-- took this out from below: show-display-bike="adminCtrl.showDisplayBike" -->
+    <display-mfr
+    ng-repeat="mfr in adminCtrl.mfrs"
     set-current-mfr="adminCtrl.setCurrentMfr(mfr)"
     fetch-mfr-bikes="adminCtrl.fetchMfrBikes()"
-    brand="mfr" current-mfr="adminCtrl.currentMfr"
+    brand="mfr"
+    current-mfr="adminCtrl.currentMfr"
     all-bikes="adminCtrl.bikes"
-
+    current-bike="adminCtrl.currentBike"
+    set-current-bike="adminCtrl.setCurrentBike(newBike)"
     ></display-mfr>
 <!-- TODO: FIX! WORKING ON BUILDING DISPAYL BIKE INTO DISPLAY MFR WHICH ENTAILS LOTS OF SCOPE PASSING -->
      <!-- <display-bike

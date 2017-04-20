@@ -7,39 +7,32 @@ module.exports = {
   controller: ['$log', '$uibModal', 'profileService', 'geoService', ProfileResultsController],
   controllerAs: 'profileResultsCtrl',
   bindings: {
-    profile: '=',
-    units: '<'
+    profile: '<',
+    results: '<',
+    addToFavorites: '&',
   }
 };
 
 function ProfileResultsController($log, $uibModal, profileService, geoService){
   $log.debug('ProfileResultsController');
 
-  this.retrieveResults = function() {
-    $log.debug('profileResultsCtrl.retrieveResults');
-    //TODO add unit conversion
 
-    geoService.fetchGeo(this.profile.height, this.profile.inseam)
-    .then( res => {
-      $log.debug('retrieveResults', res);
-      this.results = res.geo;
-    });
+  // this.retrieveResults = function() {
+  //   $log.debug('profileResultsCtrl.retrieveResults');
+
+  //   geoService.fetchGeo(this.profile.height, this.profile.inseam)
+  //   .then( res => {
+  //     $log.debug('retrieveResults', res);
+  //     this.results = res.geo;
+  //   });
+  // };
+
+  this.add = function(geo){
+    console.log(this);
+    this.addToFavorites({toAdd: geo});
   };
-
-  this.addFavorite = function(geo){
-    $log.debug('profileResultsCtrl.addFavorite');
-    this.profile.geoID.push(geo);
-
-    profileService.updateFavorites(this.profile)
-    .then( res => {
-      this.profile = res.data;
-    });
-
-  };
-
   this.getDetail = function(obj){
     $log.debug('displayAllGridCtrl.getDetail()');
-    $log.debug(obj, '<-----de obj');
     obj.geo = true;
     this.open = () => {
       $uibModal.open({
@@ -49,10 +42,10 @@ function ProfileResultsController($log, $uibModal, profileService, geoService){
         resolve: {
           modalData: obj
         }
-    }).result.then(()=>{}).catch( () => $log.log('closed'));
+      }).result.then(()=>{}).catch( () => $log.log('closed'));
     };
     this.open();
-  }
+  };
 
 
 }
