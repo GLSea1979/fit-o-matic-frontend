@@ -21,7 +21,10 @@ module.exports = {
 function DisplayMfrController($log, mfrService){
   $log.debug('DisplayMfrController');
 
-
+  this.passCurrentBike = function(bike){
+    $log.debug('displayMfrCtrl.passCurrentBike');
+    this.setCurrentBike({newBike:bike});
+  };
   // this.showMfrBikes = function() {
   //   $log.debug('HERE IS THE SHOWMFRBIKES FUNCTION CALL. HERE IS THE BRAND WHICH IS BEING PASSED INTO THE setCurrentMfr(--) function:', this.brand);
   //   this.setCurrentMfr(this.brand);

@@ -10,17 +10,16 @@
     </li>
       <create-bike ng-if="displayMfrCtrl.showAddBike" brand="displayMfrCtrl.brand" show-form="displayMfrCtrl.showAddBike"></create-bike>
 
-      <h3>SEEEE BELOOOOW!</h3>
-      <h1>{{displayMfrCtrl.showDisplayBike}} = displayMfrCtrl.showDisplayBike</h1>
       <p>{{displayMfrCtrl.brand.name}}</p>
-<!-- current-bike="displayMfrCtrl.currentBike" " -->
+<!--       set-current-bike="displayMfrCtrl.setCurrentBike(newBike)""
+ -->
       <display-bike ng-if="displayMfrCtrl.showDisplayBike"
       show-display-bike="displayMfrCtrl.showDisplayBike"
       brand="displayMfrCtrl.brand"
       fetch-mfr-bikes="displayMfrCtrl.fetchMfrBikes()"
       bikes="displayMfrCtrl.bikes"
-
-      set-current-bike="displayMfrCtrl.setCurrentBike(newBike)"
+      current-bike="displayMfrCtrl.currentBike"
+      pass-current-bike="displayMfrCtrl.passCurrentBike(newBike)"
       >
       </display-bike>
   </ul>

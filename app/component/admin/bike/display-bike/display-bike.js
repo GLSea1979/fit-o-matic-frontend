@@ -5,7 +5,9 @@ module.exports = {
   controller: ['$log', 'bikeService', DisplayBikeController],
   controllerAs: 'displayBikeCtrl',
   bindings: {
-    brand: '<'
+    brand: '<',
+    currentBike: '<',
+    passCurrentBike: '&'
   }
 };
 
@@ -15,19 +17,20 @@ function DisplayBikeController($log, bikeService){
   this.showEditBike = false;
   this.bikes = [];
 
+
   this.displayBikes = function() {
-    $log.debug('DisplayBikeController.displayBikes---------------> THE BRAND', this.brand);
+    $log.debug('DisplayBikeController.displayBikes()');
 
     bikeService.fetchMfrBikes(this.brand._id)
-    .then( mfrBikes => {
-      this.bikes = mfrBikes;
+    .then( data => {
+      this.bikes = data;
     })
   };
 
   this.changeBike = function(bike){
-    $log.debug('displayBikeCtrl.changeBike',bike);
+    $log.debug('displayBikeCtrl.changeBike --> this', this);
     this.showEditBike = true;
-    this.setCurrentBike({newBike:bike});
+    this.passCurrentBike({newBike:bike});
   };
 
   // this.displayBikes();
