@@ -21,6 +21,11 @@ function routeService($log){
         name: 'admin',
         url: '/#!/admin',
         admin: true
+      },
+      {
+        name: 'about',
+        url: '/#!/about',
+        admin: false
       }
     ],
     icons: [
@@ -31,7 +36,7 @@ function routeService($log){
       },
       {
         val:'about',
-        url: '/about',
+        url: '/#!/about',
         desc: 'about the team'
       }
     ]
