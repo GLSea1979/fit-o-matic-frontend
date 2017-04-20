@@ -20,10 +20,10 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
   this.currentBike = bikeService.currentBike;
 
   this.setCurrentBike = function(bike){
-    $log.debug('AdminController.setCurrentBike', bike);
+    $log.debug('AdminController.setCurrentBikeeee', bike);
 
     this.currentBike = bike;
-    console.log('--------------------',this.currentBike);
+    console.log('--------------------this is happening', this.currentBike);
   };
 
   // this.showDisplayBike = false;
