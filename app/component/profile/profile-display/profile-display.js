@@ -25,6 +25,7 @@ function ProfileDisplayController($log, $window, profileService, geoService){
     .then( res => {
       this.profile = res.data;
       this.profile.email = $window.localStorage.getItem('email');
+      if (this.profile.height && this.profile.inseam) this.fetchResults();
       if (!this.profile.photoURI) this.profile.photoURI = __defaultUserPhoto__;
     });
   };
@@ -40,5 +41,33 @@ function ProfileDisplayController($log, $window, profileService, geoService){
     });
   };
 
+  this.fetchResults = function(){
+    geoService.fetchGeo(this.profile.height, this.profile.inseam)
+    .then( res => {
+      $log.debug('retrieveResults', res);
+      this.results = res.geo;
+    });
+  };
+  this.removeFavorite = function(geo){
+    $log.debug('profileDisplayCtrl.removeFavorite', 'geo:',geo, 'profile.geoID:',this.profile.geoID);
+    this.profile.geoID.forEach( (favorite, index) => {
+      if (favorite === geo._id)  this.profile.geoID.splice(index, 1);
+    });
+
+    profileService.updateProfile(this.profile._id, this.profile)
+    .then( res => {
+      this.profile = res.data;
+    })
+    .catch( err => {
+      $log.error(err);
+    });
+
+    // this.addToFavorites = function(geo){
+    //   $log.debug('profileDisplayCtrl.addToFavorites', 'geo:',geo, 'profile.geoID:',this.profile.geoID);
+    //   this.profile.geoID.push(geo);
+    //   profileService.
+
+
+  };
   this.fetchProfile();
 }
