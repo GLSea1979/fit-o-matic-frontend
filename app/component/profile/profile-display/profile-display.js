@@ -82,7 +82,6 @@ function ProfileDisplayController($log, $window, profileService, geoService){
     $log.debug('profileDisplayCtrl.addToFavorites', 'geo:',geo, 'profile.geoID:',this.profile.geoID);
     this.profile.geoID.push(geo);
     geo.isFavorite =true;
-    console.log(']]]]]]]]]]',geo, this.results);
     profileService.updateProfile(this.profile._id, this.profile)
     .then( res => {
       this.profile = res.data;
