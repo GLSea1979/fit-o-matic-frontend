@@ -3,17 +3,17 @@
     name="signupForm"
     ng-submit="signupCtrl.signup(signupCtrl.user)"
     novalidate>
-    <h3>sign up</h3>
+    <!-- <h3>sign up</h3> -->
     <input class="input-std"
       type="text"
       name="userName"
       placeholder="name"
-      ng-minlength="4"
-      ng-maxlength="8"
+      ng-minlength="2"
+      ng-maxlength="28"
       ng-model="signupCtrl.user.username" required>
       <div class="formChecker" ng-messages="signupForm.userName.$error">
-          <p ng-message="minlength">Must be at least 4 characters</p>
-          <p ng-message="maxlength">Must be less than 8 characters</p>
+          <p ng-message="minlength">Must be at least 2 characters</p>
+          <p ng-message="maxlength">Must be less than 28 characters</p>
       </div>
     <input class="input-std"
       type="email"
