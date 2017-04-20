@@ -44,30 +44,51 @@ function ProfileDisplayController($log, $window, profileService, geoService){
   this.fetchResults = function(){
     geoService.fetchGeo(this.profile.height, this.profile.inseam)
     .then( res => {
-      $log.debug('retrieveResults', res);
+      $log.debug('retrieveResults');
+
+      res.geo.forEach( geo => {
+        this.profile.geoID.forEach( favoriteId => {
+          if (geo._id === favoriteId) geo.isFavorite=true;
+        });
+
+      });
       this.results = res.geo;
     });
   };
+
+
   this.removeFavorite = function(geo){
     $log.debug('profileDisplayCtrl.removeFavorite', 'geo:',geo, 'profile.geoID:',this.profile.geoID);
     this.profile.geoID.forEach( (favorite, index) => {
-      if (favorite === geo._id)  this.profile.geoID.splice(index, 1);
+      if (favorite === geo._id)  {
+        this.profile.geoID.splice(index, 1);
+        this.results.forEach( result => {
+          if (geo._id === result._id) result.isFavorite=false;
+        });
+      }
     });
 
     profileService.updateProfile(this.profile._id, this.profile)
     .then( res => {
       this.profile = res.data;
+      this.profile.email = $window.localStorage.getItem('email');
     })
     .catch( err => {
       $log.error(err);
     });
 
-    // this.addToFavorites = function(geo){
-    //   $log.debug('profileDisplayCtrl.addToFavorites', 'geo:',geo, 'profile.geoID:',this.profile.geoID);
-    //   this.profile.geoID.push(geo);
-    //   profileService.
-
-
+  };
+  this.addToFavorites = function(geo){
+    $log.debug('profileDisplayCtrl.addToFavorites', 'geo:',geo, 'profile.geoID:',this.profile.geoID);
+    this.profile.geoID.push(geo);
+    geo.isFavorite =true;
+    console.log(']]]]]]]]]]',geo, this.results);
+    profileService.updateProfile(this.profile._id, this.profile)
+    .then( res => {
+      this.profile = res.data;
+      this.profile.email = $window.localStorage.getItem('email');
+    })
+    .catch((err) => $log.error(err));
   };
   this.fetchProfile();
 }
