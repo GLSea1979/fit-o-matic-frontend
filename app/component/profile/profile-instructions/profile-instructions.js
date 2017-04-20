@@ -11,7 +11,7 @@ module.exports = {
   }
 };
 
-function ProfileResultsController($log, profileService){
+function ProfileInstructionsController($log, profileService){
   $log.debug('ProfileInstructionsController');
 
 
