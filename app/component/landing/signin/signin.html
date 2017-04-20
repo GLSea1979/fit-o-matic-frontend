@@ -3,20 +3,30 @@
     name="signinForm"
     ng-submit="signinCtrl.signin()" novalidate>
     <div>
-      <h3>sign in</h3>
+      <!-- <h3>sign in</h3> -->
       <input type="text"
         name="username"
         placeholder="username"
+        ng-minlength="2"
+        ng-maxlength="28"
         class="input-std"
         ng-model="signinCtrl.user.username" required>
+        <div class="formChecker" ng-messages="signinForm.userName.$error">
+            <p ng-message="minlength">Must be at least 2 characters</p>
+            <p ng-message="maxlength">Must be less than 28 characters</p>
+        </div>
     </div>
 
     <div>
       <input type="password" name="password"
         ng-disabled="signinForm.username.$invalid"
         placeholder="password"
+        ng-minlength="8"
         class="input-std"
-        ng-model="signinCtrl.user.password" required>
+        ng-model="signinCtrl.user.password" required >
+        <div class="formChecker" ng-messages="signinForm.signinField.$error">
+            <p ng-message="minlength">Password Please</p>
+        </div>
     </div>
 
     <button class="btn-std">sign in</button>

@@ -1,0 +1,48 @@
+@import '../../../scss/lib/theme/vars';
+
+.bike-modal{
+  margin: $gutter-std 0;
+  h2{
+    margin: 0 $gutter-std;
+    border-bottom: 1px solid $app-primary;
+    font-weight: normal;
+  }
+  .close-modal{
+    width: 4vw;
+    height: 4vw;
+    min-height: 44px;
+    min-width: 44px;
+    background-color: $app-primary;
+    margin: 0 $gutter-std;
+    float:right;
+    &:before{
+      content:'x';
+      font-size: 4vw;
+    }
+  }
+  img{
+    max-width: 60%;
+    height: auto;
+    margin: $gutter-std auto;
+    display: block;
+    }
+  .details{
+      width: 60%;
+      border-top: 1px solid $app-primary;
+      margin: 0 auto;
+    ul.chart {
+      padding: 3px;
+      border: 1px solid $app-primary;
+      li{
+      &:nth-child(even){
+        background-color: $app-primary*1.2;
+      }
+    }
+
+    }
+  span {
+    display: inline-block;
+    margin: 0 1vw;
+  }
+}
+}

@@ -1,9 +1,12 @@
 @import '../../../scss/lib/theme/vars';
 
 .profile-disp{
-  font-size: 3vw;
+  width:59%;
+  font-size: 1.8vw;
+  display: inline-block;
+  vertical-align: top;
   div.image {
-    width: 44%;
+    width: 55%;
     display: inline-block;
     margin: $gutter-std 0 $gutter-std $gutter-std;
     float:left;
@@ -13,11 +16,12 @@
     }
   }
   .info{
-    width:44%;
+    width:36%;
     display: inline-block;
     margin: $gutter-std 0 $gutter-std $gutter-std;
     h2{
       margin-top: 0;
+      font-size:3vw;
     }
     li {
       line-height: 200%;

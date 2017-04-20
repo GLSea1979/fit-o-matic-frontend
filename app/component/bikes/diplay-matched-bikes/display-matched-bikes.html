@@ -1,0 +1,13 @@
+<section class="display-match-grid">
+  <h3 ng-if="!displayMatchedBikesCtrl.hasMeasure">You have no size! Please input measurements</h3>
+  <div class="results" ng-if="displayMatchedBikesCtrl.hasMeasure">
+    <div class="item-block col-md-3"
+      ng-repeat="geo in displayMatchedBikesCtrl.geos">
+     <img ng-src="{{ geo.bikeID[0].photoURI }}">
+     <h3>{{ geo.bikeSizeName }}</h3>
+
+     <button class="btn-std detail" ng-click="displayMatchedBikesCtrl.getDetail(geo)">detail</button>
+     <button class="btn-std favorite" ng-click="displayMatchedBikesCtrl.addFavorite(result)">add to favorites</button>
+   </div>
+ </div>
+</section>

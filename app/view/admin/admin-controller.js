@@ -7,7 +7,11 @@ module.exports = ['$log', '$rootScope', '$location', 'mfrService', 'bikeService'
 function AdminController($log, $rootScope, $location, mfrService, bikeService, geoService) {
   $log.debug('AdminController');
 
+  //just added this.bikes = [] ...not sure if it's necessary atp
+  this.bikes = [];
+
   this.mfrs = [];
+
   this.setCurrentMfr = function(mfr){
     $log.debug('AdminController.setCurrentMfr');
     this.currentMfr = mfr;
@@ -16,13 +20,13 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
   this.currentBike = bikeService.currentBike;
 
   this.setCurrentBike = function(bike){
-    $log.debug('AdminController.setCurrentBike', bike);
+    $log.debug('AdminController.setCurrentBikeeee', bike);
 
     this.currentBike = bike;
-    console.log('--------------------',this.currentBike);
+    console.log('--------------------this is happening', this.currentBike);
   };
 
-  this.showDisplayBike = false;
+  // this.showDisplayBike = false;
 
   this.fetchAllMfrs = function() {
     mfrService.fetchAllMfrs()
@@ -32,6 +36,7 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
     });
   };
   this.fetchMfrBikes = function(){
+    //this is doing its job
     bikeService.fetchMfrBikes(this.currentMfr._id)
     .then( bikes => {
       this.bikes = bikes;

@@ -8,7 +8,7 @@ function routeService($log){
   let service = {
     routes: [
       {
-        name: 'home',
+        name: 'profile',
         url: '/#!/home',
         admin: false
       },
@@ -16,19 +16,16 @@ function routeService($log){
         name: 'bikes',
         url: '/#!/bikes',
         admin: false
-
-      },
-      {
-        name: 'profile',
-        url: '/#!/profile',
-        admin: false
-
       },
       {
         name: 'admin',
         url: '/#!/admin',
         admin: true
-
+      },
+      {
+        name: 'about',
+        url: '/#!/about',
+        admin: false
       }
     ],
     icons: [
@@ -39,7 +36,7 @@ function routeService($log){
       },
       {
         val:'about',
-        url: '/about',
+        url: '/#!/about',
         desc: 'about the team'
       }
     ]

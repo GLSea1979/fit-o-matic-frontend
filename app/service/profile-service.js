@@ -52,5 +52,50 @@ function profileService($log, $q, $http, $window, authService){
       });
     });
   };
+  service.fetchFavorites = function(){
+    $log.debug('profileService.fetchFavorites');
+    return authService.getToken()
+    .then( token => {
+      let config = {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      };
+      let userID = $window.localStorage.userID;
+      return $http.get(`${url}/api/favorites/profile/${userID}`, config)
+      .then( res => {
+        return res;
+      })
+      .catch( err => {
+        $log.error(err.message);
+        return $q.reject(err);
+      });
+    });
+  };
+  service.updateFavorites = function(profile){
+    $log.debug('profileService.updateFavorite');
+
+    return authService.getToken()
+    .then( token => {
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      };
+      return $http.put(`${url}/api/favorites/profile/${profile._id}`, profile, config)
+      .then ( res => {
+        service.favorites=res;
+        return res;
+      })
+      .catch( err => {
+        $log.error(err.message);
+        return $q.reject(err);
+      });
+    });
+  };
   return service;
 }

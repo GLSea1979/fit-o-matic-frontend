@@ -1,0 +1,16 @@
+@import '../../../scss/lib/theme/vars';
+
+.favorites-profile{
+  display: inline-block;
+  width:40%;
+  ul{
+    border: 2px solid $app-primary;
+  }
+  img{
+    width:30%;
+    height: auto
+  }
+  h2{
+    font-size: 3vw;
+  }
+}

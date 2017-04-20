@@ -1,0 +1,15 @@
+@import '../../../../scss/lib/theme/vars';
+
+
+.disp-bike {
+    margin: $gutter-std;
+
+	ul.results-table {
+		li {
+			cursor: pointer;
+      span {
+        font-width:1.8vw;
+      }
+		}
+	}
+}

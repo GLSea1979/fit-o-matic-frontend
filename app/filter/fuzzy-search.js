@@ -1,19 +1,18 @@
 'use strict';
 
-//  TODO : fuzzy search needs to be linked to html with a ng-repeat, Brian did fuzzy search during day 32-filters and directives. It will be awesome. 
-
 module.exports = function() {
-  return function(galleries, searchTerm) {
-    let fuzzyRegex = generateFuzzyRegex(searchTerm);
+  return function(bikes, searchTerm){
+    let fuzzyRegex = generateFuzzyString(searchTerm);
 
-    return galleries.filter( gallery => {
-      return fuzzyRegex.test(gallery.name.toUpperCase());
+    return bikes.filter(bike => {
+      return fuzzyRegex.test(bike.bikeName.toUpperCase());
     });
   };
 };
 
-function generateFuzzyRegex(input) {
-  if(!input) return /.*/;
-  let fuzzyString = '.*' + input.toUpperCase().split('').join('.*') + '.*';
-  return new RexExp(fuzzyString);
-};
+function generateFuzzyString(input) {
+  if (!input) return /.*/;
+  let fuzzyString = '.*' + input.toUpperCase().split('').join('') + '.*';
+  console.log(fuzzyString);
+  return new RegExp(fuzzyString);
+}

@@ -40,9 +40,15 @@
               placeholder="full name"></li>
         <li> {{ profileDisplayCtrl.profile.email }} </li>
         <li> <input ng-model="profileDisplayCtrl.profile.gender" placeholder="gender"> </li>
-        <li> <input ng-model="profileDisplayCtrl.profile.height" placeholder="height"> </li>
-        <li> <input ng-model="profileDisplayCtrl.profile.inseam" placeholder="inseam"> </li>
+        <li> <input ng-model="profileDisplayCtrl.profile.height" placeholder="height" type="number"> </li>
+        <li> <input ng-model="profileDisplayCtrl.profile.inseam" placeholder="inseam" type="number"> </li>
         <li>
+          <span
+            class="btn-std"
+              ng-model="profileDisplayCtrl.units"
+              ng-click="profileDisplayCtrl.switchUnits()">
+              {{ profileDisplayCtrl.units }}
+              </span>
           <button class="btn-std" type="submit">
           update
           </button>
@@ -52,3 +58,16 @@
   </div>
 </section>
 
+<profile-instructions ng-if="!profileDisplayCtrl.profile.height && !profileDisplayCtrl.profile.inseam"></profile-instructions>
+
+<favorites-display
+  profile="profileDisplayCtrl.profile"
+  fetch-profile="profileDisplayCtrl.fetchProfile()"
+  remove-favorite="profileDisplayCtrl.removeFavorite(toRemove)"></favorites-display>
+<profile-results
+  profile="profileDisplayCtrl.profile"
+  results="profileDisplayCtrl.results"
+  fetch-profile="profileDisplayCtrl.fetchProfile()"
+  add-to-favorites="profileDisplayCtrl.addToFavorites(toAdd)"
+  >
+  </profile-results>

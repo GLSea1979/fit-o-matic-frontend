@@ -7,7 +7,8 @@ module.exports = {
   controller: ['$log', 'bikeService', CreateBikeController],
   controllerAs: 'createBikeCtrl',
   bindings: {
-    brand: '<'
+    brand: '<',
+    showForm: '='
   }
 };
 
@@ -33,6 +34,7 @@ function CreateBikeController($log, bikeService) {
 
   this.createBike = function() {
     $log.debug('createBikeCtrl.createBike');
+    this.showForm = !this.showForm;
     bikeService.createBike(this.brand._id, this.bike)
     .then( () => {
       this.bike.name = null;
