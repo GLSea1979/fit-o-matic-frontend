@@ -5,6 +5,12 @@
   <img ng-src="{{ result.bikeID[0].photoURI }}">
   <h3>{{ result.bikeSizeName }}</h3>
   <button class="btn-std detail" ng-click="profileResultsCtrl.getDetail(result)">detail</button>
-  <button class="btn-std favorite" ng-click="profileResultsCtrl.addFavorite(result)">add to favorites</button>
+  <button
+    class="btn-std favorite"
+    ng-click="profileResultsCtrl.add(result)"
+    ng-if="!result.isFavorite">
+    add to favorites
+     </button>
+     is favorite:{{result.isFavorite}}
   </div>
 </section>
