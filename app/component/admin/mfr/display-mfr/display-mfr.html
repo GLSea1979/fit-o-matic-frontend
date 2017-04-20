@@ -1,5 +1,4 @@
 <section class="disp-manufacturers">
-  <create-bike ng-if="displayMfrCtrl.showAddBike" brand="displayMfrCtrl.brand"></create-bike>
 
   <ul class="results-table">
     <li
@@ -9,5 +8,8 @@
       <button type="button" name="addBike" ng-click="displayMfrCtrl.showAddBike = !displayMfrCtrl.showAddBike">Add Bike Model</button>
       <button type="button" ng-click="displayMfrCtrl.showMfrBikes()">show bikes</button>
     </li>
+      <create-bike ng-if="displayMfrCtrl.showAddBike" brand="displayMfrCtrl.brand" show-form="displayMfrCtrl.showAddBike"></create-bike>
+      <!-- make this work! -->
+      <display-bike ng-if="displayMfrCtrl.showAllBikes" show-bikes="displayMfrCtrl.ShowAllBikes" brand="displayMfrCtrl.brand"></display-bike>
   </ul>
 </section>
