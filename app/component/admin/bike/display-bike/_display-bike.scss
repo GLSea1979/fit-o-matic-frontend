@@ -1,6 +1,10 @@
-// TODO: THIS ISN'T WORKING. FIX IT
+@import '../../../../scss/lib/theme/vars';
+
+
 .disp-bike {
-	ul .results-table {
+    margin: $gutter-std;
+
+	ul.results-table {
 		li {
 			cursor: pointer;
 		}
