@@ -6,8 +6,8 @@ function geoService($log, $q, $http, $window, authService){
   $log.debug('geoService');
 
   let service = {};
-  JSON.parse($window.localStorage.metric) ? service.metric = true : service.metric = false;
-
+  //JSON.parse($window.localStorage.metric) ? service.metric = true : service.metric = false;
+  service.metric = false;
   service.addBikeId = function(bikeId, geoData){
     $log.debug('geoService.addBikeId');
 
