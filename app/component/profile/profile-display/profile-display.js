@@ -13,6 +13,8 @@ function ProfileDisplayController($log, $window, profileService, geoService){
 
   this.showEdit = false;
 
+  const defaultPhoto = require('../../../assets/user-anon.jpg');
+
   geoService.metric ? this.units='centimeters' : this.units = 'inches';
 
   this.switchUnits = function() {
@@ -26,7 +28,7 @@ function ProfileDisplayController($log, $window, profileService, geoService){
       this.profile = res.data;
       this.profile.email = $window.localStorage.getItem('email');
       if (this.profile.height && this.profile.inseam) this.fetchResults();
-      if (!this.profile.photoURI) this.profile.photoURI = __defaultUserPhoto__;
+      if (!this.profile.photoURI) this.profile.photoURI = defaultPhoto;
     });
   };
   this.updateProfile = function(){
@@ -34,6 +36,7 @@ function ProfileDisplayController($log, $window, profileService, geoService){
     .then( res => {
       this.profile = res.data;
       this.showEdit = false;
+      this.fetchResults();
     })
     .catch( err => {
       $log.error(err);
