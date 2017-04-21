@@ -1,0 +1,23 @@
+@import '../../../../scss/lib/theme/vars';
+
+
+.edit-bike-model{
+
+  .info{
+    width: 40%;
+    display: inline-block;
+
+}
+.btn-std {
+  float:none;
+}
+  .image{
+    //float:rig;
+    width:50%;
+    display: inline-block;
+    img{
+      max-width: 100%;
+    }
+
+  }
+}

@@ -1,0 +1,24 @@
+<section class="disp-manufacturers">
+
+  <ul class="results-table">
+    <li
+
+    >
+      <span>{{ displayMfrCtrl.brand.name }}</span>
+      <button class="btn-std add-bike" type="button" name="addBike" ng-click="displayMfrCtrl.showAddBike = !displayMfrCtrl.showAddBike">Add Bike Model</button>
+      <button class="btn-std show-bikes" type="button" ng-click="displayMfrCtrl.showDisplayBike = !displayMfrCtrl.showDisplayBike">show bikes</button>
+      <div class="clearfix"></div>
+    </li>
+      <create-bike ng-if="displayMfrCtrl.showAddBike" brand="displayMfrCtrl.brand" show-form="displayMfrCtrl.showAddBike"></create-bike>
+
+      <display-bike ng-if="displayMfrCtrl.showDisplayBike"
+      show-display-bike="displayMfrCtrl.showDisplayBike"
+      brand="displayMfrCtrl.brand"
+      fetch-mfr-bikes="displayMfrCtrl.fetchMfrBikes()"
+      bikes="displayMfrCtrl.bikes"
+      current-bike="displayMfrCtrl.currentBike"
+      pass-current-bike="displayMfrCtrl.passCurrentBike(newBike)"
+      >
+      </display-bike>
+  </ul>
+</section>

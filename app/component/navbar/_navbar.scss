@@ -1,0 +1,101 @@
+@import '../../scss/lib/theme/vars';
+
+header nav {
+    color: $white;
+    background-color: $nav-background;
+    display: flex;
+    img{
+      align-self: center;
+      margin: $gutter-sm $gutter-std;
+      display: inline-block;
+      vertical-align: middle;
+      &.logo-mobile{
+        display: none;
+      }
+    }
+    div.navbar-collapse.collapse{
+      flex-grow:1;
+      text-align: right;
+
+
+    }
+    ul{
+       text-align: right;
+       margin-bottom: 0;
+    li {
+      display: inline-block;
+      margin:  $gutter-std $gutter-sm;
+      vertical-align: middle;
+      font-size:2vw;
+      a {
+        color: $white;
+        &:hover{
+          color: $white*.8;
+          text-decoration: none;
+        };
+      }
+    }
+  }
+  button.btn-std.logout{
+    font-size: 1.7vw;
+    padding: 0 2vw;
+    white-space: nowrap;
+    background-color:rgba(0,0,0,0);
+    border:1px solid $white;
+    &:hover{
+      background-color: rgba(255,255,255,.1);
+    }
+  }
+  button.navbar-toggle{
+    margin-top:$gutter-std;
+    border: 1px solid $white/2;
+      .icon-bar{
+        background-color: $white;
+    }
+  }
+}
+@media #{$large-mobile} {
+  header nav{
+    display: block;
+      img{
+        &.logo-desktop{
+          margin:$gutter-std
+        }
+      }
+
+  ul{
+    //width:90vw;
+    //display: block;
+   // padding-bottom: 3%;
+
+  li{
+    font-size:3.5vw;
+    display: block;
+    //margin-bottom: $gutter-std;
+      }
+    }
+    button.btn-std.logout{
+      font-size: 3vw;
+
+    }
+  }
+}
+
+@media #{$med-mobile} {
+   header nav{
+    display: block;
+    img{
+      &.logo-mobile{
+        height: auto;
+        width: 8vw;
+        margin: $gutter-std/2 $gutter-std;
+        display: inline-block;
+        vertical-align: middle;
+        min-width:44px;
+      }
+      &.logo-desktop{
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<div class="image-edits">
+  <span
+    ng-if="!profileImgCtrl.editImage"
+    ng-click="profileImgCtrl.editImage=true">change image</span>
+  <div ng-if="profileImgCtrl.editImage">
+  <label for="upload" >select an image</label>
+  <input  name="upload" class="btn-std upload" type="file" ngf-select ng-model="profileImgCtrl.img.file" required>
+    <button ng-if="profileImgCtrl.img.file" class="btn-std" ng-click="profileImgCtrl.uploadImg()">Upload</button>
+  </div>
+</div>

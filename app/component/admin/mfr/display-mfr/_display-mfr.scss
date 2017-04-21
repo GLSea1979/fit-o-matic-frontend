@@ -1,0 +1,13 @@
+@import '../../../../scss/lib/theme/vars';
+
+
+.disp-manufacturers {
+  span {
+    font-size: 2vw;
+  }
+  .btn-std {
+    padding: 1% 2%;
+    margin: 0 $gutter-std;
+  }
+
+}

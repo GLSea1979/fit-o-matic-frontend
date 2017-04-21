@@ -1,0 +1,66 @@
+<section class="edit-bike-model">
+  <h3>Bike Model: {{ editBikeCtrl.currentBike.bikeName }}</h3>
+  <div class="info">
+    <ul ng-if="!editBikeCtrl.showEdit">
+
+      <li><span>category: </span>{{ editBikeCtrl.currentBike.category }}</li>
+      <li >
+        <span>url:</span>{{ editBikeCtrl.currentBike.url }}
+        <span class="unset" ng-if="!editBikeCtrl.currentBike.url">not set</span>
+      </li>
+      <li>
+        <span>price:</span>{{ editBikeCtrl.currentBike.price }}
+        <span class="unset" ng-if="!editBikeCtrl.currentBike.price">not set</span>
+      </li>
+      <li>
+        <span>model year:</span>{{ editBikeCtrl.currentBike.modelYear }}
+        <span class="unset" ng-if="!editBikeCtrl.currentBike.modelYear">not set</span>
+      </li>
+    </ul>
+
+        <div ng-if="!editBikeCtrl.showEdit">
+            <button class="btn-std"
+        ng-click="editBikeCtrl.showEdit=!editBikeCtrl.showEdit">
+        edit
+      </button>
+        <button class="btn-std"
+        ng-click="editBikeCtrl.showIntegrateGeo=!editBikeCtrl.showIntegrateGeo">
+        add size
+      </button>
+</div>
+<!--     START BIKE EDIT FORM-->
+    <form ng-if="editBikeCtrl.showEdit"
+    ng-submit="editBikeCtrl.updateBike()">
+      <ul >
+        <li><input name="bikeName" ng-model="editBikeCtrl.currentBike.bikeName"
+              placeholder="model name"></li>
+        <li> {{ editBikeCtrl.currentBike.email }} </li>
+        <li> <input ng-model="editBikeCtrl.currentBike.category" placeholder="category"> </li>
+        <li> <input ng-model="editBikeCtrl.currentBike.url" placeholder="url"> </li>
+        <li> <input ng-model="editBikeCtrl.currentBike.price" type="number" placeholder="price"> </li>
+        <li> <input ng-model="editBikeCtrl.currentBike.modelYear" type="text" placeholder="modelYear"> </li>
+        <li>
+          <button class="btn-std" type="submit">
+          update
+          </button>
+          <button class="btn-std" type="submit" ng-click="!editBikeCtrl.showEdit">
+          cancel
+          </button>
+            <div class="clearfix"></div>
+
+        </li>
+      </ul>
+    </form>
+  </div>
+
+  <!-- END BIKE EDIT FORM -->
+   <div class="image">
+    <img
+        ng-src="{{ editBikeCtrl.currentBike.photoURI }}"
+        alt="{{ editBikeCtrl.currentBike.bikeName }}">
+        <bike-img bike="editBikeCtrl.bike"></bike-img>
+    </div>
+  <div class="clearfix"></div>
+  <integrate-geo ng-if="editBikeCtrl.showIntegrateGeo" current-bike="editBikeCtrl.currentBike"></integrate-geo>
+  <div class="clearfix"></div>
+</section>

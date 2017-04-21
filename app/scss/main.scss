@@ -1,0 +1,25 @@
+// ::::::::: Reset ::::::::://
+@import "lib/base/reset";
+
+// // ::::::: Bootstrap ::::://
+@import "lib/bootstrap/custom-bootstrap";
+
+// :::::::: Base style and variables ::::::: //
+@import "lib/theme/vars";
+@import "lib/base/base";
+
+// :::::::: Layout ::::::::://
+@import "lib/layout/header";
+@import "lib/layout/main";
+@import "lib/layout/footer";
+
+// // ::::::: Views :::::::::://
+@import "../view/home/home";
+@import "../view/landing/landing";
+@import "../view/admin/admin";
+
+// // ::::::: Components ::::://
+@import "../component/landing/signup/signup";
+@import "../component/landing/signin/signin";
+@import "../component/navbar/navbar";
+

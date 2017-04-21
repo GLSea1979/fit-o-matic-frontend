@@ -1,0 +1,14 @@
+<section class="dele-mfr">
+  <h2>Delete Bike Manufacturer</h2>
+  <form
+    name="deleteMfrForm"
+    class="mfr-form"
+    ng-submit="deleteMfrCtrl.deleteMfr()"
+  >
+  <fieldset>
+    <label for="name">name:</label>
+    <input type="text" ng-model="deleteMfrCtrl.name" name="name" placeholder="name" required>
+    <button class="btn-std" type="button" ng-click="deleteMfrCtrl.deleteBike()">delete manufacturer</button>
+  </fieldset>
+
+</section>

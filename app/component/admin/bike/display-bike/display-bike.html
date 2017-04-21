@@ -1,0 +1,16 @@
+<section class="disp-bike">
+ <h3 ng-click="displayBikeCtrl.displayBikes()">Bike Models for {{  displayBikeCtrl.brand.name }}</h3>
+ <ul class="results-table">
+   <li ng-repeat="bike in displayBikeCtrl.bikes"
+    ng-class-odd="'odd'" ng-class-even="'even'"
+    ng-click="displayBikeCtrl.changeBike(bike)"
+    >
+      <span>{{ bike.bikeName }} </span>
+      <button class="btn-std">view bike</button>
+      <div class="clearfix">
+    </li>
+  </ul>
+
+  <edit-bike ng-if="displayBikeCtrl.showEditBike" current-bike="displayBikeCtrl.currentBike"></edit-bike>
+
+</section>

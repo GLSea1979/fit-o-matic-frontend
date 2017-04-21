@@ -1,0 +1,25 @@
+<nav>
+  <a href="/#!/home"><img class="logo-desktop" src="../../../assets/logo-wide.png"></a>
+  <a href="/#!/home"><img class="logo-mobile" src="../../../assets/icon.png"></a>
+  <!-- <div ng-show="localStorage.token"> -->
+    <button type="button" class="navbar-toggle" ng-click="navbarCtrl.isNavCollapsed = !navbarCtrl.isNavCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse"
+      uib-collapse="navbarCtrl.isNavCollapsed"
+      >
+      <ul>
+        <li ng-repeat="route in navbarCtrl.routes"
+          ng-click="navbarCtrl.isNavCollapsed = true">
+          <a href="{{ route.url }}">{{ route.name }}</a></li>
+        <li>
+          <button type="button" class="logout btn-std" ng-show="!navbarCtrl.hideButtons" ng-click="navbarCtrl.logout()"
+          >log out</button>
+          </li>
+      </ul>
+    </div>
+  <!-- <div> -->
+</nav>

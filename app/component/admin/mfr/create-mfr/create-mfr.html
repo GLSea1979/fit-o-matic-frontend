@@ -1,0 +1,30 @@
+<section class="create-mfr">
+	<h2>Add Bike Manufacturer</h2>
+	<form class="mfr-form"
+		name="createMfrForm"
+		ng-submit="createMfrCtrl.createMfr()"
+		novalidate>
+	<fieldset>
+		<input type="text" ng-model="createMfrCtrl.mfr.name" name="mfrName"
+		 ng-maxlength="25"
+		 ng-minlength="3"
+		 placeholder="manufacturer name"
+		 required>
+		 <div class="formChecker" ng-messages="createMfrForm.mfrName.$error">
+	 			<p ng-message="minlength">Must be at least 3 characters</p>
+	 			<p ng-message="maxlength">Must be less than 25 characters</p>
+	 	</div>
+		<input type="text" ng-model="createMfrCtrl.mfr.website"name="mfrWebsite"
+		ng-maxlength="35"
+		ng-minlength="5" placeholder="manufacturer website"
+		required>
+
+		<div class="formChecker" ng-messages="createMfrForm.mfrWebsite.$error">
+			 <p ng-message="minlength">Must be at least 5 characters</p>
+			 <p ng-message="maxlength">Must be less than 35 characters</p>
+	 </div>
+
+	</fieldset>
+		<button class="btn-std" ng-disabled="createMfrForm.$invalid" value="create manufacturer">create manufacturer</button>
+	</form>
+</section>

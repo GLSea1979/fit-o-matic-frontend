@@ -1,0 +1,27 @@
+main{
+
+    margin:$gutter-std 0;
+    flex:1;
+    background-color:$main-background;
+    padding: $gutter-std;
+    border: solid $app-primary;
+    border-width: 3px 0;
+
+  ul.results-table {
+
+      border: 1px solid grey;
+
+      li {
+        padding:$gutter-std/2;
+        &:hover{
+          filter: invert(100%);
+        }
+      }
+      .odd {
+        background-color: $app-tertiary;
+      }
+      .even{
+        background-color: $white;
+      }
+    }
+}

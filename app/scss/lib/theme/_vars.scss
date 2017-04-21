@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700');
+
+
+// ::::: Pallette ::::: //
+$app-primary: #ccc;
+$app-secondary: #000;
+$app-tertiary: #eee;
+$app-text-color: #000;
+$btn-primary: #337ab7;
+$btn-secondary: #000;
+$disabled: #e3e3e3;
+$white: #fff;
+$black: #000;
+$nav-background: rgba(0,0,0,.8);
+$main-background: rgba(255, 255, 255, .7);
+
+
+// ::::: Layout & Spacing ::::: //
+$gutter-std: 3%;
+$gutter-sm: $gutter-std / 2;
+$gutter-lg: $gutter-std * 2;
+$footer-height: 70px;
+
+@mixin main-style{
+
+}
+
+// ::::: Fonts ::::: //
+$fontStack: 'Open Sans', Helvetica, sans-serif;
+$font-primary: 'Open Sans';
+$font-secondary: Helvetica;
+
+
+// :::: Media Queries :::: //
+
+$desktop: "only screen and (min-width : 769px)";
+$large-mobile: "only screen and (max-width : 768px)";
+$med-mobile: "only screen and (max-width : 600px)";
+$mobile: "only screen and (min-width : 326px)";
+
+
+// ::::: Buttons, Inputs, Forms ::::: //
+$btn-radius: 5px;
+
+@mixin rounded($radius: 0.5em) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius*2;
+}
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+// ::::: sprites ::::: //
+
+$socialIconSize: 5vw;
+$sprites: url('/assets/sprite.png');
+
+
+// ::::: transitions and animations ::::: //
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}

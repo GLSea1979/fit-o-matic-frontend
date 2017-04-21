@@ -1,0 +1,53 @@
+@import '../../../scss/lib/theme/vars';
+
+.profile-disp{
+  width:59%;
+  font-size: 1.8vw;
+  display: inline-block;
+  vertical-align: top;
+  div.image {
+    width: 55%;
+    display: inline-block;
+    margin: $gutter-std 0 $gutter-std $gutter-std;
+    float:left;
+    img{
+      width:100%;
+      height: auto;
+    }
+  }
+  .info{
+    width:36%;
+    display: inline-block;
+    margin: $gutter-std 0 $gutter-std $gutter-std;
+    h2{
+      margin-top: 0;
+      font-size:3vw;
+    }
+    li {
+      line-height: 200%;
+      margin-top: 2px;
+
+      span.unset{
+        font-style: italic;
+      }
+    }
+    input{
+      line-height: 100%;
+      margin: 1px 0 0 0 ;
+    }
+    .btn-std{
+      float: none;
+      line-height: 100%;
+    }
+  }
+}
+span.pseudo-h2{
+  margin: $gutter-std 0;
+  font-size:3vw;
+  font-weight: bold;
+  display: block;
+}
+.divider{
+  border-bottom: 1px solid $app-primary;
+  margin: $gutter-std;
+}

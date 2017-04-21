@@ -1,0 +1,43 @@
+<section class="landing">
+  <div class="logo-container">
+    <img src="../../assets/fit-O-matic-large.png" alt="">
+  </div>
+  <div class="field-container">
+    <div class="join-container">
+      <div class="join-inner"
+      ng-if="landingCtrl.signInFirst"
+      >
+        <signup-controller></signup-controller>
+        <div>
+          <a href="/#!/join#signin"
+            ng-click="landingCtrl.signInFirst=false">
+            already a member?<span>sign in here</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="join-container">
+      <div class="join-inner"
+      ng-if="!landingCtrl.signInFirst"
+      >
+        <signin-controller></signin-controller>
+        <div>
+          <a href="/#!/join#signup"
+            ng-click="landingCtrl.signInFirst=true">
+            not registered?<span>sign up here</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="welcome-instructions">
+    <ul>
+      <li>1: take two simple measurements</li>
+      <li>2: find a bike that fits</li>
+      <li>3: go out and ride it</li>
+    </ul>
+  </div>
+<!-- this does nothing  -->
+</section>

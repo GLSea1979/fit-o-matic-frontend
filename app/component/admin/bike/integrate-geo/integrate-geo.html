@@ -1,0 +1,12 @@
+<section class="integrate-geo-bike">
+	<h4>Add a size to {{ integrateGeoCtrl.currentBike.bikeName }}</h4>
+		<ul>
+			<li ng-repeat="geo in integrateGeoCtrl.geos" ng-class-odd="'odd'" ng-class-even="'even'"
+			>
+				{{ geo.bikeSizeName }}
+				<button class="btn-std" ng-click="integrateGeoCtrl.updateBikeGeo(geo)">Add this</button>
+        <div class="clearfix"></div>
+			</li>
+		</ul>
+
+</section>

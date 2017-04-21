@@ -1,0 +1,28 @@
+
+<section class="createNewBike">
+	<h4>Add Bike to {{createBikeCtrl.brand.name}}</h4>
+	<form
+		name="createBikeForm"
+		class="bike-form"
+		ng-submit="createBikeCtrl.createBike()"
+		novalidate
+	>
+	<fieldset>
+		<input type="text" ng-model="createBikeCtrl.bike.bikeName" name="name" placeholder="name">
+		<input type="text" ng-model="createBikeCtrl.bike.category" name="category" placeholder="category">
+		<input type="number"
+		 ng-model="createBikeCtrl.bike.price" name="price" placeholder="price">
+		<input type="text" ng-model="createBikeCtrl.bike.modelYear" name="model year" placeholder="model year">
+		<input type="text" ng-model="createBikeCtrl.bike.url" name="url" placeholder="website url">
+
+		select an image
+		<input  class="btn-std upload" type="file" ngf-select ng-model="createBikeCtrl.bike.file" required>
+
+<!-- 		<span ng-model="createBikeCtrl.bike.file" ngf-select>select an image to upload</span> -->
+
+		<button class="btn-std submit"
+		ng-disabled="createBikeForm.$invalid" ng-click="!createBikeCtrl.showForm"
+		>create bike</button>
+	</fieldset>
+	</form>
+</section>

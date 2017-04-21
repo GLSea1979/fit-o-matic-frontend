@@ -1,0 +1,10 @@
+<footer>
+  <nav class="social-icon">
+    <ul>
+      <li ng-repeat="icon in footerCtrl.icons" class="{{ icon.val }}" uib-tooltip="{{ icon.desc }}">
+        <a href="{{ icon.url }}"  alt="{{ icon.desc }}">
+        </a>
+      </li>
+    </ul>
+  </nav>
+</footer>

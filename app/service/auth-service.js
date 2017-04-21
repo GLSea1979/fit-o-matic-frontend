@@ -13,7 +13,7 @@ function authService($q, $log, $http, $window) {
 
     if (! _token) {
       return $q.reject(new Error('no token'));
-    };
+    }
 
     $window.localStorage.setItem('token', _token);
     token = _token;
@@ -24,7 +24,7 @@ function authService($q, $log, $http, $window) {
     $log.debug('authService.getToken');
     if (token) {
       return $q.resolve(token);
-    };
+    }
 
     token = $window.localStorage.getItem('token');
     if (token) return $q.resolve(token);
@@ -35,18 +35,19 @@ function authService($q, $log, $http, $window) {
     $log.debug('authService.signup');
 
     let url = `${__API_URL__}/api/signup`;
+    user.admin = true;
     let config = {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
     };
-
-
     return $http.post(url, user, config)
     .then( res => {
-      $log.log('success:', res.data);
-      return setToken(res.data);
+      $window.localStorage.setItem('userID', res.data.userId);
+      $window.localStorage.setItem('email', res.data.email);
+      console.log(res.data, '[[[[[[[[[[[[[[[[');
+      return setToken(res.data.token);
     })
     .catch( err => {
       $log.error('failure:', err.message);
@@ -58,14 +59,14 @@ function authService($q, $log, $http, $window) {
     $log.debug('authService.logout');
 
     $window.localStorage.removeItem('token');
+    $window.localStorage.removeItem('userID');
     token = null;
     return $q.resolve();
   };
 
-  service.login = function(user) {
-    $log.debug('authService.login');
-
-    let url = `${__API_URL__}/api/login`;
+  service.signin = function(user) {
+    $log.debug('authService.signin');
+    let url = `${__API_URL__}/api/signin`;
     let base64 = $window.btoa(`${user.username}:${user.password}`);
     let config = {
       headers: {
@@ -77,7 +78,9 @@ function authService($q, $log, $http, $window) {
     return $http.get(url, config)
     .then( res => {
       $log.log('success', res.data);
-      return setToken(res.data);
+      $window.localStorage.setItem('userID', res.data.userId);
+      $window.localStorage.setItem('email', res.data.email);
+      return setToken(res.data.token);
     })
     .catch( err => {
       $log.error(err.message);
@@ -86,4 +89,4 @@ function authService($q, $log, $http, $window) {
   };
 
   return service;
-};
+}
