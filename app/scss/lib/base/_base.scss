@@ -52,6 +52,16 @@ body {
     color: $white;
     font-weight: 300;
     float:right;
+
+    &:hover{
+      background-color: $btn-primary/2
+    }
+    &.delete{
+      background-color: #ff9800;
+    }
+    &.favorite{
+      background-color: #ef8484;
+    }
   }
 
   .formChecker {

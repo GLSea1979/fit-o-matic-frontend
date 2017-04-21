@@ -1,7 +1,12 @@
+@import '../../../scss/lib/theme/vars';
+
 .profile-bike-results{
   img {
     max-width: 100%;
     height: auto;
     float:left;
   }
-};
+  .btn-std{
+    margin: 0 $gutter-std;
+  }
+}

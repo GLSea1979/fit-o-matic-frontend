@@ -4,7 +4,13 @@
   display: inline-block;
   width:40%;
   ul{
+    max-height: 275px;
+    overflow-x: scroll;
     border: 2px solid $app-primary;
+    li{
+      border-bottom: 1px solid $app-primary;
+      padding: $gutter-std;
+    }
   }
   img{
     width:30%;
@@ -12,5 +18,11 @@
   }
   h2{
     font-size: 3vw;
+  }
+
+  .btn-std {
+    padding: 1% 1%;
+    margin: 0 4px;
+
   }
 }

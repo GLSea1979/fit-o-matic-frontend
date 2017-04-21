@@ -1,5 +1,7 @@
 'use strict';
 
+require('./_profile-img.scss');
+
 module.exports = {
   template: require('./profile-img.html'),
   controller: ['$log', 'imgService', ProfileImgController],
