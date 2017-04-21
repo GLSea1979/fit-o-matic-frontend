@@ -14,7 +14,7 @@ function bikeService($log, $q, $http, Upload, authService) {
 
     return authService.getToken()
     .then( token => {
-      let url = `${__API_URL__}/api/bikes/all`;
+      let url = `${__API_URL__}/api/all/bikes`;
       let config = {
         headers: {
           Accept: 'application/json',
