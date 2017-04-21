@@ -1,14 +1,13 @@
 'use strict';
 
-module.exports = ['$log', '$q', '$http', 'authService', geoService];
+module.exports = ['$log', '$q', '$http', '$window', 'authService', geoService];
 
-function geoService($log, $q, $http, authService){
+function geoService($log, $q, $http, $window, authService){
   $log.debug('geoService');
 
   let service = {};
-
-  service.metric = true;
-
+  //JSON.parse($window.localStorage.metric) ? service.metric = true : service.metric = false;
+  service.metric = false;
   service.addBikeId = function(bikeId, geoData){
     $log.debug('geoService.addBikeId');
 
@@ -64,7 +63,7 @@ function geoService($log, $q, $http, authService){
 	};//end createGeo()
 
   service.fetchGeo = function(height, inseam){
-    $log.debug('geoService.fetchGeo()');
+    $log.debug('geoService.fetchGeo()', service.metric);
 
     if(!service.metric){
       height *= 2.54;

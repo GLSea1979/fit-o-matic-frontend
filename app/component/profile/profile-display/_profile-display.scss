@@ -38,6 +38,14 @@
     .btn-std{
       float: none;
       line-height: 100%;
+      display: block;
+      margin-top: $gutter-std;
+
+      &.units{
+        background-color: $app-primary;
+        cursor: pointer;
+        color: $black;
+      }
     }
   }
 }

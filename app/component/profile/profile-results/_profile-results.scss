@@ -1,12 +1,41 @@
 @import '../../../scss/lib/theme/vars';
 
 .profile-bike-results{
-  img {
-    max-width: 100%;
-    height: auto;
-    float:left;
+//   img {
+//     max-width: 100%;
+//     height: auto;
+//     float:left;
+//   }
+//   .btn-std{
+//     margin: 0 $gutter-std;
+//   }
+// }
+
+padding:$gutter-std/3;
+    div.inner-container{
+     border: 1px solid $app-primary;
+      background-color: $white;
+      padding: $gutter-std/2;
+
+   }
+      h3{
+        margin: 0;
+      }
+
+      button {
+        margin: $gutter-std auto;
+        float: none;
+        //margin-right: 37%;
+       }
+    .img-container {
+      margin: 1em;
+      max-height: 18em;
+      min-height: 26vw;
+      border-bottom: 1px solid $app-primary;
+    img {
+      max-height: 100%;
+      max-width: 100%;
+      height: auto;
+      }
+    }
   }
-  .btn-std{
-    margin: 0 $gutter-std;
-  }
-}
