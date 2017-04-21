@@ -58,12 +58,15 @@
   </div>
 </section>
 
-<profile-instructions ng-if="!profileDisplayCtrl.profile.height && !profileDisplayCtrl.profile.inseam"></profile-instructions>
+<profile-instructions ng-if="!profileDisplayCtrl.profile.height || !profileDisplayCtrl.profile.inseam"></profile-instructions>
 
 <favorites-display
   profile="profileDisplayCtrl.profile"
   fetch-profile="profileDisplayCtrl.fetchProfile()"
   remove-favorite="profileDisplayCtrl.removeFavorite(toRemove)"></favorites-display>
+
+  <div class="divider"></div>
+  <span class="pseudo-h2" ng-if="profileDisplayCtrl.results">matching bikes</span>
 <profile-results
   profile="profileDisplayCtrl.profile"
   results="profileDisplayCtrl.results"

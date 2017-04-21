@@ -1,5 +1,7 @@
 'use strict';
 
+require('./_display-geo.scss');
+
 module.exports = {
 	template: require('./display-geo.html'),
 	controller: ['$log', 'geoService', DisplayGeoController],

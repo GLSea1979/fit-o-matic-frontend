@@ -41,3 +41,13 @@
     }
   }
 }
+span.pseudo-h2{
+  margin: $gutter-std 0;
+  font-size:3vw;
+  font-weight: bold;
+  display: block;
+}
+.divider{
+  border-bottom: 1px solid $app-primary;
+  margin: $gutter-std;
+}

@@ -1,12 +1,9 @@
 <section class="favorites-profile">
-<!--
-<button class="btn-std fetch" ng-click="favoritesDisplayCtrl.fetchFavorites()">fetch</button> -->
-<!-- {{ favoritesDisplayCtrl.profile.geoID }}
- --><h2>Favorites</h2>
+<h2>Favorites</h2>
   <ul class="display-table">
     <li ng-repeat="favorite in favoritesDisplayCtrl.favorites.geoID">
-      <img ng-src="{{favorite.bikeID[0].photoURI}}">
       <h3>{{ favorite.bikeSizeName }} </h3>
+      <img ng-src="{{favorite.bikeID[0].photoURI}}">
       <button class="btn-std info" ng-click="favoritesDisplayCtrl.getDetail(favorite)">details</button>
       <button class="btn-std delete" ng-click="favoritesDisplayCtrl.deleteFavorites(favorite)">remove</button>
 
