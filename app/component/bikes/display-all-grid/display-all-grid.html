@@ -3,7 +3,7 @@
   </div>
   <div class="item-block all-bikes-view-item col-lg-4 col-md-4 col-sm-4 col-xs-12"
     ng-repeat="bike in displayAllGridCtrl.bikes |  fuzzySearch: displayAllGridCtrl.bikeSearchTerm">
-    <div>
+    <div class="inner-container">
      <div class="img-container">
        <img ng-src="{{ bike.photoURI }}">
      </div>
