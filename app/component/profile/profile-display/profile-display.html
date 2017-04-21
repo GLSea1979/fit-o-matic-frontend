@@ -20,11 +20,11 @@
       </li>
       <li>
         <span>height:</span>{{ profileDisplayCtrl.profile.height }}
-        <span class="unset" ng-if="!profileDisplayCtrl.profile.height">not set</span>
+        <span class="unset" ng-if="!profileDisplayCtrl.profile.height">not set</span> {{ profileDisplayCtrl.units }}
       </li>
       <li>
         <span>inseam:</span>{{ profileDisplayCtrl.profile.inseam }}
-        <span class="unset" ng-if="!profileDisplayCtrl.profile.inseam">not set</span>
+        <span class="unset" ng-if="!profileDisplayCtrl.profile.inseam">not set</span> {{ profileDisplayCtrl.units }}
       </li>
       <li>
         <button class="btn-std"
@@ -44,7 +44,7 @@
         <li> <input ng-model="profileDisplayCtrl.profile.inseam" placeholder="inseam" type="number"> </li>
         <li>
           <span
-            class="btn-std"
+            class="btn-std units"
               ng-model="profileDisplayCtrl.units"
               ng-click="profileDisplayCtrl.switchUnits()">
               {{ profileDisplayCtrl.units }}
