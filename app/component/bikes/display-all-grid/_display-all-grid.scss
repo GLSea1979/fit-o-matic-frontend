@@ -3,27 +3,40 @@
 .display-all-grid {
   .all-bikes-view-item {
     text-align: center;
-    // width: 30%; why is this working but bootstraps rules aren't?
     height: 26em;
     display: inline-block;
     margin-bottom: 0.5em;
+    padding:$gutter-std/3;
+    div.inner-container{
+     border: 1px solid $app-primary;
+      background-color: $white;
+
+   }
       h3{
         margin: 0;
       }
 
       button {
-        margin-right: 37%;
+        margin: $gutter-std auto;
+        float: none;
+        //margin-right: 37%;
        }
     .img-container {
       margin: 1em;
       max-height: 18em;
+      min-height: 26vw;
+      border-bottom: 1px solid $app-primary;
+      overflow: hidden;
     img {
       max-height: 100%;
+<<<<<<< HEAD
 <<<<<<< HEAD
       min-height: 18em;
 =======
       //min-height: 18em;
 >>>>>>> 2ac8e7b8438c971c48e5866fa725b39e78001a12
+=======
+>>>>>>> f15701ee50a1cd345c945b69fd9445eabe370c14
       max-width: 100%;
       height: auto;
       }
