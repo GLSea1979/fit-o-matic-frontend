@@ -1,8 +1,20 @@
+@import '../../../scss/lib/theme/vars';
+
 .image-edits{
   .btn-std {
   float:none;
   &.upload{
     width: 100%
   };
+  }
+}
+@media #{$med-mobile} {
+  .image-edits{
+    font-size: 3vw;
+  }
+}
+@media #{$mobile} {
+  .image-edits{
+    font-size: 5vw;
   }
 }
