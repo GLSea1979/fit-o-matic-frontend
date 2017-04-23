@@ -25,13 +25,13 @@ module.exports = {
       {
         logo:`${__dirname}/assets/fit-O-matic-icon-lg.png`,
         icons: {
-          android: false,
-          appleIcon: false,
-          appleStartup: false,
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
           favicons: true,
-          firefox: false,
-          opengraph: false,
-          twitter: false,
+          firefox: true,
+          opengraph: true,
+          twitter: true,
         }
       }
     ),

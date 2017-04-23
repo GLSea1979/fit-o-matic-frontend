@@ -1,6 +1,6 @@
 <!-- <button class="btn-std" ng-click="profileResultsCtrl.retrieveResults()">get matching bikes</button> -->
 <section class="profile-bike-results">
-  <div class="item-block col-lg-4 col-md-4 col-sm-4 col-xs-12"
+  <div class="item-block col-lg-4 col-md-4 col-sm-6 col-xs-12"
   ng-repeat="result in profileResultsCtrl.results">
     <div class="inner-container">
     <div class="img-container">
@@ -9,11 +9,12 @@
     </div>
     <h3>{{ result.bikeSizeName }}</h3>
     <button class="btn-std detail" ng-click="profileResultsCtrl.getDetail(result)">detail</button>
+    </span>
     <button
       class="btn-std favorite"
       ng-click="profileResultsCtrl.add(result)"
       ng-if="!result.isFavorite">
-      add to favorites
+      <span class="glyphicon glyphicon-heart"></span> add to favorites
        </button>
      </div>
   </div>
