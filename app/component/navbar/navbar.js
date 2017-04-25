@@ -14,9 +14,19 @@ function NavbarController($log, $location, $rootScope, authService, routeService
   this.isNavCollapsed = true;
   this.routes = routeService.routes;
 
+  this.checkTokenStatus = function(){
+    if(localStorage.token) {
+      this.localToken = true;
+    }
+    else{
+      this.localToken = false;
+     }
+}
+
   this.checkPath = function() {
     let path = ($location.path() === '/join');
     //$log.debug($location.path());
+    this.checkTokenStatus();
 
     if(path) this.hideButtons = true;
 
