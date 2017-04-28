@@ -8,10 +8,11 @@ module.exports = {
   controllerAs: 'detailModalCtrl',
   bindings: {
     resolve: '<',
+    dismiss: '&'
   }
 };
 
-function DetailModalController($log, profileService, $uibModalInstance, mfrService){
+function DetailModalController($log, profileService, mfrService){
   $log.debug('DetailModalController');
   this.tempProfile = {};
 
@@ -34,7 +35,10 @@ function DetailModalController($log, profileService, $uibModalInstance, mfrServi
     });
   };
 
-
+  this.closeModal = function(){
+    $log.debug('DetailModalController.closeModal');
+    this.dismiss();
+  };
 
   this.addFavorite = function() {
     $log.debug('DetailModalController.addFavorite');
