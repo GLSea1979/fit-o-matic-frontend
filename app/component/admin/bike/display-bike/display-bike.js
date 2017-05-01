@@ -21,7 +21,6 @@ function DisplayBikeController($log, $timeout, bikeService){
 
   this.displayBikes = function() {
     $log.debug('DisplayBikeController.displayBikes()');
-
     bikeService.fetchMfrBikes(this.brand._id)
     .then( data => {
       this.bikes = data;
@@ -30,7 +29,7 @@ function DisplayBikeController($log, $timeout, bikeService){
 
   this.changeBike = function(bike){
     $log.debug('displayBikeCtrl.changeBike --> this', this);
-    this.showEditBike = true;
+    this.showEditBike = !this.showEditBike;
     this.passCurrentBike({newBike:bike});
   };
 
