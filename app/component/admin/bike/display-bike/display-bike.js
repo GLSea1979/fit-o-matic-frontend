@@ -21,17 +21,17 @@ function DisplayBikeController($log, $timeout, bikeService){
 
   this.displayBikes = function() {
     $log.debug('DisplayBikeController.displayBikes()');
-
     bikeService.fetchMfrBikes(this.brand._id)
     .then( data => {
       this.bikes = data;
     });
   };
 
-  this.changeBike = function(bike){
-    $log.debug('displayBikeCtrl.changeBike --> this', this);
-    this.showEditBike = true;
-    this.passCurrentBike({newBike:bike});
+  this.changeBike = function(x){
+    $log.debug('displayBikeCtrl.changeBike -------------------------> this', this);
+    $log.debug('HERE IS THE ARGUMENT (BIKE):', x);
+    this.showEditBike = !this.showEditBike;
+    this.passCurrentBike({newBike:x});
   };
 
   this.$onInit = function() {
