@@ -39,7 +39,6 @@ function mfrService($log, $q, $http, authService) {
 
   service.fetchMfr = function(mfrID) {
     $log.debug('mfrService.fetchMfr');
-
     return authService.getToken()
     .then( token => {
       let url = `${__API_URL__}/api/mfr/${mfrID}`;

@@ -59,3 +59,20 @@ span.pseudo-h2{
   border-bottom: 1px solid $app-primary;
   margin: $gutter-std;
 }
+@media #{$med-mobile} {
+
+.profile-disp{
+  width:100%;
+    .info{
+      h2{
+        font-size:6vw;
+      }
+      li {
+        font-size: 3.5vw;
+      }
+    }
+  }
+  span.pseudo-h2{
+  font-size:6vw;
+  }
+}

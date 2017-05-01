@@ -77,8 +77,8 @@ function authService($q, $log, $http, $window) {
 
     return $http.get(url, config)
     .then( res => {
-      $log.log('success', res.data);
       $window.localStorage.setItem('userID', res.data.userId);
+      $window.localStorage.setItem('beTheyAdmin', res.data.admin);
       $window.localStorage.setItem('email', res.data.email);
       return setToken(res.data.token);
     })
@@ -87,6 +87,5 @@ function authService($q, $log, $http, $window) {
       return $q.reject(err);
     });
   };
-
   return service;
 }

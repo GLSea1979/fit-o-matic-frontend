@@ -1,37 +1,34 @@
 @import '../../../scss/lib/theme/vars';
 
 .profile-bike-results{
-//   img {
-//     max-width: 100%;
-//     height: auto;
-//     float:left;
-//   }
-//   .btn-std{
-//     margin: 0 $gutter-std;
-//   }
-// }
 
-padding:$gutter-std/3;
+
+  padding:$gutter-std/3;
+
+   .item-block {
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 0.5em;
+    padding:$gutter-std/3;
     div.inner-container{
-     border: 1px solid $app-primary;
-      background-color: $white;
-      padding: $gutter-std/2;
+    border: 1px solid $app-primary;
+    background-color: $white;
 
    }
-      h3{
-        margin: 0;
-      }
+    h3{
+      margin: 0;
+    }
 
-      button {
-        margin: $gutter-std auto;
-        float: none;
-        //margin-right: 37%;
-       }
+    button {
+      margin: $gutter-std auto;
+      float: none;
+      //margin-right: 37%;
+     }
     .img-container {
       margin: 1em;
-      max-height: 18em;
-      min-height: 26vw;
+      height: 26vw;
       border-bottom: 1px solid $app-primary;
+      overflow: hidden;
     img {
       max-height: 100%;
       max-width: 100%;
@@ -39,3 +36,26 @@ padding:$gutter-std/3;
       }
     }
   }
+}
+
+@media #{$large-mobile} {
+  .profile-bike-results{
+    .item-block{
+      .img-container{
+        height: 40vw;
+        img{
+          max-height: 150%;
+        }
+      }
+    }
+  }
+}
+@media #{$med-mobile} {
+  .profile-bike-results{
+    .item-block{
+      .img-container{
+        height: auto;
+      }
+    }
+  }
+}

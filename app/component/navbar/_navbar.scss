@@ -9,6 +9,7 @@ header nav {
       margin: $gutter-sm $gutter-std;
       display: inline-block;
       vertical-align: middle;
+      width:30vw;
       &.logo-mobile{
         display: none;
       }
@@ -40,6 +41,7 @@ header nav {
   button.btn-std.logout{
     font-size: 1.7vw;
     padding: 0 2vw;
+    margin-bottom: $gutter-std;
     white-space: nowrap;
     background-color:rgba(0,0,0,0);
     border:1px solid $white;
@@ -60,7 +62,8 @@ header nav {
     display: block;
       img{
         &.logo-desktop{
-          margin:$gutter-std
+          margin:$gutter-std;
+          width:50vw;
         }
       }
 
@@ -96,6 +99,19 @@ header nav {
       }
       &.logo-desktop{
         display: none;
+      }
+    }
+  }
+}
+
+@media #{$mobile}{
+  header nav{
+    ul{
+      li{
+        font-size: 5vw;
+        button.btn-std.logout{
+          font-size: 5vw;
+        }
       }
     }
   }
