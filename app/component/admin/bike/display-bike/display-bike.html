@@ -6,8 +6,9 @@
     ng-click="displayBikeCtrl.changeBike(bike)"
     >
       <span>{{ bike.bikeName }} </span>
-      <button class="btn-std" ng-if="!displayBikeCtrl.showEditBike">view bike</button>
-      <button class="btn-std" ng-if="displayBikeCtrl.showEditBike">X</button>
+      <button class="btn-std">view bike</button>
+      <!-- TODO: fix scoping on this -->
+      <!-- <button class="btn-std" ng-if="displayBikeCtrl.showEditBike">X</button> -->
       <div class="clearfix">
     </li>
   </ul>
