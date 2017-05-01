@@ -31,6 +31,9 @@
       placeholder="password"
       ng-minlength="8"
       ng-model="signupCtrl.user.password" required>
+       <div class="formChecker server-error" ng-if="signupCtrl.serverError">
+        <p >Username or email address is already in use</p>
+      </div>
       <div class="formChecker" ng-messages="signupForm.signinField.$error">
           <p ng-message="minlength">Password must be at least 8 characters</p>
       </div>
