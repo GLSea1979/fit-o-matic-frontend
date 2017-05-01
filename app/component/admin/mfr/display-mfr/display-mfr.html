@@ -7,7 +7,9 @@
       <span>{{ displayMfrCtrl.brand.name }}</span>
       <button class="btn-std add-bike" type="button" name="addBike" ng-if="!displayMfrCtrl.showAddBike" ng-click="displayMfrCtrl.showAddBike = !displayMfrCtrl.showAddBike">Add Bike Model</button>
       <button class="btn-std add-bike" type="button" ng-if="displayMfrCtrl.showAddBike" ng-click="displayMfrCtrl.showAddBike = !displayMfrCtrl.showAddBike">X</button>
-      <button class="btn-std show-bikes" type="button" ng-click="displayMfrCtrl.showDisplayBike = !displayMfrCtrl.showDisplayBike">show bikes</button>
+
+      <button class="btn-std show-bikes" type="button" ng-if="!displayMfrCtrl.showDisplayBike" ng-click="displayMfrCtrl.showDisplayBike = !displayMfrCtrl.showDisplayBike">show bikes</button>
+      <button class="btn-std add-bike" type="button" ng-if="displayMfrCtrl.showDisplayBike" ng-click="displayMfrCtrl.showDisplayBike = !displayMfrCtrl.showDisplayBike">X</button>
       <div class="clearfix"></div>
     </li>
       <create-bike ng-if="displayMfrCtrl.showAddBike" brand="displayMfrCtrl.brand" show-form="displayMfrCtrl.showAddBike"></create-bike>

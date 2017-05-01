@@ -28,7 +28,8 @@ function DisplayBikeController($log, $timeout, bikeService){
   };
 
   this.changeBike = function(x){
-    $log.debug('displayBikeCtrl.changeBike --> this', this);
+    $log.debug('displayBikeCtrl.changeBike -------------------------> this', this);
+    $log.debug('HERE IS THE ARGUMENT (BIKE):', x);
     this.showEditBike = !this.showEditBike;
     this.passCurrentBike({newBike:x});
   };
