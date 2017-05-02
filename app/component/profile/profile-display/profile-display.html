@@ -61,6 +61,7 @@
 <profile-instructions ng-if="!profileDisplayCtrl.profile.height || !profileDisplayCtrl.profile.inseam"></profile-instructions>
 
 <favorites-display
+  ng-if="profileDisplayCtrl.results"
   profile="profileDisplayCtrl.profile"
   fetch-profile="profileDisplayCtrl.fetchProfile()"
   remove-favorite="profileDisplayCtrl.removeFavorite(toRemove)"></favorites-display>
