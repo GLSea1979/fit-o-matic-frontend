@@ -59,9 +59,15 @@ module.exports = {
       },
       {
         test: /\.(gif|png|jpe?g|svg|ico)$/i,
+        include: /[app, assets]/,
         loader: 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]'
 
       },
+      {
+        test: /\.(eot|woff|ttf|svg|otf).*/,
+        include:/node_modules/,
+        loader: 'url-loader?limit=100000&name=fonts/[hash].[ext]'
+      }
     ]
   }
 };
