@@ -4,7 +4,7 @@ module.exports = function() {
   return function(bikes, searchTerm){
     let fuzzyRegex = generateFuzzyString(searchTerm);
 
-    return bikes.filter(bike => {
+    if(bikes) return bikes.filter(bike => {
       return fuzzyRegex.test(bike.bikeName.toUpperCase());
     });
   };
