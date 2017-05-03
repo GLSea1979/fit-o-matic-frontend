@@ -4,42 +4,48 @@
 //  outline: 1px solid blue;
 // }
 .landing{
-img {
-  width: 70%;
-  align-self: center;
-  margin: 0 $gutter-std;
-  display: inline-block;
-  vertical-align: middle;
-
-
-
-}
-.logo-container{
-  text-align: center
-}
-span {
-  font-weight: bold;
-  margin: 0 $gutter-sm;
-}
-
-.field-container {
-  margin-top: $gutter-lg;
-}
-
-.welcome-instructions {
-  padding-left: $gutter-lg;
-  padding-top: $gutter-std;
-  font-size: 3.5vw;
-}
-
-@media #{$desktop} {
-  .logo-container {
+  img {
+    width: 70%;
+    align-self: center;
+    margin: 0 $gutter-std;
     display: inline-block;
-    width: 45%;
+    vertical-align: middle;
+
+
+
   }
+
+
+      input.btn-std{
+       -webkit-appearance:none;
+     }
+
+  .logo-container{
+    text-align: center
+  }
+  span {
+    font-weight: bold;
+    margin: 0 $gutter-sm;
+  }
+
   .field-container {
-    display: inline-block;
-    width: 45%;
+    margin-top: $gutter-lg;
   }
-}
+
+  .welcome-instructions {
+    padding-left: $gutter-lg;
+    padding-top: $gutter-std;
+    font-size: 3.5vw;
+  }
+
+  @media #{$desktop} {
+    .logo-container {
+      display: inline-block;
+      width: 45%;
+    }
+    .field-container {
+      display: inline-block;
+      width: 45%;
+    }
+  }
 }
