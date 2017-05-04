@@ -7,6 +7,7 @@
     <input class="input-std"
       type="text"
       name="userName"
+      autocapitalize="off" autocorrect="off"
       placeholder="name"
       ng-minlength="2"
       ng-maxlength="28"
@@ -18,6 +19,7 @@
     <input class="input-std"
       type="email"
       name="userEmail"
+      autocapitalize="off" autocorrect="off"
       placeholder="email"
       ng-model="signupCtrl.user.email">
 
@@ -28,6 +30,7 @@
     <input class="input-std"
       type="password"
       name="signinField"
+      autocapitalize="off" autocorrect="off"
       placeholder="password"
       ng-minlength="8"
       ng-model="signupCtrl.user.password" required>
