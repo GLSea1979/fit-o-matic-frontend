@@ -62,6 +62,7 @@ body {
     &.favorite{
       background-color: #ef8484;
     }
+
   }
 
   .formChecker {
@@ -73,4 +74,11 @@ body {
   }
 
   @include transition(300ms all);
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }

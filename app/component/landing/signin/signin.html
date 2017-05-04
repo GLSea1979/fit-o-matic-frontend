@@ -7,6 +7,7 @@
     <input type="text"
       name="username"
       placeholder="username"
+      autocapitalize="off" autocorrect="off"
       ng-minlength="2"
       ng-maxlength="28"
       class="input-std"
@@ -17,6 +18,7 @@
       </div>
 
     <input type="password" name="password"
+      autocapitalize="off" autocorrect="off"
       ng-disabled="signinForm.username.$invalid"
       placeholder="password"
       ng-minlength="8"
@@ -29,6 +31,6 @@
           <p >Name and/or Password is invalid!</p>
       </div>
 
-    <input type="submit" class="btn-std" ng-disabled="signupForm.$invalid" value="sign in">
+    <input type="submit" class="btn-std" ng-disabled="signinForm.$invalid" value="sign in">
   </form>
 </section>
