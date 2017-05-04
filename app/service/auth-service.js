@@ -35,7 +35,6 @@ function authService($q, $log, $http, $window) {
     $log.debug('authService.signup');
 
     let url = `${__API_URL__}/api/signup`;
-    user.admin = true;
     let config = {
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +45,7 @@ function authService($q, $log, $http, $window) {
     .then( res => {
       $window.localStorage.setItem('userID', res.data.userId);
       $window.localStorage.setItem('email', res.data.email);
-      console.log(res.data, '[[[[[[[[[[[[[[[[');
+      // console.log(res.data, '[[[[[[[[[[[[[[[[');
       return setToken(res.data.token);
     })
     .catch( err => {
@@ -78,7 +77,6 @@ function authService($q, $log, $http, $window) {
     return $http.get(url, config)
     .then( res => {
       $window.localStorage.setItem('userID', res.data.userId);
-      $window.localStorage.setItem('beTheyAdmin', res.data.admin);
       $window.localStorage.setItem('email', res.data.email);
       return setToken(res.data.token);
     })
