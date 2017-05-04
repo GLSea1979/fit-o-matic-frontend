@@ -11,15 +11,31 @@
     <div class="collapse navbar-collapse"
       uib-collapse="navbarCtrl.isNavCollapsed"
       >
-      <ul ng-if="navbarCtrl.localToken">
+      <ul ng-if="navbarCtrl.localToken && !navbarCtrl.isAdmin">
         <li ng-repeat="route in navbarCtrl.routes"
+          ng-if="!route.admin"
           ng-click="navbarCtrl.isNavCollapsed = true">
-          <a href="{{ route.url }}">{{ route.name }}</a></li>
+          <a href="{{ route.url }}">{{ route.name }}</a>
+        </li>
         <li>
           <button type="button" class="logout btn-std" ng-show="!navbarCtrl.hideButtons" ng-click="navbarCtrl.logout()"
           >log out</button>
           </li>
       </ul>
+
+
+      <ul ng-if="navbarCtrl.localToken && navbarCtrl.isAdmin">
+        <li ng-repeat="route in navbarCtrl.routes"
+          ng-click="navbarCtrl.isNavCollapsed = true">
+          <a href="{{ route.url }}">{{ route.name }}</a>
+        </li>
+        <li>
+          <button type="button" class="logout btn-std" ng-show="!navbarCtrl.hideButtons" ng-click="navbarCtrl.logout()"
+          >log out</button>
+          </li>
+      </ul>
+
+
     </div>
 
 </nav>
