@@ -32,70 +32,63 @@ function geoService($log, $q, $http, $window, authService){
       return $q.reject(err);
     });
 
-  }
+  };
 
 
 
 
-	service.createGeo = function(geoSpecs){
-		$log.debug('geoService.createGeo()');
-		//todo: be sure to pass in a bikeID from controller
+  service.createGeo = function(geoSpecs){
+    $log.debug('geoService.createGeo()');
 
-		return authService.getToken()
-		.then( token => {
-			let url = `${__API_URL__}/api/geo`;
-			let config = {
-				headers: {
-					Accept: 'application/json',
-					Authorization: `Bearer ${token}`,
-					'Content-Type': 'application/json'
-				}
-			};
-			return $http.post(url, geoSpecs, config);
-		})
-		.then( res => {
+    return authService.getToken()
+    .then( token => {
+      let url = `${__API_URL__}/api/geo`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+      return $http.post(url, geoSpecs, config);
+    })
+    .then( res => {
       return res.data;
-		})
-		.catch( err => {
-			$log.error(err.message);
-			return $q.reject(err);
-		});
-	};//end createGeo()
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };//end createGeo()
 
-  service.fetchGeo = function(height, inseam){
+  service.fetchGeo = function(height, inseam, metric){
     $log.debug('geoService.fetchGeo()', service.metric);
 
-    if(!service.metric){
+    if(!metric){
       height *= 2.54;
       inseam *= 2.54;
     }
 
     return authService.getToken()
-		.then( token => {
-  		let url = `${__API_URL__}/api/geo/?height=${height}&inseam=${inseam}`;
-  		let config = {
-    	headers: {
-      	Accept: 'application/json',
-      	Authorization: `Bearer ${token}`
-    	}
-   		};
-  return $http.get(url, config);
-})
-		.then( res => {
-			$log.debug('we have a fitting!');
-		  service.geo = res.data;
-			return service.geo;
-		})
-		.catch( err => {
-			$log.error(err.message);
-
-			return $q.reject(err);
-		});
-		};
-
-
-
-
+    .then( token => {
+      let url = `${__API_URL__}/api/geo/?height=${height}&inseam=${inseam}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.get(url, config);
+    })
+    .then( res => {
+      service.geo = res.data;
+      return service.geo;
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
 
     service.fetchAllGeos = function(){
       $log.debug('geoService.fetchAllGeo()');

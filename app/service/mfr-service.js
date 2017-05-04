@@ -26,9 +26,9 @@ function mfrService($log, $q, $http, authService) {
     })
     .then( res => {
       if(res.status === 204){
-          $log.debug(res.status);
+        $log.debug(res.status);
       }
-      service.mfrs = res.data;
+      if(res.data) service.mfrs = res.data;
       return service.mfrs;
     })
     .catch( err => {
@@ -64,29 +64,29 @@ function mfrService($log, $q, $http, authService) {
   };
 
   service.updateMfr = function(mfrID, mfrData){
-      $log.debug('mfrService.updateMfr');
+    $log.debug('mfrService.updateMfr');
 
-      return authService.getToken()
-      .then( token => {
-          let url = `${__API_URL__}/api/mfr/${mfrID}`;
-          let config = {
-              headers: {
-                  Accept: 'application/json',
-                  Authorization: `Bearer ${token}`,
-                  'Content-Type': 'application/json'
-              }
-          };
-          return $http.put(url, mfrData,config);
-      })
-      .then( res => {
-          $log.debug('mfr has been updated with:', res);
+    return authService.getToken()
+    .then( token => {
+      let url = `${__API_URL__}/api/mfr/${mfrID}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+      return $http.put(url, mfrData,config);
+    })
+    .then( res => {
+      $log.debug('mfr has been updated with:', res);
 
-          return service.mrf = res.data;
-      })
-      .catch( err => {
-          $log.error(err.message);
-          return $q.reject(err);
-      })
+      return service.mrf = res.data;
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
   };
 
   service.createMfr = function(mfrData){
