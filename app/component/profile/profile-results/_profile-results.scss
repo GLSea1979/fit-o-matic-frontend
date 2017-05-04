@@ -17,6 +17,7 @@
    }
     h3{
       margin: 0;
+      font-size: 4vw;
     }
 
     button {
@@ -53,6 +54,9 @@
 @media #{$med-mobile} {
   .profile-bike-results{
     .item-block{
+      h3{
+        font-size: 5vw;
+      }
       .img-container{
         height: auto;
       }
