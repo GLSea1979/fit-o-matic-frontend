@@ -21,9 +21,34 @@ function profileService($log, $q, $http, $window, authService){
       let userID = $window.localStorage.userID;
       return $http.get(`${url}/api/profile/${userID}`, config)
       .then( res => {
+        $log.debug(res, 'examine props on this');
         return res;
       })
       .catch( err => {
+        $log.error(err.message);
+        return $q.reject(err);
+      });
+    });
+  };
+
+  service.fetchAllProfiles = function(){
+    $log.debug('profileService.fetchAllProfiles');
+
+    return authService.getToken()
+    .then( token => {
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      };
+      return $http.get(`${url}/api/all/profile`, config)
+      .then( profiles => {
+        $log.debug(profiles, '<-- profiles');
+        return profiles;
+      })
+      .catch(err => {
         $log.error(err.message);
         return $q.reject(err);
       });
