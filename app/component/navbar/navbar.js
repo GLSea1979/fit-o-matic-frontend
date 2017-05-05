@@ -12,13 +12,15 @@ module.exports = {
 function NavbarController($log, $location, $rootScope, authService, profileService, routeService) {
   $log.debug('navbarController');
   this.isNavCollapsed = true;
-  this.isAdmin = true;
-    profileService.fetchProfile()
+  this.isAdmin = false;
+  profileService.fetchProfile()
     .then( res => {
       $log.debug(res, '<-----check admin status.');
       if( res.data.admin ){
         this.isAdmin = true;
       }
+    }).catch(err => {
+      $log.error(err.message);
     });
 
   this.routes = routeService.routes;

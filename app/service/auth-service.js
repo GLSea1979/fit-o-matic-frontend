@@ -1,3 +1,4 @@
+/*global __API_URL__ */
 'use strict';
 
 module.exports = ['$q', '$log', '$http', '$window', authService];

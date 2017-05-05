@@ -1,4 +1,9 @@
-<section class="admin-content">
+<div ng-if="!adminCtrl.isAdmin">
+
+  <h2 >Unauthorized</h2>
+  <p>return to the <a href="/#!/home"> homepage</a></p>
+</div>
+<section class="admin-content" ng-if="adminCtrl.isAdmin">
 
 <uib-tabset active="activeForm">
 
@@ -28,7 +33,6 @@
   </uib-tab>
 
   <uib-tab index="3" heading="admin users">
-    <h1>yo wudup</h1>
     <users></users>
   </uib-tab>
 
