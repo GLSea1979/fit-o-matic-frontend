@@ -1,3 +1,5 @@
+/*global __API_URL__ */
+
 'use strict';
 
 module.exports = ['$log', '$q', '$http', 'Upload', 'authService', bikeService];
@@ -114,10 +116,37 @@ function bikeService($log, $q, $http, Upload, authService) {
     .catch( err => {
       $log.error(err.message);
       return $q.reject(err);
-    })
+    });
   };
 
+  service.uploadImg = function(bike, imgData){
+    $log.debug('bikeService.uploadImg');
 
+    return authService.getToken()
+    .then( token => {
+      let url = `${__API_URL__}/api/photo/bike/${bike._id}`;
+      let headers = {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      };
+      Upload.upload({
+        url,
+        headers,
+        method: 'PUT',
+        data: {
+          image: imgData.file
+        }
+      })
+      .then( res => {
+        bike.photoURI = res.data.photoURI;
+      })
+      .catch( err => {
+        $log.error(err);
+        return $q.reject(err);
+      });
+    });
+  };
   service.deleteBike = function(bikeID) {
     $log.debug('bikeService.deleteBike');
 
@@ -129,7 +158,7 @@ function bikeService($log, $q, $http, Upload, authService) {
           Accept: 'application/json',
           Authorization: `Bearer ${token}`
         }
-      }
+      };
       return $http.delete(url, config);
     })
     .then( res => {

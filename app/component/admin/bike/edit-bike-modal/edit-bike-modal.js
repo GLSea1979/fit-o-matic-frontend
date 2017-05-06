@@ -23,6 +23,15 @@ function EditBikeModalController($log, bikeService) {
   };
   this.showIntegrateGeo = false;
 
+  this.uploadImg = function(){
+    bikeService.uploadImg(this.currentBike, this.img)
+    .then( ()  => {
+      $log.debug('uploaded image');
+      this.img.file = null;
+      this.showImageUpload = false;
+    });
+  };
+
   this.updateBike = function(){
     $log.debug('editBikeCtrl.updateBike');
 

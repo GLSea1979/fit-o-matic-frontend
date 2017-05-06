@@ -59,7 +59,19 @@
     <img
         ng-src="{{ editBikeModalCtrl.currentBike.photoURI }}"
         alt="{{ editBikeModalCtrl.currentBike.bikeName }}">
-        <bike-img bike="editBikeModalCtrl.bike"></bike-img>
+      <a
+        ng-click="editBikeModalCtrl.showImageUpload = !editBikeModalCtrl.showImageUpload">upload new image</a>
+      <input  name="upload"
+        ng-if="editBikeModalCtrl.showImageUpload"
+        class="btn-std upload"
+        type="file"
+        ngf-select
+        ng-model="editBikeModalCtrl.img.file" required>
+      <button
+        ng-if="editBikeModalCtrl.img.file"
+        class="btn-std"
+        ng-click="editBikeModalCtrl.uploadImg()">
+        Upload</button>
     </div>
   <div class="clearfix"></div>
   <integrate-geo ng-if="editBikeModalCtrl.showIntegrateGeo" current-bike="editBikeModalCtrl.currentBike"></integrate-geo>

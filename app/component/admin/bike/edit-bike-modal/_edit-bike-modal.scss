@@ -11,6 +11,9 @@
   }
   .btn-std {
     float:none;
+    &.upload{
+      width: 100%
+    };
   }
     .image{
       float:right;
