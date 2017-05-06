@@ -7,17 +7,20 @@
       margin: $gutter-std;
 
       input{
-        width: 35vw;
+        width: 60%;
         display: inline-block;
 
       }
       label{
-        width: 18vw;
+        width: 31%;
+        margin-right: $gutter-std;
         display:inline-block;
+        text-align: right
       }
       .btn-std{
         float: none;
         margin-top: $gutter-std*2;
+        margin-left: 35%;
       }
 
     }
