@@ -1,7 +1,8 @@
 <section class="integrate-geo-bike">
 	<h4>Add a size to {{ integrateGeoCtrl.currentBike.bikeName }}</h4>
 		<ul>
-      <li ng-repeat="geo in integrateGeoCtrl.geos" ng-class-odd="'odd'" ng-class-even="'even'"
+            <input type="text" ng-model="integrateGeoCtrl.geoSearchTerm" placeholder="search sizes">
+      <li ng-repeat="geo in integrateGeoCtrl.geos | fuzzySearch: integrateGeoCtrl.geoSearchTerm" ng-class-odd="'odd'" ng-class-even="'even'"
       >
         <span>{{ geo.bikeSizeName }}</span>
 

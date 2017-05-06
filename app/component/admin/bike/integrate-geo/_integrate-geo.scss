@@ -13,6 +13,10 @@
   }
   button{
     cursor: pointer;
+    &.btn-std{
+      padding: 1% 2%;
+      margin: $gutter-std/2 $gutter-std;
+    }
   }
   button:disabled{
     color: $app-primary;

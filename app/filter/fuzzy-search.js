@@ -1,11 +1,12 @@
 'use strict';
 
 module.exports = function() {
-  return function(bikes, searchTerm){
+  return function(searchObj, searchTerm){
     let fuzzyRegex = generateFuzzyString(searchTerm);
 
-    if(bikes) return bikes.filter(bike => {
-      return fuzzyRegex.test(bike.bikeName.toUpperCase());
+    if(searchObj) return searchObj.filter(searchChild => {
+      if(searchChild.bikeName) return fuzzyRegex.test(searchChild.bikeName.toUpperCase());
+      if(searchChild.bikeSizeName) return fuzzyRegex.test(searchChild.bikeSizeName.toUpperCase());
     });
   };
 };
