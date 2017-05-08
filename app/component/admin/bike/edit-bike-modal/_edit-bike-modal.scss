@@ -1,0 +1,27 @@
+@import '../../../../scss/lib/theme/vars';
+
+
+.edit-bike-modal{
+  margin: $gutter-std;
+
+  .info{
+    width: 40%;
+    display: inline-block;
+
+  }
+  .btn-std {
+    float:none;
+    &.upload{
+      width: 100%
+    };
+  }
+    .image{
+      float:right;
+      width:50%;
+      display: inline-block;
+      img{
+        max-width: 100%;
+      }
+
+    }
+}

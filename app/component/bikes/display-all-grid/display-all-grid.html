@@ -1,6 +1,5 @@
 <section class="display-all-grid">
     <input type="text" ng-model="displayAllGridCtrl.bikeSearchTerm" placeholder="search bikes">
-  </div>
   <div class="item-block all-bikes-view-item col-lg-4 col-md-4 col-sm-4 col-xs-12"
     ng-repeat="bike in displayAllGridCtrl.bikes |  fuzzySearch: displayAllGridCtrl.bikeSearchTerm">
     <div class="inner-container">
