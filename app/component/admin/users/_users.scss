@@ -1,0 +1,29 @@
+@import '../../../scss/lib/theme/vars';
+
+.users{
+    ul{
+      li{
+        span{
+          width:20vw;
+          display:inline-block;
+          font-size:2.1vw;
+        }
+        .success{
+          color:green;
+        }
+        .btn-std{
+          padding: 1% 2%;
+          margin: 0 $gutter-std;
+        }
+        select{
+          width: 10vw;
+        }
+        &:nth-child(odd) {
+          background-color: $app-tertiary;
+        }
+        &:nth-child(even){
+          background-color: $white;
+      }
+    }
+  }
+}
