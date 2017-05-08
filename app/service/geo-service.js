@@ -1,3 +1,5 @@
+/* global __API_URL__ */
+
 'use strict';
 
 module.exports = ['$log', '$q', '$http', '$window', 'authService', geoService];
@@ -12,6 +14,36 @@ function geoService($log, $q, $http, $window, authService){
     $log.debug('geoService.addBikeId');
 
     geoData.bikeID.push(bikeId);
+    return authService.getToken()
+    .then( token => {
+      let url = `${__API_URL__}/api/geo/${geoData._id}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+      return $http.put(url, geoData, config);
+    })
+    .then( res => {
+      return res.data;
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+
+  };
+
+  service.removeBikeId = function(bikeId, geoData){
+    $log.debug('geoService.removeBikeId');
+
+    $log.debug(geoData);
+    geoData.bikeID.forEach( (bike, index) => {
+      //debugger;
+      if (bike === bikeId) geoData.bikeID.splice(index, 1);
+    });
     return authService.getToken()
     .then( token => {
       let url = `${__API_URL__}/api/geo/${geoData._id}`;

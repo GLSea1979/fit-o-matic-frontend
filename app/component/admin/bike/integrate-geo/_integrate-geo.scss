@@ -1,1 +1,22 @@
 @import '../../../../scss/lib/theme/vars';
+
+
+.integrate-geo-bike{
+  span{
+    display: inline-block;
+    width: 30vw;
+
+  }
+  .success{
+    color:green;
+    width:1vw;
+  }
+  button{
+    cursor: pointer;
+  }
+  button:disabled{
+    color: $app-primary;
+    background-color: $app-primary/2;
+    cursor: default;
+  }
+}
