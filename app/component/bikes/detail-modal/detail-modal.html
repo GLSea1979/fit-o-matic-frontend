@@ -36,15 +36,15 @@
         <span class="glyphicon glyphicon-heart-empty"></span> add to favorites
         </button>
       <ul>
-        <li>Website:<a href="{{detailModalCtrl.resolve.modalData.url}}"> {{ detailModalCtrl.resolve.modalData.bikeID[0].url}}</a></li>
+        <li ng-if="detailModalCtrl.resolve.modalData.url">Website:<a href="{{detailModalCtrl.resolve.modalData.url}}"> {{ detailModalCtrl.resolve.modalData.bikeID[0].url}}</a></li>
         <li>Size: {{ detailModalCtrl.resolve.modalData.bikeSizeName}}</li>
         <li>Category: {{  detailModalCtrl.resolve.modalData.bikeID[0].category }}
         </li>
        </ul>
        <h3>Geometry</h3>
       <ul class="chart">
-        <li>Wheel Size: {{ detailModalCtrl.resolve.modalData.wheelSize }}</li>
-         <li>BB Drop: {{ detailModalCtrl.resolve.modalData.bbDrop }}</li>
+        <li ng-if="detailModalCtrl.resolve.modalData.wheelSize">Wheel Size: {{ detailModalCtrl.resolve.modalData.wheelSize }}</li>
+         <li ng-if="detailModalCtrl.resolve.modalData.bbDrop" >BB Drop: {{ detailModalCtrl.resolve.modalData.bbDrop }}</li>
          <li>Fork Length: {{ detailModalCtrl.resolve.modalData.forkLength }}</li>
          <li>Fork Offset: {{ detailModalCtrl.resolve.modalData.forkOffset }}</li>
          <li>Top Tube Length: {{ detailModalCtrl.resolve.modalData.topTubeLength }}</li>

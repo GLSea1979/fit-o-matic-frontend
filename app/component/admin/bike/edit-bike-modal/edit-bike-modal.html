@@ -1,0 +1,79 @@
+<section class="edit-bike-modal">
+   <div class="close" ng-click="editBikeModalCtrl.closeModal()"><span class="glyphicon glyphicon-remove"></span></div>
+  <h3>Bike Model: {{ editBikeModalCtrl.currentBike.bikeName }}</h3>
+  <div class="info">
+    <ul ng-if="!editBikeModalCtrl.showEdit">
+
+      <li><span>category: </span>{{ editBikeModalCtrl.currentBike.category }}</li>
+      <li >
+        <span>url:</span>{{ editBikeModalCtrl.currentBike.url }}
+        <span class="unset" ng-if="!editBikeModalCtrl.currentBike.url">not set</span>
+      </li>
+      <li>
+        <span>price:</span>{{ editBikeModalCtrl.currentBike.price }}
+        <span class="unset" ng-if="!editBikeModalCtrl.currentBike.price">not set</span>
+      </li>
+      <li>
+        <span>model year:</span>{{ editBikeModalCtrl.currentBike.modelYear }}
+        <span class="unset" ng-if="!editBikeModalCtrl.currentBike.modelYear">not set</span>
+      </li>
+    </ul>
+
+        <div ng-if="!editBikeModalCtrl.showEdit">
+            <button class="btn-std"
+        ng-click="editBikeModalCtrl.showEdit=!editBikeModalCtrl.showEdit">
+        edit
+      </button>
+        <button class="btn-std"
+        ng-click="editBikeModalCtrl.showIntegrateGeo=!editBikeModalCtrl.showIntegrateGeo">
+        add size
+      </button>
+</div>
+<!--     START BIKE EDIT FORM-->
+    <form ng-if="editBikeModalCtrl.showEdit"
+    ng-submit="editBikeModalCtrl.updateBike()">
+      <ul >
+        <li><input name="bikeName" ng-model="editBikeModalCtrl.currentBike.bikeName"
+              placeholder="model name"></li>
+        <li> {{ editBikeModalCtrl.currentBike.email }} </li>
+        <li> <input ng-model="editBikeModalCtrl.currentBike.category" placeholder="category"> </li>
+        <li> <input ng-model="editBikeModalCtrl.currentBike.url" placeholder="url"> </li>
+        <li> <input ng-model="editBikeModalCtrl.currentBike.price" type="number" placeholder="price"> </li>
+        <li> <input ng-model="editBikeModalCtrl.currentBike.modelYear" type="text" placeholder="modelYear"> </li>
+        <li>
+          <button class="btn-std" type="submit">
+          update
+          </button>
+          <button class="btn-std" type="submit" ng-click="!editBikeModalCtrl.showEdit">
+          cancel
+          </button>
+            <div class="clearfix"></div>
+
+        </li>
+      </ul>
+    </form>
+  </div>
+
+  <!-- END BIKE EDIT FORM -->
+   <div class="image">
+    <img
+        ng-src="{{ editBikeModalCtrl.currentBike.photoURI }}"
+        alt="{{ editBikeModalCtrl.currentBike.bikeName }}">
+      <a
+        ng-click="editBikeModalCtrl.showImageUpload = !editBikeModalCtrl.showImageUpload">upload new image</a>
+      <input  name="upload"
+        ng-if="editBikeModalCtrl.showImageUpload"
+        class="btn-std upload"
+        type="file"
+        ngf-select
+        ng-model="editBikeModalCtrl.img.file" required>
+      <button
+        ng-if="editBikeModalCtrl.img.file"
+        class="btn-std"
+        ng-click="editBikeModalCtrl.uploadImg()">
+        Upload</button>
+    </div>
+  <div class="clearfix"></div>
+  <integrate-geo ng-if="editBikeModalCtrl.showIntegrateGeo" current-bike="editBikeModalCtrl.currentBike"></integrate-geo>
+  <div class="clearfix"></div>
+</section>

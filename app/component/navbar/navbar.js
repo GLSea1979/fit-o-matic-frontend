@@ -4,16 +4,26 @@ require('./_navbar.scss');
 
 module.exports = {
   template: require('./navbar.html'),
-  controller: ['$log', '$location', '$rootScope', 'authService', 'routeService', NavbarController],
+  controller: ['$log', '$location', '$rootScope', 'authService', 'profileService', 'routeService', NavbarController],
   controllerAs: 'navbarCtrl',
 };
 
 
-function NavbarController($log, $location, $rootScope, authService, routeService) {
+function NavbarController($log, $location, $rootScope, authService, profileService, routeService) {
   $log.debug('navbarController');
   this.isNavCollapsed = true;
-  this.routes = routeService.routes;
+  this.isAdmin = false;
+  profileService.fetchProfile()
+    .then( res => {
+      $log.debug(res, '<-----check admin status.');
+      if( res.data.admin ){
+        this.isAdmin = true;
+      }
+    }).catch(err => {
+      $log.error(err.message);
+    });
 
+  this.routes = routeService.routes;
   this.checkTokenStatus = function(){
     if(localStorage.token) {
       this.localToken = true;

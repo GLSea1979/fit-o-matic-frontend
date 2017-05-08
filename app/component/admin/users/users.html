@@ -1,0 +1,17 @@
+<section class="users">
+  <h2>Set admin status</h2>
+	<ul class="results-table">
+		<li
+    ng-if="profile.name"
+    ng-repeat="profile in usersCtrl.profiles">
+    <span>{{profile.name}}</span>
+      <select ng-model="profile.admin" >
+        <option ng-value="false">no</option>
+        <option ng-value="true">yes</option>
+      </select>
+    <span class="success glyphicon glyphicon-ok" ng-if="profile.updated"></span>
+    <button class="btn-std" ng-click="usersCtrl.updateAdmin(profile)"> update </button>
+    <div class="clearfix"></div>
+    </li>
+	</ul>
+</section>

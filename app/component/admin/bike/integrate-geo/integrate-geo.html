@@ -1,10 +1,18 @@
 <section class="integrate-geo-bike">
 	<h4>Add a size to {{ integrateGeoCtrl.currentBike.bikeName }}</h4>
 		<ul>
-			<li ng-repeat="geo in integrateGeoCtrl.geos" ng-class-odd="'odd'" ng-class-even="'even'"
-			>
-				{{ geo.bikeSizeName }}
-				<button class="btn-std" ng-click="integrateGeoCtrl.updateBikeGeo(geo)">add this size</button>
+            <input type="text" ng-model="integrateGeoCtrl.geoSearchTerm" placeholder="search sizes">
+      <li ng-repeat="geo in integrateGeoCtrl.geos | fuzzySearch: integrateGeoCtrl.geoSearchTerm" ng-class-odd="'odd'" ng-class-even="'even'"
+      >
+        <span>{{ geo.bikeSizeName }}</span>
+
+            <button class="btn-std"
+            ng-click="integrateGeoCtrl.updateBikeGeo(geo)"
+            ng-disabled="geo.updated">add size</button>
+            <span class="success glyphicon glyphicon-ok" ng-if="geo.updated"></span>
+            <button class="btn-std delete"
+            ng-click="integrateGeoCtrl.removeBikeGeo(geo)"
+            ng-if="geo.updated">remove</button>
         <div class="clearfix"></div>
 			</li>
 		</ul>

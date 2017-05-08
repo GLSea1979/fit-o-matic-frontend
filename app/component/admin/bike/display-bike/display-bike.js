@@ -3,7 +3,7 @@
 require('./_display-bike.scss');
 module.exports = {
   template: require('./display-bike.html'),
-  controller: ['$log','$timeout','bikeService', DisplayBikeController],
+  controller: ['$log','$timeout','$uibModal','bikeService', DisplayBikeController],
   controllerAs: 'displayBikeCtrl',
   bindings: {
     brand: '<',
@@ -12,7 +12,7 @@ module.exports = {
   }
 };
 
-function DisplayBikeController($log, $timeout, bikeService){
+function DisplayBikeController($log, $timeout, $uibModal, bikeService){
   $log.debug('DisplayBikeController', this.bikes);
 
   this.showEditBike = false;
@@ -33,7 +33,20 @@ function DisplayBikeController($log, $timeout, bikeService){
     this.showEditBike = !this.showEditBike;
     this.passCurrentBike({newBike:x});
   };
-
+  this.editBikeModal = function(bike){
+    $log.debug('displayBikeCtrl.editBikeModal()');
+    this.open = () => {
+      $uibModal.open({
+        animation: this.animationsEnabled,
+        component: 'editBikeModal',
+        size: 'lg',
+        resolve: {
+          modalData: bike
+        }
+      }).result.then(()=>{}).catch( () => $log.log('closed'));
+    };
+    this.open();
+  };
   this.$onInit = function() {
     this.displayBikes();
 

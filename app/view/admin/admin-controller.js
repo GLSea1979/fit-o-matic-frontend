@@ -2,11 +2,22 @@
 
 require('./_admin.scss');
 
-module.exports = ['$log', '$rootScope', '$location', 'mfrService', 'bikeService', 'geoService', AdminController];
+module.exports = ['$log', '$rootScope', '$location', 'mfrService', 'bikeService', 'geoService', 'profileService', AdminController];
 
-function AdminController($log, $rootScope, $location, mfrService, bikeService, geoService) {
+function AdminController($log, $rootScope, $location, mfrService, bikeService, geoService, profileService) {
   $log.debug('AdminController');
 
+  this.isAdmin = false;
+
+  profileService.fetchProfile()
+    .then( res => {
+      $log.debug(res, '<-----check admin status, adminCtrl');
+      if( res.data.admin ){
+        this.isAdmin = true;
+      }
+    }).catch(err => {
+      $log.error(err.message);
+    });
   //just added this.bikes = [] ...not sure if it's necessary atp
   this.bikes = [];
 
