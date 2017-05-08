@@ -16,8 +16,9 @@
 
    }
     h3{
-      margin: 0;
-      font-size: 4vw;
+      margin: $gutter-std 0;
+      //font-size: 4vw;
+      max-height:22px;
     }
 
     button {

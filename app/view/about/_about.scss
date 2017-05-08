@@ -1,1 +1,27 @@
 @import '../../scss/lib/theme/vars';
+
+
+.about-us-content{
+    p{
+      font-size:2vw;
+    }
+
+    h2{
+      font-size: 4vw;
+      font-weight: normal;
+    }
+  a{
+    display: block;
+  }
+  .person{
+    margin-top: $gutter-std;
+    padding-top: $gutter-std;
+    border-top: 1px solid $app-primary;
+    img{
+      width:37vw;
+      float:left;
+      margin-right: $gutter-std;
+    }
+  }
+
+}
