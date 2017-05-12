@@ -34,10 +34,7 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
     $log.debug('AdminController.setCurrentBikeeee', bike);
 
     this.currentBike = bike;
-    console.log('--------------------this is happening', this.currentBike);
   };
-
-  // this.showDisplayBike = false;
 
   this.fetchAllMfrs = function() {
     mfrService.fetchAllMfrs()
@@ -47,7 +44,6 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
     });
   };
   this.fetchMfrBikes = function(){
-    //this is doing its job
     bikeService.fetchMfrBikes(this.currentMfr._id)
     .then( bikes => {
       this.bikes = bikes;
@@ -57,22 +53,15 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
 
   this.fetchAllMfrs();
 
+  this.geos = [];
 
-//geo stuff
-this.geos = [];
-
-this.fetchAllGeos = function(){
-  $log.debug('adminCtrl.fetchAllGeos');
-  geoService.fetchAllGeos()
-  .then( geos => {
-    $log.debug('geos attained!', geos)
-    this.geos = geos;
-  });
-};
-// this.fetchAllGeos();
-//geo stuff
-
-
+  this.fetchAllGeos = function(){
+    $log.debug('adminCtrl.fetchAllGeos');
+    geoService.fetchAllGeos()
+    .then( geos => {
+      this.geos = geos;
+    });
+  };
 
   $rootScope.$on('locationChangeSuccess()', () => {
     this.fetchAllMfrs();
