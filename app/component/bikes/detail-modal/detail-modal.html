@@ -43,16 +43,36 @@
        </ul>
        <h3>Geometry</h3>
       <ul class="chart">
-        <li ng-if="detailModalCtrl.resolve.modalData.wheelSize">Wheel Size: {{ detailModalCtrl.resolve.modalData.wheelSize }}</li>
-         <li ng-if="detailModalCtrl.resolve.modalData.bbDrop" >BB Drop: {{ detailModalCtrl.resolve.modalData.bbDrop }}</li>
-         <li>Fork Length: {{ detailModalCtrl.resolve.modalData.forkLength }}</li>
-         <li>Fork Offset: {{ detailModalCtrl.resolve.modalData.forkOffset }}</li>
-         <li>Top Tube Length: {{ detailModalCtrl.resolve.modalData.topTubeLength }}</li>
-         <li>headTubeLength: {{ detailModalCtrl.resolve.modalData.headTubeLength }}</li>
-         <li>Head Tube Angle: {{ detailModalCtrl.resolve.modalData.headTubeAngle }}</li>
-         <li>Seat Tube Angle: {{ detailModalCtrl.resolve.modalData.seatTubeAngle }}</li>
-         <li>Stack: {{ detailModalCtrl.resolve.modalData.stack }}</li>
-         <li>Reach: {{ detailModalCtrl.resolve.modalData.reach }}</li>
+        <li ng-if="detailModalCtrl.resolve.modalData.wheelSize">
+          Wheel Size: {{ detailModalCtrl.resolve.modalData.wheelSize }}
+        </li>
+         <li ng-if="detailModalCtrl.resolve.modalData.bbDrop" >
+          BB Drop: {{ detailModalCtrl.resolve.modalData.bbDrop }}
+         </li>
+         <li ng-if="detailModalCtrl.resolve.modalData.forkLength">
+          Fork Length: {{ detailModalCtrl.resolve.modalData.forkLength }}
+         </li>
+         <li ng-if="detailModalCtrl.resolve.modalData.forkOffset" >
+          Fork Offset: {{ detailModalCtrl.resolve.modalData.forkOffset }}
+        </li>
+         <li ng-if="detailModalCtrl.resolve.modalData.topTubeLength">
+          Top Tube Length: {{ detailModalCtrl.resolve.modalData.topTubeLength }}
+        </li>
+         <li ng-if="detailModalCtrl.resolve.modalData.headTubeLength">
+          headTubeLength: {{ detailModalCtrl.resolve.modalData.headTubeLength }}
+        </li>
+         <li ng-if="detailModalCtrl.resolve.modalData.headTubeAngle">
+          Head Tube Angle: {{ detailModalCtrl.resolve.modalData.headTubeAngle }}
+        </li>
+         <li ng-if="detailModalCtrl.resolve.modalData.seatTubeAngle" >
+          Seat Tube Angle: {{ detailModalCtrl.resolve.modalData.seatTubeAngle }}
+        </li>
+         <li ng-if="detailModalCtrl.resolve.modalData.stack">
+          Stack: {{ detailModalCtrl.resolve.modalData.stack }}
+        </li>
+         <li ng-if="detailModalCtrl.resolve.modalData.reach">
+          Reach: {{ detailModalCtrl.resolve.modalData.reach }}
+        </li>
        </ul>
      </div>
   </div>
