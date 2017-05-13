@@ -25,5 +25,4 @@ function ProfileImgController($log, imgService){
     imgService.uploadImg(this.profile, this.img)
     .then( () => this.editImage());
   };
-
-};
+}

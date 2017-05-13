@@ -53,11 +53,6 @@ function FavoritesDisplayController($log, $uibModal, profileService){
   };
 
   this.deleteFavorites = function(geo){
-    // this.profile.geoID = [];
-    // profileService.updateFavorites(this.profile)
-    // .then( res => {
-    //   $log.debug('udate',res);
-    // });
 
     this.removeFavorite({toRemove:geo});
 
