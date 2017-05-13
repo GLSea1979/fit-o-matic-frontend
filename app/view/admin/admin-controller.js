@@ -7,21 +7,22 @@ module.exports = ['$log', '$rootScope', '$location', 'mfrService', 'bikeService'
 function AdminController($log, $rootScope, $location, mfrService, bikeService, geoService, profileService) {
   $log.debug('AdminController');
 
-  this.isAdmin = false;
+  //this.isAdmin = false;
+  this.bikes = [];
+  this.mfrs = [];
 
   profileService.fetchProfile()
     .then( res => {
       $log.debug(res, '<-----check admin status, adminCtrl');
       if( res.data.admin ){
         this.isAdmin = true;
+      } else {
+        this.isAdmin = false;
+        this.adminMessage = 'Unauthorized';
       }
     }).catch(err => {
       $log.error(err.message);
     });
-  //just added this.bikes = [] ...not sure if it's necessary atp
-  this.bikes = [];
-
-  this.mfrs = [];
 
   this.setCurrentMfr = function(mfr){
     $log.debug('AdminController.setCurrentMfr');
@@ -31,7 +32,6 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
   this.currentBike = bikeService.currentBike;
 
   this.setCurrentBike = function(bike){
-    $log.debug('AdminController.setCurrentBikeeee', bike);
 
     this.currentBike = bike;
   };
