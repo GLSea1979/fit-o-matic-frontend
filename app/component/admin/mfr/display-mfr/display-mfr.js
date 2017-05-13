@@ -4,7 +4,7 @@ require('./_display-mfr.scss');
 
 module.exports = {
   template: require('./display-mfr.html'),
-  controller: ['$log', 'mfrService', DisplayMfrController],
+  controller: ['$log', DisplayMfrController],
   controllerAs: 'displayMfrCtrl',
   bindings: {
     brand: '<',
@@ -18,7 +18,7 @@ module.exports = {
   }
 };
 
-function DisplayMfrController($log, mfrService){
+function DisplayMfrController($log){
   $log.debug('DisplayMfrController');
 
   this.passCurrentBike = function(bike){

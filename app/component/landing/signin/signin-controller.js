@@ -11,11 +11,7 @@ module.exports = {
 function SigninController($log, $location, authService){
   $log.debug('SigninController');
   this.serverError=false;
-
-    // authService.getToken()
-    // .then( () => {
-    //     $location.url('/home');
-    // });
+  //TODO: create more meaningful server errors for better feedback here
 
   this.signin = function() {
     $log.debug('signinCtrl.signin');

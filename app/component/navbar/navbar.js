@@ -1,3 +1,4 @@
+/* global localStorage */
 'use strict';
 
 require('./_navbar.scss');
@@ -30,8 +31,8 @@ function NavbarController($log, $location, $rootScope, authService, profileServi
     }
     else{
       this.localToken = false;
-     }
-}
+    }
+  };
 
   this.checkPath = function() {
     let path = ($location.path() === '/join');

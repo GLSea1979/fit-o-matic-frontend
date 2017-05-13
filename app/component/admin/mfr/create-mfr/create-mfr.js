@@ -18,11 +18,10 @@ function CreateMfrController($log, mfrService){
 
   this.createMfr = function(){
     $log.debug('createMfrCtrl.createMfr');
-    $log.debug(this.mfr, '<---SHOULD BE POPULATED AT THIS POINT');
     mfrService.createMfr(this.mfr)
-		.then( () => {
+    .then( () => {
       this.mfr.name = null;
-			this.mfr.website = null;
+      this.mfr.website = null;
     });
   };
 }

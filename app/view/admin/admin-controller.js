@@ -7,7 +7,6 @@ module.exports = ['$log', '$rootScope', '$location', 'mfrService', 'bikeService'
 function AdminController($log, $rootScope, $location, mfrService, bikeService, geoService, profileService) {
   $log.debug('AdminController');
 
-  //this.isAdmin = false;
   this.bikes = [];
   this.mfrs = [];
 
