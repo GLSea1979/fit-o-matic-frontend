@@ -6,3 +6,10 @@
   width: 40%;
 
 }
+
+@media #{$med-mobile} {
+  .profile-instructions{
+    width: 100%;
+  }
+
+}

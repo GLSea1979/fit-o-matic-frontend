@@ -2,7 +2,9 @@
   <img class="logo-desktop" src="../../assets/fit-O-matic.svg">
   <img class="logo-mobile" src="../../../assets/icon.png">
 
-    <button type="button" class="navbar-toggle" ng-click="navbarCtrl.isNavCollapsed = !navbarCtrl.isNavCollapsed">
+    <button type="button" class="navbar-toggle"
+      ng-click="navbarCtrl.isNavCollapsed = !navbarCtrl.isNavCollapsed"
+      ng-if="navbarCtrl.localToken">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
