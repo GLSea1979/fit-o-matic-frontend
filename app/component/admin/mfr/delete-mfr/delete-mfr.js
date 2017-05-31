@@ -24,4 +24,4 @@ function DeleteMfrController($log, mfrService) {
       this.mfr.website = null;
     });
   };
-};
+}
