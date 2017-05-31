@@ -21,7 +21,8 @@
      }
 
   .logo-container{
-    text-align: center
+    text-align: center;
+    vertical-align: middle;
   }
   span {
     font-weight: bold;
@@ -30,6 +31,7 @@
 
   .field-container {
     margin-top: $gutter-lg;
+    vertical-align: middle;
   }
 
   .welcome-instructions {
