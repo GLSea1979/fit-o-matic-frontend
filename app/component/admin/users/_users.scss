@@ -4,7 +4,7 @@
     ul{
       li{
         span{
-          width:20vw;
+          width:40vw;
           display:inline-block;
           font-size:2.1vw;
         }
@@ -16,13 +16,24 @@
           margin: 0 $gutter-std;
         }
         select{
-          width: 10vw;
+          width: 20vw;
         }
         &:nth-child(odd) {
           background-color: $app-tertiary;
         }
         &:nth-child(even){
           background-color: $white;
+      }
+    }
+  }
+}
+@media #{$med-mobile} {
+  .users{
+    ul{
+      li{
+        span{
+          font-size:3vw;
+        }
       }
     }
   }

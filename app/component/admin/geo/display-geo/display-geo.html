@@ -1,10 +1,12 @@
 <section class="display-geometry">
+  <input type="text"
+    ng-model="displayGeoCtrl.search"
+    placeholder="search sizes"
+    ng-if="displayGeoCtrl.geos">
 	<ul class="results-table">
-		<li ng-repeat="geo in displayGeoCtrl.geos"
+		<li ng-repeat="geo in displayGeoCtrl.geos | orderBy: 'bikeSizeName' | fuzzySearch: displayGeoCtrl.search "
 			ng-class-odd="'odd'" ng-class-even="'even'"
       ng-click=displayGeoCtrl.editGeo(geo)
 		>{{geo.bikeSizeName}}</li>
 	</ul>
-	<button  class="btn-std" ng-click="displayGeoCtrl.fetchAllGeos()">view all bike sizes</button>
-	<div class="clearfix"></div>
 </section>

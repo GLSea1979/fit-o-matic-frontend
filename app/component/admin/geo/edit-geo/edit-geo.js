@@ -6,7 +6,6 @@ module.exports = {
   template: require('./edit-geo.html'),
   controller: ['$log', '$q', 'geoService',  EditGeoController],
   controllerAs: 'editGeoCtrl',
-  // TODO create this binding with bike/mfr
   bindings: {
     bike: '<',
     resolve: '<',
@@ -30,8 +29,7 @@ function EditGeoController($log,$q, geoService){
 
   this.updateGeo = function(){
     geoService.updateGeo(this.geo._id, this.geo)
-    .then( res => {
-      //this.geo = res.data;
+    .then( () => {
       this.dismiss();
     })
     .catch( err => {
