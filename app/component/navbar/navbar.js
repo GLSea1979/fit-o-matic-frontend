@@ -1,3 +1,4 @@
+/* global localStorage */
 'use strict';
 
 require('./_navbar.scss');
@@ -13,15 +14,19 @@ function NavbarController($log, $location, $rootScope, authService, profileServi
   $log.debug('navbarController');
   this.isNavCollapsed = true;
   this.isAdmin = false;
-  profileService.fetchProfile()
+
+  this.checkAdminStatus = function(){
+    $log.debug('NavbarController.checkAdmin');
+
+    profileService.fetchProfile()
     .then( res => {
-      $log.debug(res, '<-----check admin status.');
-      if( res.data.admin ){
+      if( res && res.data.admin  ){
         this.isAdmin = true;
       }
     }).catch(err => {
       $log.error(err.message);
     });
+  };
 
   this.routes = routeService.routes;
   this.checkTokenStatus = function(){
@@ -30,12 +35,13 @@ function NavbarController($log, $location, $rootScope, authService, profileServi
     }
     else{
       this.localToken = false;
-     }
-}
+    }
+  };
 
   this.checkPath = function() {
     let path = ($location.path() === '/join');
     this.checkTokenStatus();
+    this.checkAdminStatus();
 
     if(path) this.hideButtons = true;
 

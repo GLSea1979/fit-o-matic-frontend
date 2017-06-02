@@ -4,7 +4,7 @@ require('./_profile-results.scss');
 
 module.exports = {
   template: require('./profile-results.html'),
-  controller: ['$log', '$uibModal', 'profileService', 'geoService', ProfileResultsController],
+  controller: ['$log', '$uibModal', ProfileResultsController],
   controllerAs: 'profileResultsCtrl',
   bindings: {
     profile: '<',
@@ -14,19 +14,8 @@ module.exports = {
   }
 };
 
-function ProfileResultsController($log, $uibModal, profileService, geoService){
+function ProfileResultsController($log, $uibModal){
   $log.debug('ProfileResultsController');
-
-
-  // this.retrieveResults = function() {
-  //   $log.debug('profileResultsCtrl.retrieveResults');
-
-  //   geoService.fetchGeo(this.profile.height, this.profile.inseam)
-  //   .then( res => {
-  //     $log.debug('retrieveResults', res);
-  //     this.results = res.geo;
-  //   });
-  // };
 
   this.add = function(geo){
     console.log(this);

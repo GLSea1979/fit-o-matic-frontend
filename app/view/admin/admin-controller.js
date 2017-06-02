@@ -7,21 +7,21 @@ module.exports = ['$log', '$rootScope', '$location', 'mfrService', 'bikeService'
 function AdminController($log, $rootScope, $location, mfrService, bikeService, geoService, profileService) {
   $log.debug('AdminController');
 
-  this.isAdmin = false;
+  this.bikes = [];
+  this.mfrs = [];
 
   profileService.fetchProfile()
     .then( res => {
       $log.debug(res, '<-----check admin status, adminCtrl');
       if( res.data.admin ){
         this.isAdmin = true;
+      } else {
+        this.isAdmin = false;
+        this.adminMessage = 'Unauthorized';
       }
     }).catch(err => {
       $log.error(err.message);
     });
-  //just added this.bikes = [] ...not sure if it's necessary atp
-  this.bikes = [];
-
-  this.mfrs = [];
 
   this.setCurrentMfr = function(mfr){
     $log.debug('AdminController.setCurrentMfr');
@@ -31,13 +31,9 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
   this.currentBike = bikeService.currentBike;
 
   this.setCurrentBike = function(bike){
-    $log.debug('AdminController.setCurrentBikeeee', bike);
 
     this.currentBike = bike;
-    console.log('--------------------this is happening', this.currentBike);
   };
-
-  // this.showDisplayBike = false;
 
   this.fetchAllMfrs = function() {
     mfrService.fetchAllMfrs()
@@ -47,7 +43,6 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
     });
   };
   this.fetchMfrBikes = function(){
-    //this is doing its job
     bikeService.fetchMfrBikes(this.currentMfr._id)
     .then( bikes => {
       this.bikes = bikes;
@@ -57,22 +52,15 @@ function AdminController($log, $rootScope, $location, mfrService, bikeService, g
 
   this.fetchAllMfrs();
 
+  this.geos = [];
 
-//geo stuff
-this.geos = [];
-
-this.fetchAllGeos = function(){
-  $log.debug('adminCtrl.fetchAllGeos');
-  geoService.fetchAllGeos()
-  .then( geos => {
-    $log.debug('geos attained!', geos)
-    this.geos = geos;
-  });
-};
-// this.fetchAllGeos();
-//geo stuff
-
-
+  this.fetchAllGeos = function(){
+    $log.debug('adminCtrl.fetchAllGeos');
+    geoService.fetchAllGeos()
+    .then( geos => {
+      this.geos = geos;
+    });
+  };
 
   $rootScope.$on('locationChangeSuccess()', () => {
     this.fetchAllMfrs();

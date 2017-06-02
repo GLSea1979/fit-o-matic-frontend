@@ -33,8 +33,11 @@ header nav {
         &:hover{
           color: $white*.8;
           text-decoration: none;
-          &:active{}
         };
+        &:focus{
+          color: $white;
+          text-decoration: none;
+        }
       }
     }
   }

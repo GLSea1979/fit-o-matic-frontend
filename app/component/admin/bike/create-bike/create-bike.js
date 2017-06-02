@@ -4,7 +4,7 @@ require('./_create-bike.scss');
 
 module.exports = {
   template: require('./create-bike.html'),
-  controller: ['$log', 'bikeService', CreateBikeController],
+  controller: ['$log', 'bikeService','$q', CreateBikeController],
   controllerAs: 'createBikeCtrl',
   bindings: {
     brand: '<',
@@ -12,7 +12,7 @@ module.exports = {
   }
 };
 
-function CreateBikeController($log, bikeService) {
+function CreateBikeController($log,$q, bikeService) {
   $log.debug('CreateBikeController');
 
   this.bike = {};
@@ -28,9 +28,8 @@ function CreateBikeController($log, bikeService) {
     .catch( err => {
       $log.error(err.message);
       return $q.reject(err);
-    })
-
-  }
+    });
+  };
 
   this.createBike = function() {
     $log.debug('createBikeCtrl.createBike');
@@ -42,6 +41,5 @@ function CreateBikeController($log, bikeService) {
       this.bike.price = null;
       this.bike.modelYear = null;
     });
-  }
-
+  };
 }

@@ -1,6 +1,6 @@
-<div ng-if="!adminCtrl.isAdmin">
+<div ng-if="adminCtrl.adminMessage">
 
-  <h2 >Unauthorized</h2>
+  <h2 >{{adminCtrl.adminMessage}}</h2>
   <p>return to the <a href="/#!/home"> homepage</a></p>
 </div>
 <section class="admin-content" ng-if="adminCtrl.isAdmin">

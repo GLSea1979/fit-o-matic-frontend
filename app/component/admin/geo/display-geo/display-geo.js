@@ -4,7 +4,7 @@ require('./_display-geo.scss');
 
 module.exports = {
   template: require('./display-geo.html'),
-  controller: ['$log','$uibModal', 'geoService',  DisplayGeoController],
+  controller: ['$log','$uibModal',  DisplayGeoController],
   controllerAs: 'displayGeoCtrl',
   bindings: {
     fetchAllGeos: '&',
@@ -12,13 +12,12 @@ module.exports = {
   }
 };
 
-function DisplayGeoController($log, $uibModal, geoService){
+function DisplayGeoController($log, $uibModal){
   $log.debug('DisplayGeoController');
 
-  // this.displayGeos = function(){
-  //  $log.debug(this);
-  //  this.fetchAllGeos();
-  // }
+  this.$onInit = function(){
+    this.fetchAllGeos();
+  };
   this.editGeo = function(geo){
     $log.debug('displayGeoCtrl.editGeo()');
     this.open = () => {

@@ -19,7 +19,6 @@ function ProfileDisplayController($log, $window, profileService, geoService){
   this.switchUnits = function() {
     this.profile.metric = !this.profile.metric;
     this.profile.metric ? this.units='centimeters' : this.units = 'inches';
-    //$window.localStorage.metric = JSON.stringify(geoService.metric);
   };
 
   this.fetchProfile = function(){
